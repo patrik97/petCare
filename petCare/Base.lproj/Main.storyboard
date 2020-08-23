@@ -20,6 +20,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Pet Menu" id="nwj-1i-xtx">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="469-j9-dd7">
+                                            <connections>
+                                                <action selector="menuButtonItem:" destination="BYZ-38-t0r" id="ZeW-qD-iNg"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="6xT-59-vTm">
                                             <connections>
                                                 <segue destination="a5Q-RX-Ic1" kind="popoverPresentation" popoverAnchorBarButtonItem="6xT-59-vTm" id="hWr-gJ-Thr">
@@ -85,6 +90,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
