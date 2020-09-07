@@ -112,13 +112,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="wGy-1X-80M">
+                                <rect key="frame" x="0.0" y="429" width="414" height="216"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-1609419600">
+                                    <!--1950-01-01 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Z8d-rh-52m" firstAttribute="top" secondItem="b13-we-YfK" secondAttribute="bottom" constant="30" id="2cW-m0-xf0"/>
+                            <constraint firstItem="wGy-1X-80M" firstAttribute="top" secondItem="s4k-Qn-EMj" secondAttribute="bottom" constant="10" id="9Xu-h5-TWk"/>
                             <constraint firstItem="3Qp-Ph-a2m" firstAttribute="top" secondItem="Z8d-rh-52m" secondAttribute="bottom" constant="20" id="BdP-4u-9Ih"/>
                             <constraint firstItem="ZnO-q1-uAr" firstAttribute="top" secondItem="EIv-Se-XOR" secondAttribute="top" constant="20" id="FQr-hT-lMf"/>
                             <constraint firstItem="s4k-Qn-EMj" firstAttribute="leading" secondItem="EIv-Se-XOR" secondAttribute="leading" constant="20" id="Kbl-j9-Wca"/>
+                            <constraint firstItem="wGy-1X-80M" firstAttribute="trailing" secondItem="EIv-Se-XOR" secondAttribute="trailing" id="NSo-pZ-VIe"/>
                             <constraint firstItem="Q23-mR-u3m" firstAttribute="centerY" secondItem="3Qp-Ph-a2m" secondAttribute="centerY" id="UVH-Xe-tVC"/>
                             <constraint firstItem="Z8d-rh-52m" firstAttribute="trailing" secondItem="EIv-Se-XOR" secondAttribute="trailing" id="adt-Lc-csC"/>
                             <constraint firstItem="Q23-mR-u3m" firstAttribute="leading" secondItem="3Qp-Ph-a2m" secondAttribute="trailing" constant="10" id="bm7-ma-dks"/>
@@ -126,6 +134,7 @@
                             <constraint firstItem="Z8d-rh-52m" firstAttribute="leading" secondItem="EIv-Se-XOR" secondAttribute="leading" id="dID-qH-zcy"/>
                             <constraint firstItem="b13-we-YfK" firstAttribute="leading" secondItem="EIv-Se-XOR" secondAttribute="leading" constant="20" id="gBb-aR-oLR"/>
                             <constraint firstItem="s4k-Qn-EMj" firstAttribute="top" secondItem="3Qp-Ph-a2m" secondAttribute="bottom" constant="50" id="hZV-e9-vEW"/>
+                            <constraint firstItem="wGy-1X-80M" firstAttribute="leading" secondItem="EIv-Se-XOR" secondAttribute="leading" id="kb7-Gj-iTd"/>
                             <constraint firstItem="3Qp-Ph-a2m" firstAttribute="leading" secondItem="EIv-Se-XOR" secondAttribute="leading" constant="20" id="lKl-rJ-GC5"/>
                             <constraint firstItem="b13-we-YfK" firstAttribute="top" secondItem="EIv-Se-XOR" secondAttribute="top" constant="20" id="mRz-5y-v9H"/>
                             <constraint firstItem="EIv-Se-XOR" firstAttribute="trailing" secondItem="ZnO-q1-uAr" secondAttribute="trailing" constant="20" id="pkk-Jb-IbK"/>
@@ -133,6 +142,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EIv-Se-XOR"/>
                     </view>
+                    <connections>
+                        <outlet property="speciesPickerView" destination="Z8d-rh-52m" id="SUl-k5-IfF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEy-2b-I3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
