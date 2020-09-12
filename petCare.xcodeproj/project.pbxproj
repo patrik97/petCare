@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B82B0D8024F07B3A008132DC /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B0D7F24F07B3A008132DC /* Species.swift */; };
+		B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */; };
 		B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB63124EC58EF00D1B926 /* AppDelegate.swift */; };
 		B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB63324EC58EF00D1B926 /* SceneDelegate.swift */; };
 		B84DB63924EC58EF00D1B926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63724EC58EF00D1B926 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		0294C21F6F931CD48F55DA29 /* Pods-petCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petCare.release.xcconfig"; path = "Target Support Files/Pods-petCare/Pods-petCare.release.xcconfig"; sourceTree = "<group>"; };
 		B82B0D7F24F07B3A008132DC /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		B84DB62E24EC58EF00D1B926 /* petCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84DB63124EC58EF00D1B926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B84DB63324EC58EF00D1B926 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */,
 				B84DB64924EC605A00D1B926 /* Pet.swift */,
 				B82B0D7F24F07B3A008132DC /* Species.swift */,
+				B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */,
 			);
 			path = petCare;
 			sourceTree = "<group>";
@@ -97,7 +100,6 @@
 				BAFA575A339944A53160EE72 /* Pods-petCare.debug.xcconfig */,
 				0294C21F6F931CD48F55DA29 /* Pods-petCare.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -220,6 +222,7 @@
 				B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */,
 				B84DB64624EC5A3D00D1B926 /* PetMenuController.swift in Sources */,
 				B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */,
+				B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */,
 				B82B0D8024F07B3A008132DC /* Species.swift in Sources */,
 				B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */,
 			);

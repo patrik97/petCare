@@ -22,7 +22,7 @@ class PetMenuController: UIViewController {
     }
     
     private func setSideMenuParametres() {
-        menu = SideMenuNavigationController(rootViewController: UIViewController())
+        menu = SideMenuNavigationController(rootViewController: SideMenuController())
         menu?.leftSide = true
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
