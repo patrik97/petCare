@@ -39,6 +39,7 @@ class AddNewPetController: UIViewController {
             self.present(alert, animated: true)
             return
         }
+        DataStorage.addPet(pet: Pet(name: nameTextField.text ?? "error, no name", species: currentSpecies))
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

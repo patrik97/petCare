@@ -8,30 +8,23 @@
 
 import UIKit
 
-protocol SideMenuAddPetDelegate {
-    func addPet(pet: Pet)
-}
-
-class SideMenuController: UITableViewController, SideMenuAddPetDelegate {
-    var pets = [Pet]();
-    
+class SideMenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pets.count
+        return DataStorage.pets.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = pets[indexPath.row].name
+        cell.textLabel?.text = DataStorage.pets[indexPath.row].name
         return cell
-    }
-    
-    func addPet(pet: Pet) {
-        pets.append(pet)
-        self.tableView.reloadData()
     }
 }

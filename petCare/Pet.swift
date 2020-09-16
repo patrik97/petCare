@@ -9,13 +9,12 @@
 import Foundation
 
 class Pet {
-    let id: Int
-    let name: String
-    let birth: Date
+    var name: String
+    var species: Species
+    var birth: Date? = nil
     
-    init(id: Int, name: String, birth: Date) {
-        self.id = id
+    init(name: String, species: Species) {
         self.name = name
-        self.birth = birth
+        self.species = species
     }
 }
