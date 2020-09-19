@@ -15,9 +15,9 @@
 		B84DB63924EC58EF00D1B926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63724EC58EF00D1B926 /* Main.storyboard */; };
 		B84DB63B24EC58F800D1B926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63A24EC58F800D1B926 /* Assets.xcassets */; };
 		B84DB63E24EC58F800D1B926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63C24EC58F800D1B926 /* LaunchScreen.storyboard */; };
-		B84DB64624EC5A3D00D1B926 /* PetMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64524EC5A3D00D1B926 /* PetMenuController.swift */; };
 		B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */; };
 		B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64924EC605A00D1B926 /* Pet.swift */; };
+		B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D375B5251657340074EBB9 /* PetDetailController.swift */; };
 		F67293394B24A6AACF95F6C3 /* Pods_petCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA67E4CC11552C38B0D8273 /* Pods_petCare.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,9 +33,9 @@
 		B84DB63A24EC58F800D1B926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B84DB63D24EC58F800D1B926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B84DB63F24EC58F800D1B926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B84DB64524EC5A3D00D1B926 /* PetMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMenuController.swift; sourceTree = "<group>"; };
 		B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPetController.swift; sourceTree = "<group>"; };
 		B84DB64924EC605A00D1B926 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		B8D375B5251657340074EBB9 /* PetDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailController.swift; sourceTree = "<group>"; };
 		BAFA575A339944A53160EE72 /* Pods-petCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petCare.debug.xcconfig"; path = "Target Support Files/Pods-petCare/Pods-petCare.debug.xcconfig"; sourceTree = "<group>"; };
 		BDA67E4CC11552C38B0D8273 /* Pods_petCare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petCare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,12 +87,12 @@
 				B84DB63A24EC58F800D1B926 /* Assets.xcassets */,
 				B84DB63C24EC58F800D1B926 /* LaunchScreen.storyboard */,
 				B84DB63F24EC58F800D1B926 /* Info.plist */,
-				B84DB64524EC5A3D00D1B926 /* PetMenuController.swift */,
 				B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */,
 				B84DB64924EC605A00D1B926 /* Pet.swift */,
 				B82B0D7F24F07B3A008132DC /* Species.swift */,
 				B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */,
 				B808BAFB2512690E00AC8662 /* DataStorage.swift */,
+				B8D375B5251657340074EBB9 /* PetDetailController.swift */,
 			);
 			path = petCare;
 			sourceTree = "<group>";
@@ -223,9 +223,9 @@
 			files = (
 				B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */,
 				B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */,
-				B84DB64624EC5A3D00D1B926 /* PetMenuController.swift in Sources */,
 				B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */,
 				B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */,
+				B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */,
 				B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */,
 				B82B0D8024F07B3A008132DC /* Species.swift in Sources */,
 				B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */,
