@@ -11,6 +11,7 @@ import UIKit
 class AddNewPetController: UIViewController {
     let species = Species.allCases.map { $0.rawValue }
     var currentSpecies: Species = Species.dog
+    var petDetailDelegate: PetDetailDelegate?
     @IBOutlet weak var speciesPickerView: UIPickerView!
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -33,13 +34,15 @@ class AddNewPetController: UIViewController {
     }
     
     func save() {
-        if (nameTextField.text?.count == 0 || nameTextField.text?.count ?? 0 > 30) {
+        if nameTextField.text?.count == 0 || nameTextField.text?.count ?? 0 > 30 {
             let alert = UIAlertController(title: "Incorrect name", message: "Name length is minimum 1 and maximum 20 characters", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
             return
         }
-        DataStorage.addPet(pet: Pet(name: nameTextField.text ?? "error, no name", species: currentSpecies))
+        let newPet = Pet(name: nameTextField.text ?? "invalid name", species: currentSpecies)
+        DataStorage.addPet(pet: newPet)
+        petDetailDelegate?.selectPet(pet: newPet)
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

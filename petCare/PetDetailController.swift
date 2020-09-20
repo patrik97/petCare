@@ -13,7 +13,11 @@ protocol PetDetailDelegate {
     func selectPet(pet: Pet)
 }
 
-class PeDetailController: UITableViewController, PetDetailDelegate {
+protocol PetDetailChangeName {
+    func changeName(newName: String)
+}
+
+class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName {
     var menu: SideMenuNavigationController?
     var pet: Pet?
     @IBOutlet weak var labelName: UILabel!
@@ -25,10 +29,11 @@ class PeDetailController: UITableViewController, PetDetailDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSideMenuParametres()
-        if (DataStorage.pets.count > 0) {
+        if DataStorage.pets.count > 0 {
             pet = DataStorage.pets[0]
         } else {
             pet = nil
+            self.tableView.allowsSelection = false
         }
     }
     
@@ -45,9 +50,30 @@ class PeDetailController: UITableViewController, PetDetailDelegate {
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addNewPetSegue", let addNewPetController = segue.destination as? AddNewPetController {
+            addNewPetController.petDetailDelegate = self
+        }
+        
+        if segue.identifier == "addNewNameSegue", let addNewNameController = segue.destination as? AddNewNameController {
+            if pet != nil {
+                addNewNameController.petDetailChangeName = self
+            }
+        }
+    }
+    
     func selectPet(pet: Pet) {
         self.pet = pet;
         labelName.text = pet.name
         labelSpecies.text = pet.species.description
+        self.tableView.allowsSelection = true
+    }
+    
+    func changeName(newName: String) {
+        if pet == nil {
+            return
+        }
+        pet?.name = newName
+        labelName.text = newName
     }
 }
