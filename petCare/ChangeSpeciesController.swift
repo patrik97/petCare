@@ -12,9 +12,11 @@ class ChangeSpeciesController: UIViewController {
     let species = Species.allCases
     var currentPet: Pet?
     @IBOutlet weak var speciesTableView: UITableView!
+    @IBOutlet weak var visibleView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(white: 1, alpha: 0)
         speciesTableView.delegate = self
         speciesTableView.dataSource = self
     }
