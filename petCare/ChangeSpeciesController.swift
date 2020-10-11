@@ -20,6 +20,8 @@ class ChangeSpeciesController: UIViewController {
         self.view.backgroundColor = UIColor(white: 1, alpha: 0)
         speciesTableView.delegate = self
         speciesTableView.dataSource = self
+        speciesTableView.isScrollEnabled = false
+        speciesTableView.rowHeight = 43.5
     }
 }
 

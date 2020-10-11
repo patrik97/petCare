@@ -247,6 +247,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m40-eo-S27"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sIe-Px-2lu"/>
                     <connections>
                         <outlet property="speciesTableView" destination="ytc-Qi-nCq" id="HUz-R2-qNT"/>
                         <outlet property="visibleView" destination="kqO-IX-8Ne" id="C45-wf-Rlc"/>
