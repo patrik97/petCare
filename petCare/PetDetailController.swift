@@ -17,7 +17,11 @@ protocol PetDetailChangeName {
     func changeName(newName: String)
 }
 
-class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName {
+protocol PetDetailChangeSpecies {
+    func changeSpecies(newSpecies: Species)
+}
+
+class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeSpecies {
     var menu: SideMenuNavigationController?
     var pet: Pet?
     @IBOutlet weak var labelName: UILabel!
@@ -60,6 +64,11 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
                 addNewNameController.petDetailChangeName = self
             }
         }
+        
+        if segue.identifier == "changeSpeciesSegue", let changeSpeciesSegueController = segue.destination as? ChangeSpeciesController {
+            changeSpeciesSegueController.currentPet = pet
+            changeSpeciesSegueController.changeSpeciesDelegate = self
+        }
     }
     
     func selectPet(pet: Pet) {
@@ -75,5 +84,10 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         }
         pet?.name = newName
         labelName.text = newName
+    }
+    
+    func changeSpecies(newSpecies: Species) {
+        pet?.species = newSpecies
+        labelSpecies.text = newSpecies.description
     }
 }

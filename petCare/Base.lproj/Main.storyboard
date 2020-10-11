@@ -96,7 +96,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="89T-6g-5e2" kind="popoverPresentation" popoverAnchorView="bJm-2f-Cg3" id="cjE-53-Bma">
+                                            <segue destination="89T-6g-5e2" kind="popoverPresentation" identifier="changeSpeciesSegue" popoverAnchorView="bJm-2f-Cg3" id="cjE-53-Bma">
                                                 <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                             </segue>
                                         </connections>

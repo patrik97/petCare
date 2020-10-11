@@ -10,6 +10,7 @@ import UIKit
 
 class ChangeSpeciesController: UIViewController {
     let species = Species.allCases
+    var changeSpeciesDelegate: PetDetailChangeSpecies?
     var currentPet: Pet?
     @IBOutlet weak var speciesTableView: UITableView!
     @IBOutlet weak var visibleView: UIView!
@@ -33,11 +34,16 @@ extension ChangeSpeciesController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.labelSpecies.text = species[indexPath.row].description
         if species[indexPath.row] == currentPet?.species {
-            cell.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.5)
+            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
             cell.labelSpecies.textColor = UIColor.white
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        changeSpeciesDelegate?.changeSpecies(newSpecies: species[indexPath.row])
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
