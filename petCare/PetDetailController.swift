@@ -6,6 +6,7 @@
 //  Copyright © 2020 FI MU. All rights reserved.
 //
 
+import DropDown
 import SideMenu
 import UIKit
 
@@ -64,11 +65,37 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
                 addNewNameController.petDetailChangeName = self
             }
         }
-        
-        if segue.identifier == "changeSpeciesSegue", let changeSpeciesSegueController = segue.destination as? ChangeSpeciesController {
-            changeSpeciesSegueController.currentPet = pet
-            changeSpeciesSegueController.changeSpeciesDelegate = self
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
         }
+        
+        if indexPath.row == 3 {
+            initializeDropDown(indexPath: indexPath, data: ["Male", "Female"])
+        }
+    }
+    
+    /**
+     Creates DropDown and allows change pet data
+     
+     - Parameter indexPath: indexPath below which DropDown starts
+     - Parameter data: data inside DropDown, currently Male/Female or species
+     */
+    func initializeDropDown(indexPath: IndexPath, data: [String]) {
+        let dropDown = DropDown()
+        dropDown.anchorView = tableView.cellForRow(at: IndexPath(row: indexPath.row+1, section: indexPath.section))
+        dropDown.direction = .bottom
+        dropDown.dataSource = data
+        dropDown.cellHeight = 43.5
+        dropDown.width = self.view.frame.size.width - 20
+        dropDown.bottomOffset = CGPoint(x: 10, y: 0)
+        dropDown.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
+            cell.optionLabel.textAlignment = .center
+            cell.optionLabel.font = UIFont(name: "System", size: 21)
+        }
+        dropDown.show()
     }
     
     func selectPet(pet: Pet) {

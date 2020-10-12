@@ -95,11 +95,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="vwz-c2-HML" secondAttribute="trailing" constant="10" id="tpN-p0-J7m"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="89T-6g-5e2" kind="popoverPresentation" identifier="changeSpeciesSegue" popoverAnchorView="bJm-2f-Cg3" id="cjE-53-Bma">
-                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
-                                            </segue>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="zk4-pG-K9X">
                                         <rect key="frame" x="0.0" y="528" width="414" height="50"/>
@@ -187,75 +182,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo8-dW-064" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2261" y="-762"/>
-        </scene>
-        <!--Change Species Controller-->
-        <scene sceneID="ZZ3-Kh-MwX">
-            <objects>
-                <viewController id="89T-6g-5e2" customClass="ChangeSpeciesController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d9y-2t-cwt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqO-IX-8Ne">
-                                <rect key="frame" x="0.0" y="417" width="414" height="391"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ytc-Qi-nCq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="391"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="speciesCell" id="Rq9-h3-jjg" customClass="SpeciesCell" customModule="petCare" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rq9-h3-jjg" id="kMj-y6-XVa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelSpecies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edw-m8-uCo">
-                                                            <rect key="frame" x="149" y="9" width="116" height="25.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="edw-m8-uCo" firstAttribute="centerY" secondItem="kMj-y6-XVa" secondAttribute="centerY" id="B2Y-PT-r5N"/>
-                                                        <constraint firstItem="edw-m8-uCo" firstAttribute="centerX" secondItem="kMj-y6-XVa" secondAttribute="centerX" id="SbN-Mu-igA"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="labelSpecies" destination="edw-m8-uCo" id="iiH-d0-ZPd"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ytc-Qi-nCq" secondAttribute="trailing" id="83X-cy-jXV"/>
-                                    <constraint firstAttribute="height" constant="391" id="Drh-I3-9wb"/>
-                                    <constraint firstAttribute="bottom" secondItem="ytc-Qi-nCq" secondAttribute="bottom" id="Rae-Bg-rXH"/>
-                                    <constraint firstItem="ytc-Qi-nCq" firstAttribute="leading" secondItem="kqO-IX-8Ne" secondAttribute="leading" id="Vp2-JI-YrS"/>
-                                    <constraint firstItem="ytc-Qi-nCq" firstAttribute="top" secondItem="kqO-IX-8Ne" secondAttribute="top" id="uyo-ic-3Bd"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="m40-eo-S27" firstAttribute="bottom" secondItem="kqO-IX-8Ne" secondAttribute="bottom" id="ACa-f9-olY"/>
-                            <constraint firstItem="kqO-IX-8Ne" firstAttribute="leading" secondItem="m40-eo-S27" secondAttribute="leading" id="RaO-CG-iaJ"/>
-                            <constraint firstItem="m40-eo-S27" firstAttribute="trailing" secondItem="kqO-IX-8Ne" secondAttribute="trailing" id="Z12-jO-iHk"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="m40-eo-S27"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="sIe-Px-2lu"/>
-                    <connections>
-                        <outlet property="speciesTableView" destination="ytc-Qi-nCq" id="HUz-R2-qNT"/>
-                        <outlet property="visibleView" destination="kqO-IX-8Ne" id="C45-wf-Rlc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s0I-g4-exP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3873.913043478261" y="-1413.6160714285713"/>
         </scene>
         <!--Add New Name Controller-->
         <scene sceneID="it1-MD-NPd">
