@@ -69,11 +69,21 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 2 {
-            initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
+            let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
+            if let species = pet?.species {
+                dropDown.selectRow(species.index)
+            }
+            dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.show()
         }
         
         if indexPath.row == 3 {
-            initializeDropDown(indexPath: indexPath, data: ["Male", "Female"])
+            let dropDown = initializeDropDown(indexPath: indexPath, data: Sex.allCases.map { $0.rawValue })
+            if let sex = pet?.sex {
+                dropDown.selectRow(sex.index)
+            }
+            dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.show()
         }
     }
     
@@ -82,8 +92,10 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
      
      - Parameter indexPath: indexPath below which DropDown starts
      - Parameter data: data inside DropDown, currently Male/Female or species
+     
+     - Returns: DropDown instance with prepared data
      */
-    func initializeDropDown(indexPath: IndexPath, data: [String]) {
+    func initializeDropDown(indexPath: IndexPath, data: [String]) -> DropDown {
         let dropDown = DropDown()
         dropDown.anchorView = tableView.cellForRow(at: IndexPath(row: indexPath.row+1, section: indexPath.section))
         dropDown.direction = .bottom
@@ -95,7 +107,7 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
             cell.optionLabel.textAlignment = .center
             cell.optionLabel.font = UIFont(name: "System", size: 21)
         }
-        dropDown.show()
+        return dropDown
     }
     
     func selectPet(pet: Pet) {

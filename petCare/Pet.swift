@@ -12,6 +12,7 @@ class Pet {
     var name: String
     var species: Species
     var birth: Date? = nil
+    var sex: Sex? = nil
     
     init(name: String, species: Species) {
         self.name = name

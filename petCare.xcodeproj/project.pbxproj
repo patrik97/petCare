@@ -18,6 +18,7 @@
 		B84DB63E24EC58F800D1B926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63C24EC58F800D1B926 /* LaunchScreen.storyboard */; };
 		B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */; };
 		B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64924EC605A00D1B926 /* Pet.swift */; };
+		B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DD8AF253C8257003CEFF5 /* Sex.swift */; };
 		B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D375B5251657340074EBB9 /* PetDetailController.swift */; };
 		F67293394B24A6AACF95F6C3 /* Pods_petCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA67E4CC11552C38B0D8273 /* Pods_petCare.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		B84DB63F24EC58F800D1B926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPetController.swift; sourceTree = "<group>"; };
 		B84DB64924EC605A00D1B926 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		B86DD8AF253C8257003CEFF5 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		B8D375B5251657340074EBB9 /* PetDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailController.swift; sourceTree = "<group>"; };
 		BAFA575A339944A53160EE72 /* Pods-petCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petCare.debug.xcconfig"; path = "Target Support Files/Pods-petCare/Pods-petCare.debug.xcconfig"; sourceTree = "<group>"; };
 		BDA67E4CC11552C38B0D8273 /* Pods_petCare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petCare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				B808BAFB2512690E00AC8662 /* DataStorage.swift */,
 				B8D375B5251657340074EBB9 /* PetDetailController.swift */,
 				B833A78A25178B1D006F5FF2 /* AddNewNameController.swift */,
+				B86DD8AF253C8257003CEFF5 /* Sex.swift */,
 			);
 			path = petCare;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */,
 				B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */,
 				B833A78B25178B1D006F5FF2 /* AddNewNameController.swift in Sources */,
 				B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */,

@@ -24,4 +24,29 @@ enum Species: String, Codable, CaseIterable {
             return self.rawValue
         }
     }
+    
+    var index: Int {
+        get {
+            switch self {
+            case .dog:
+                return 0
+            case .cat:
+                return 1
+            case .bird:
+                return 2
+            case .snake:
+                return 3
+            case .turtle:
+                return 4
+            case .horse:
+                return 5
+            case .bunny:
+                return 6
+            case .rodent:
+                return 7
+            case .other:
+                return 8
+            }
+        }
+    }
 }
