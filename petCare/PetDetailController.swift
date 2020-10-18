@@ -74,6 +74,7 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
                 dropDown.selectRow(species.index)
             }
             dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSpecies(newSpecies: Species.allCases[index])}
             dropDown.show()
         }
         
@@ -83,6 +84,7 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
                 dropDown.selectRow(sex.index)
             }
             dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSex(newSex: Sex.allCases[index]) }
             dropDown.show()
         }
     }
@@ -128,5 +130,10 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
     func changeSpecies(newSpecies: Species) {
         pet?.species = newSpecies
         labelSpecies.text = newSpecies.description
+    }
+    
+    func changeSex(newSex: Sex) {
+        pet?.sex = newSex
+        labelSex.text = newSex.description
     }
 }
