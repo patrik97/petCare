@@ -18,11 +18,11 @@ protocol PetDetailChangeName {
     func changeName(newName: String)
 }
 
-protocol PetDetailChangeSpecies {
-    func changeSpecies(newSpecies: Species)
+protocol PetDetailChangeBirthday {
+    func changeBirth(newBirth: Date)
 }
 
-class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeSpecies {
+class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeBirthday {
     var menu: SideMenuNavigationController?
     var pet: Pet?
     @IBOutlet weak var labelName: UILabel!
@@ -63,6 +63,12 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         if segue.identifier == "addNewNameSegue", let addNewNameController = segue.destination as? AddNewNameController {
             if pet != nil {
                 addNewNameController.petDetailChangeName = self
+            }
+        }
+        
+        if segue.identifier == "addNewDateOfBirthSegue", let addNewDateOfBirthController = segue.destination as? AddNewDateOfBirthController {
+            if pet != nil {
+                addNewDateOfBirthController.petDetailChangeBirthday = self
             }
         }
     }
@@ -135,5 +141,14 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
     func changeSex(newSex: Sex) {
         pet?.sex = newSex
         labelSex.text = newSex.description
+    }
+    
+    func changeBirth(newBirth: Date) {
+        pet?.birth = newBirth
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateLabelText = formatter.string(from: newBirth)
+        labelBirthday.text = dateLabelText
     }
 }

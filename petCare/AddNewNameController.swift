@@ -21,7 +21,7 @@ class AddNewNameController: UIViewController {
         let newName = newNameTextField.text ?? ""
         if newName != "" {
             petDetailChangeName?.changeName(newName: newNameTextField.text ?? "")
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Invalid name", message: "Name cannot be empty", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

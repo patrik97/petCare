@@ -151,6 +151,9 @@
                                                 <constraint firstItem="Gg6-YQ-JCJ" firstAttribute="leading" secondItem="GuZ-UP-nNE" secondAttribute="leadingMargin" constant="10" id="aVo-nO-g1r"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wLR-xA-AjC" kind="push" identifier="addNewDateOfBirthSegue" id="EpA-UB-l2I"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -182,6 +185,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo8-dW-064" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2261" y="-762"/>
+        </scene>
+        <!--Add New Date Of Birth Controller-->
+        <scene sceneID="4kV-xU-E1J">
+            <objects>
+                <viewController id="wLR-xA-AjC" customClass="AddNewDateOfBirthController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ho5-fx-ijk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQi-AV-zv2">
+                                <rect key="frame" x="109.5" y="108" width="195" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-75-nFe">
+                                <rect key="frame" x="0.0" y="154" width="414" height="216"/>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pQi-AV-zv2" firstAttribute="top" secondItem="gzP-Ge-YtE" secondAttribute="top" constant="20" id="2SV-NF-8SE"/>
+                            <constraint firstItem="pQi-AV-zv2" firstAttribute="centerX" secondItem="ho5-fx-ijk" secondAttribute="centerX" id="GsA-R7-U8B"/>
+                            <constraint firstItem="P0S-75-nFe" firstAttribute="leading" secondItem="gzP-Ge-YtE" secondAttribute="leading" id="Qp2-2b-ki6"/>
+                            <constraint firstItem="P0S-75-nFe" firstAttribute="trailing" secondItem="gzP-Ge-YtE" secondAttribute="trailing" id="W2i-M5-qh8"/>
+                            <constraint firstItem="P0S-75-nFe" firstAttribute="top" secondItem="pQi-AV-zv2" secondAttribute="bottom" constant="20" id="qwa-R1-l0i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gzP-Ge-YtE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JSk-qi-GfO">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="t5f-sl-2Ky">
+                            <connections>
+                                <action selector="SaveButton:" destination="wLR-xA-AjC" id="aij-Rb-c8O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BirthDatePicker" destination="P0S-75-nFe" id="2OA-Lp-4O4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cyx-i5-8Qt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3274" y="-762"/>
         </scene>
         <!--Add New Name Controller-->
         <scene sceneID="it1-MD-NPd">
@@ -226,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8j-1z-93E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3874" y="-2125"/>
+            <point key="canvasLocation" x="3274" y="-1445"/>
         </scene>
         <!--Add New Pet Controller-->
         <scene sceneID="iBK-Xb-rhM">
@@ -289,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEy-2b-I3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3874" y="-2810"/>
+            <point key="canvasLocation" x="3274" y="-2174"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kIt-u0-yrP">
