@@ -39,6 +39,10 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         } else {
             pet = nil
             self.tableView.allowsSelection = false
+            labelName.text = "-"
+            labelSpecies.text = "-"
+            labelSex.text = "-"
+            labelBirthday.text = "-"
         }
     }
     
@@ -118,10 +122,21 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         return dropDown
     }
     
+    /**
+     Select Pet after creating new instance or selected by user in SideMenuController
+     
+     - Parameter pet: instance of Pet that will be selected in PetDetailController
+     */
     func selectPet(pet: Pet) {
         self.pet = pet;
         labelName.text = pet.name
         labelSpecies.text = pet.species.description
+        labelSex.text = pet.sex?.description ?? "-"
+        if let birthday = pet.birth {
+            changeBirth(newBirth: birthday)
+        } else {
+            labelBirthday.text = "-"
+        }
         self.tableView.allowsSelection = true
     }
     
