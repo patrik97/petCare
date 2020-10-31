@@ -28,12 +28,22 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cube" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-wN-pmI">
                                                     <rect key="frame" x="20" y="11" width="374" height="378.5"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyN-Ij-dRQ">
+                                                    <rect key="frame" x="374" y="10" width="30" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="tWd-rk-w2r"/>
+                                                        <constraint firstAttribute="width" constant="30" id="uUJ-QK-1OR"/>
+                                                    </constraints>
+                                                    <state key="normal" image="camera.fill" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CxO-wN-pmI" firstAttribute="top" secondItem="urp-tv-5h9" secondAttribute="topMargin" id="DGv-Wj-pSB"/>
+                                                <constraint firstAttribute="trailing" secondItem="wyN-Ij-dRQ" secondAttribute="trailing" constant="10" id="OZc-kD-G9k"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="CxO-wN-pmI" secondAttribute="trailing" id="PQH-t4-avP"/>
                                                 <constraint firstItem="CxO-wN-pmI" firstAttribute="bottom" secondItem="urp-tv-5h9" secondAttribute="bottomMargin" id="Xql-Ll-0B0"/>
                                                 <constraint firstItem="CxO-wN-pmI" firstAttribute="leading" secondItem="urp-tv-5h9" secondAttribute="leadingMargin" id="g16-td-SVa"/>
+                                                <constraint firstItem="wyN-Ij-dRQ" firstAttribute="top" secondItem="urp-tv-5h9" secondAttribute="top" constant="10" id="xdc-Sa-SPJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -184,7 +194,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo8-dW-064" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2261" y="-762"/>
+            <point key="canvasLocation" x="2260.8695652173915" y="-762.05357142857144"/>
         </scene>
         <!--Add New Date Of Birth Controller-->
         <scene sceneID="4kV-xU-E1J">
@@ -376,6 +386,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="cube" catalog="system" width="128" height="124"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>

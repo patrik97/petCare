@@ -57,6 +57,9 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         present(menu!, animated: true)
     }
     
+    /**
+    Sets parametres of SideMenu that is used to change pet-context
+     */
     private func setSideMenuParametres() {
         let sideMenuController = SideMenuController()
         sideMenuController.petDetailDelegate = self
