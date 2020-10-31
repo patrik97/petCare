@@ -30,10 +30,13 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
     @IBOutlet weak var labelSex: UILabel!
     @IBOutlet weak var labelBirthday: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setSideMenuParametres()
+        
+        // to hide empty rows and it's lines
+        self.tableView.tableFooterView = UIView()
+        
         if DataStorage.pets.count > 0 {
             pet = DataStorage.pets[0]
         } else {
@@ -83,7 +86,7 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return UIScreen.main.bounds.size.height < 800 ? 300 : 400
+            return view.safeAreaLayoutGuide.layoutFrame.height - 200
         }
         return 50
     }
