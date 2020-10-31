@@ -44,6 +44,10 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
             labelSex.text = "-"
             labelBirthday.text = "-"
         }
+        
+        /* need for overriding heightForRowAt in tableView that is needed
+         * for correct size of top cell at small devices */
+        self.tableView.reloadData()
     }
     
     @IBAction func menuButtonItem(_ sender: UIBarButtonItem) {
@@ -77,6 +81,13 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return UIScreen.main.bounds.size.height < 800 ? 300 : 400
+        }
+        return 50
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 2 {
             let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
@@ -98,6 +109,15 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
             dropDown.show()
         }
     }
+    
+    /*
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath == IndexPath(row: 0, section: 0) {
+            return 300
+        }
+        
+        return 50
+    }*/
     
     /**
      Creates DropDown and allows change pet data
