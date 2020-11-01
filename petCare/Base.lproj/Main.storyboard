@@ -10,7 +10,7 @@
         <!--Pet Detail-->
         <scene sceneID="hfA-WB-YBR">
             <objects>
-                <tableViewController id="LUf-Og-gqW" customClass="PeDetailController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="LUf-Og-gqW" customClass="PetDetailController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QbM-ca-7hT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cube" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-wN-pmI">
-                                                    <rect key="frame" x="20" y="11" width="374" height="378.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="400.5"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                    </accessibility>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyN-Ij-dRQ">
                                                     <rect key="frame" x="374" y="10" width="30" height="25"/>
@@ -35,14 +38,17 @@
                                                         <constraint firstAttribute="width" constant="30" id="uUJ-QK-1OR"/>
                                                     </constraints>
                                                     <state key="normal" image="camera.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="addProfileImageButtonClick:" destination="LUf-Og-gqW" eventType="touchUpInside" id="SaN-7F-YrW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="CxO-wN-pmI" firstAttribute="top" secondItem="urp-tv-5h9" secondAttribute="topMargin" id="DGv-Wj-pSB"/>
+                                                <constraint firstItem="CxO-wN-pmI" firstAttribute="leading" secondItem="urp-tv-5h9" secondAttribute="leading" id="1xz-Ew-AA2"/>
+                                                <constraint firstItem="CxO-wN-pmI" firstAttribute="top" secondItem="urp-tv-5h9" secondAttribute="top" id="5gC-jM-7hI"/>
+                                                <constraint firstAttribute="bottom" secondItem="CxO-wN-pmI" secondAttribute="bottom" id="HsT-BN-gyy"/>
                                                 <constraint firstAttribute="trailing" secondItem="wyN-Ij-dRQ" secondAttribute="trailing" constant="10" id="OZc-kD-G9k"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CxO-wN-pmI" secondAttribute="trailing" id="PQH-t4-avP"/>
-                                                <constraint firstItem="CxO-wN-pmI" firstAttribute="bottom" secondItem="urp-tv-5h9" secondAttribute="bottomMargin" id="Xql-Ll-0B0"/>
-                                                <constraint firstItem="CxO-wN-pmI" firstAttribute="leading" secondItem="urp-tv-5h9" secondAttribute="leadingMargin" id="g16-td-SVa"/>
+                                                <constraint firstAttribute="trailing" secondItem="CxO-wN-pmI" secondAttribute="trailing" id="egq-U0-lOE"/>
                                                 <constraint firstItem="wyN-Ij-dRQ" firstAttribute="top" secondItem="urp-tv-5h9" secondAttribute="top" constant="10" id="xdc-Sa-SPJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -190,6 +196,7 @@
                         <outlet property="labelName" destination="f4Y-Yo-hIw" id="Jao-Ys-78y"/>
                         <outlet property="labelSex" destination="dxX-ty-Tth" id="LnK-tT-5uc"/>
                         <outlet property="labelSpecies" destination="vwz-c2-HML" id="xMq-nY-sSJ"/>
+                        <outlet property="profilePictureImageView" destination="CxO-wN-pmI" id="NCp-36-V6N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo8-dW-064" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

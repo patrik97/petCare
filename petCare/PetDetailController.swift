@@ -8,6 +8,7 @@
 
 import DropDown
 import SideMenu
+import UIImageCropper
 import UIKit
 
 protocol PetDetailDelegate {
@@ -22,13 +23,15 @@ protocol PetDetailChangeBirthday {
     func changeBirth(newBirth: Date)
 }
 
-class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeBirthday {
+class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeBirthday {
     var menu: SideMenuNavigationController?
     var pet: Pet?
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelSpecies: UILabel!
     @IBOutlet weak var labelSex: UILabel!
     @IBOutlet weak var labelBirthday: UILabel!
+    private let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,44 +89,6 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
             }
         }
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return view.safeAreaLayoutGuide.layoutFrame.height - 200
-        }
-        return 50
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
-            let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
-            if let species = pet?.species {
-                dropDown.selectRow(species.index)
-            }
-            dropDown.selectionBackgroundColor = UIColor.blue
-            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSpecies(newSpecies: Species.allCases[index])}
-            dropDown.show()
-        }
-        
-        if indexPath.row == 3 {
-            let dropDown = initializeDropDown(indexPath: indexPath, data: Sex.allCases.map { $0.rawValue })
-            if let sex = pet?.sex {
-                dropDown.selectRow(sex.index)
-            }
-            dropDown.selectionBackgroundColor = UIColor.blue
-            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSex(newSex: Sex.allCases[index]) }
-            dropDown.show()
-        }
-    }
-    
-    /*
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath == IndexPath(row: 0, section: 0) {
-            return 300
-        }
-        
-        return 50
-    }*/
     
     /**
      Creates DropDown and allows change pet data
@@ -191,5 +156,86 @@ class PeDetailController: UITableViewController, PetDetailDelegate, PetDetailCha
         formatter.timeStyle = .none
         let dateLabelText = formatter.string(from: newBirth)
         labelBirthday.text = dateLabelText
+    }
+    
+    
+    @IBAction func addProfileImageButtonClick(_ sender: Any) {
+        pickImageFromGallery()
+    }
+}
+
+/**
+ Implements override UITableView methods
+ */
+extension PetDetailController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return view.safeAreaLayoutGuide.layoutFrame.height - 200
+        }
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
+            if let species = pet?.species {
+                dropDown.selectRow(species.index)
+            }
+            dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSpecies(newSpecies: Species.allCases[index])}
+            dropDown.show()
+        }
+        
+        if indexPath.row == 3 {
+            let dropDown = initializeDropDown(indexPath: indexPath, data: Sex.allCases.map { $0.rawValue })
+            if let sex = pet?.sex {
+                dropDown.selectRow(sex.index)
+            }
+            dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSex(newSex: Sex.allCases[index]) }
+            dropDown.show()
+        }
+    }
+}
+
+
+extension PetDetailController: UIImageCropperProtocol {
+    func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
+        profilePictureImageView.image = croppedImage
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func didCancel() {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PetDetailController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func prepareCropper() -> UIImageCropper {
+        let height = profilePictureImageView.bounds.height
+        let width = profilePictureImageView.bounds.width
+        let cropper = UIImageCropper(cropRatio: width / height)
+        cropper.delegate = self
+        cropper.picker = picker
+        cropper.cancelButtonText = "Cancel"
+        cropper.cropButtonText = "Select"
+        return cropper
+    }
+    
+    func pickImageFromGallery() {
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        self.present(self.picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            return
+        }
+        
+        let cropper = prepareCropper()
+        cropper.image = selectedImage
+        picker.dismiss(animated: true, completion: nil)
+        self.present(cropper, animated: true, completion: nil)
     }
 }
