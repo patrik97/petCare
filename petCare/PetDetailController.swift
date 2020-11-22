@@ -31,7 +31,9 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
     @IBOutlet weak var labelSpecies: UILabel!
     @IBOutlet weak var labelSex: UILabel!
     @IBOutlet weak var labelBirthday: UILabel!
+    @IBOutlet weak var addProfileImageButton: UIButton!
     private let picker = UIImagePickerController()
+    private let cropper = UIImageCropper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,8 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
             labelSpecies.text = "-"
             labelSex.text = "-"
             labelBirthday.text = "-"
+            profilePictureImageView.image = UIImage(systemName: "cube")
+            addProfileImageButton.isEnabled = false
         }
         
         /* need for overriding heightForRowAt in tableView that is needed
@@ -128,7 +132,9 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         } else {
             labelBirthday.text = "-"
         }
+        profilePictureImageView.image = pet.profileImage ?? UIImage(systemName: "cube")
         self.tableView.allowsSelection = true
+        addProfileImageButton.isEnabled = true
     }
     
     func changeName(newName: String) {
@@ -202,7 +208,8 @@ extension PetDetailController {
 extension PetDetailController: UIImageCropperProtocol {
     func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
         profilePictureImageView.image = croppedImage
-        self.dismiss(animated: true, completion: nil)
+        pet?.profileImage = croppedImage
+        cropper.dismiss(animated: false, completion: nil)
     }
     
     func didCancel() {
@@ -210,32 +217,21 @@ extension PetDetailController: UIImageCropperProtocol {
     }
 }
 
-extension PetDetailController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func prepareCropper() -> UIImageCropper {
+extension PetDetailController {
+    func prepareCropper() {
         let height = profilePictureImageView.bounds.height
         let width = profilePictureImageView.bounds.width
-        let cropper = UIImageCropper(cropRatio: width / height)
-        cropper.delegate = self
+        cropper.cropRatio = width / height
         cropper.picker = picker
         cropper.cancelButtonText = "Cancel"
         cropper.cropButtonText = "Select"
-        return cropper
     }
     
     func pickImageFromGallery() {
         picker.sourceType = .photoLibrary
-        picker.delegate = self
+        cropper.delegate = self
+        prepareCropper()
+        cropper.picker = picker
         self.present(self.picker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            return
-        }
-        
-        let cropper = prepareCropper()
-        cropper.image = selectedImage
-        picker.dismiss(animated: true, completion: nil)
-        self.present(cropper, animated: true, completion: nil)
     }
 }

@@ -192,6 +192,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addProfileImageButton" destination="wyN-Ij-dRQ" id="CDW-wn-pTl"/>
                         <outlet property="labelBirthday" destination="P5A-Dq-mHS" id="tQu-Pb-83W"/>
                         <outlet property="labelName" destination="f4Y-Yo-hIw" id="Jao-Ys-78y"/>
                         <outlet property="labelSex" destination="dxX-ty-Tth" id="LnK-tT-5uc"/>
