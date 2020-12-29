@@ -7,6 +7,5 @@ target 'petCare' do
 
 pod 'SideMenu'
 pod 'DropDown'
-pod 'UIImageCropper'
 
 end

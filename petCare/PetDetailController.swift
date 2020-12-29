@@ -8,7 +8,6 @@
 
 import DropDown
 import SideMenu
-import UIImageCropper
 import UIKit
 
 protocol PetDetailDelegate {
@@ -31,7 +30,6 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
     @IBOutlet weak var labelSpecies: UILabel!
     @IBOutlet weak var labelSex: UILabel!
     @IBOutlet weak var labelBirthday: UILabel!
-    private let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +37,8 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         
         // to hide empty rows and it's lines
         self.tableView.tableFooterView = UIView()
+        //self.view.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
+        self.navigationController?.view.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
         
         if DataStorage.pets.count > 0 {
             pet = DataStorage.pets[0]
@@ -123,6 +123,8 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         labelName.text = pet.name
         labelSpecies.text = pet.species.description
         labelSex.text = pet.sex?.description ?? "-"
+        profilePictureImageView.image = UIImage(named: pet.species.rawValue)
+        profilePictureImageView.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
         if let birthday = pet.birth {
             changeBirth(newBirth: birthday)
         } else {
@@ -142,11 +144,19 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
     func changeSpecies(newSpecies: Species) {
         pet?.species = newSpecies
         labelSpecies.text = newSpecies.description
+        profilePictureImageView.image = UIImage(named: newSpecies.rawValue)
     }
     
     func changeSex(newSex: Sex) {
         pet?.sex = newSex
         labelSex.text = newSex.description
+        var color: UIColor
+        if newSex == Sex.female {
+            color = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
+        } else {
+            color = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
+        }
+        profilePictureImageView.backgroundColor = color
     }
     
     func changeBirth(newBirth: Date) {
@@ -156,11 +166,6 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         formatter.timeStyle = .none
         let dateLabelText = formatter.string(from: newBirth)
         labelBirthday.text = dateLabelText
-    }
-    
-    
-    @IBAction func addProfileImageButtonClick(_ sender: Any) {
-        pickImageFromGallery()
     }
 }
 
@@ -195,47 +200,5 @@ extension PetDetailController {
             dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSex(newSex: Sex.allCases[index]) }
             dropDown.show()
         }
-    }
-}
-
-
-extension PetDetailController: UIImageCropperProtocol {
-    func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
-        profilePictureImageView.image = croppedImage
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func didCancel() {
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension PetDetailController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func prepareCropper() -> UIImageCropper {
-        let height = profilePictureImageView.bounds.height
-        let width = profilePictureImageView.bounds.width
-        let cropper = UIImageCropper(cropRatio: width / height)
-        cropper.delegate = self
-        cropper.picker = picker
-        cropper.cancelButtonText = "Cancel"
-        cropper.cropButtonText = "Select"
-        return cropper
-    }
-    
-    func pickImageFromGallery() {
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        self.present(self.picker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            return
-        }
-        
-        let cropper = prepareCropper()
-        cropper.image = selectedImage
-        picker.dismiss(animated: true, completion: nil)
-        self.present(cropper, animated: true, completion: nil)
     }
 }

@@ -15,6 +15,11 @@ class AddNewDateOfBirthController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         BirthDatePicker.datePickerMode = .date
+        if #available(iOS 14.0, *) {
+            BirthDatePicker.preferredDatePickerStyle = .inline
+        } else {
+            BirthDatePicker.preferredDatePickerStyle = .wheels
+        }
     }
     
     @IBAction func SaveButton(_ sender: Any) {

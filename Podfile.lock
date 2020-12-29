@@ -1,24 +1,20 @@
 PODS:
   - DropDown (2.3.13)
   - SideMenu (6.4.9)
-  - UIImageCropper (1.4.0)
 
 DEPENDENCIES:
   - DropDown
   - SideMenu
-  - UIImageCropper
 
 SPEC REPOS:
   trunk:
     - DropDown
     - SideMenu
-    - UIImageCropper
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   SideMenu: 8ef57a3cfc024a2d3fc1c036c7fe98537baec9e0
-  UIImageCropper: ab1c519018189af90b0780e1c7c9c900945b896e
 
-PODFILE CHECKSUM: a6f9866fa6948f1b2112e3cc1896071548cec8e2
+PODFILE CHECKSUM: 7de65208215bf9aeddf4d90bda3c7dbfe80caea8
 
 COCOAPODS: 1.9.3
