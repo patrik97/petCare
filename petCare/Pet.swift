@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import UIKit
 
 class Pet {
     var name: String
     var species: Species
     var birth: Date? = nil
     var sex: Sex? = nil
-    var profileImage: UIImage? = nil
     
     init(name: String, species: Species) {
         self.name = name
