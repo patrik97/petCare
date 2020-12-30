@@ -184,7 +184,7 @@ extension PetDetailController {
         return 50
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         if indexPath.row == 2 {
             let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
             if let species = pet?.species {
