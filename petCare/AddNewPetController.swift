@@ -21,15 +21,8 @@ class AddNewPetController: UIViewController {
         speciesPickerView.dataSource = self
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Cancel without saving?", message: "It may cause loss data", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in self.presentingViewController?.dismiss(animated: true, completion: nil) }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in self.save() }))
-        self.present(alert, animated: true)
-    }
-    
-    @IBAction func saveButton(_ sender: UIButton) {
+
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
         save()
     }
     
@@ -43,7 +36,7 @@ class AddNewPetController: UIViewController {
         let newPet = Pet(name: nameTextField.text ?? "invalid name", species: currentSpecies)
         DataStorage.addPet(pet: newPet)
         petDetailDelegate?.selectPet(pet: newPet)
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

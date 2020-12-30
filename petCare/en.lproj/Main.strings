@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "Add new name"; ObjectID = "4b3-N5-cPW"; */
+"4b3-N5-cPW.text" = "Add new name";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "B1Q-dh-M91"; */
+"B1Q-dh-M91.title" = "Save";
+
+/* Class = "UINavigationItem"; title = "Pet Detail"; ObjectID = "EAU-9A-SP5"; */
+"EAU-9A-SP5.title" = "Pet Detail";
+
+/* Class = "UILabel"; text = "Date of Birth"; ObjectID = "Gg6-YQ-JCJ"; */
+"Gg6-YQ-JCJ.text" = "Date of Birth";
+
+/* Class = "UILabel"; text = "Sex"; ObjectID = "IAA-UU-J7d"; */
+"IAA-UU-J7d.text" = "Sex";
+
+/* Class = "UILabel"; text = "Create calendar event"; ObjectID = "Lg2-sA-24x"; */
+"Lg2-sA-24x.text" = "Create calendar event";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OzC-uS-cmp"; */
+"OzC-uS-cmp.title" = "Item";
+
+/* Class = "UILabel"; text = "labelBirthday"; ObjectID = "P5A-Dq-mHS"; */
+"P5A-Dq-mHS.text" = "labelBirthday";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "ZnO-q1-uAr"; */
+"ZnO-q1-uAr.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Cancel without saving"; ObjectID = "b13-we-YfK"; */
+"b13-we-YfK.normalTitle" = "Cancel without saving";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "c72-rl-U2C"; */
+"c72-rl-U2C.title" = "Home";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "dXj-Kw-kih"; */
+"dXj-Kw-kih.text" = "Name:";
+
+/* Class = "UILabel"; text = "labelSex"; ObjectID = "dxX-ty-Tth"; */
+"dxX-ty-Tth.text" = "labelSex";
+
+/* Class = "UILabel"; text = "labelName"; ObjectID = "f4Y-Yo-hIw"; */
+"f4Y-Yo-hIw.text" = "labelName";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "g5Z-B7-cv1"; */
+"g5Z-B7-cv1.title" = "Item";
+
+/* Class = "UILabel"; text = "Species"; ObjectID = "jeH-Vd-j81"; */
+"jeH-Vd-j81.text" = "Species";
+
+/* Class = "UILabel"; text = "Add new date of birth"; ObjectID = "pQi-AV-zv2"; */
+"pQi-AV-zv2.text" = "Add new date of birth";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "t5f-sl-2Ky"; */
+"t5f-sl-2Ky.title" = "Save";
+
+/* Class = "UILabel"; text = "labelSpecies"; ObjectID = "vwz-c2-HML"; */
+"vwz-c2-HML.text" = "labelSpecies";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "wmh-7f-Vdo"; */
+"wmh-7f-Vdo.text" = "Name";

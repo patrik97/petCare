@@ -19,7 +19,7 @@ protocol PetDetailChangeName {
 }
 
 protocol PetDetailChangeBirthday {
-    func changeBirth(newBirth: Date)
+    func changeBirth(newBirth: Date, createBirthdayEvent: Bool)
 }
 
 class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeBirthday {
@@ -159,13 +159,17 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         profilePictureImageView.backgroundColor = color
     }
     
-    func changeBirth(newBirth: Date) {
+    func changeBirth(newBirth: Date, createBirthdayEvent: Bool = false) {
         pet?.birth = newBirth
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         let dateLabelText = formatter.string(from: newBirth)
         labelBirthday.text = dateLabelText
+        
+        if createBirthdayEvent {
+            pet?.requestAccessAndCreateEvent(startDate: newBirth, endDate: newBirth)
+        }
     }
 }
 
