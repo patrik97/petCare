@@ -24,7 +24,7 @@ class AddNewNameController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Invalid name", message: "Name cannot be empty", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
     }

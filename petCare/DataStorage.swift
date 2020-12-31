@@ -10,8 +10,13 @@ import Foundation
 
 class DataStorage {
     static var pets = [Pet]()
+    static var events = [Event]()
     
     static func addPet(pet: Pet) {
         pets.append(pet)
+    }
+    
+    static func addEvent(event: Event) {
+        events.append(event)
     }
 }

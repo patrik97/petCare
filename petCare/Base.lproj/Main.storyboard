@@ -404,15 +404,18 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UAm-Ci-Gob">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="UAm-Ci-Gob" customClass="EventCell" customModule="petCare" customModuleProvider="target">
                                         <rect key="frame" x="12.5" y="0.0" width="389" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LkK-EZ-Zc7">
                                             <rect key="frame" x="0.0" y="0.0" width="389" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDQ-cL-5d7">
-                                                    <rect key="frame" x="5" y="5" width="93" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDQ-cL-5d7">
+                                                    <rect key="frame" x="5" y="5" width="232" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="45b-hD-0Ap"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -423,20 +426,23 @@
                                                         <constraint firstAttribute="width" constant="142" id="FW5-aO-ATe"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1X7-b8-mif">
-                                                    <rect key="frame" x="5" y="46" width="227" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pets" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1X7-b8-mif">
+                                                    <rect key="frame" x="5" y="57" width="227" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="uXa-vp-NxF"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwG-Ut-rCt">
-                                                    <rect key="frame" x="5" y="108" width="38" height="21"/>
+                                                    <rect key="frame" x="5" y="108" width="232" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntn-Bm-1Ka">
-                                                    <rect key="frame" x="5" y="134" width="30" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntn-Bm-1Ka">
+                                                    <rect key="frame" x="5" y="134" width="232" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -444,7 +450,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="QDQ-cL-5d7" firstAttribute="top" secondItem="LkK-EZ-Zc7" secondAttribute="top" constant="5" id="0MZ-ck-cE9"/>
-                                                <constraint firstItem="1X7-b8-mif" firstAttribute="top" secondItem="QDQ-cL-5d7" secondAttribute="bottom" constant="20" id="Lx9-3J-0Dy"/>
+                                                <constraint firstItem="mUO-BQ-ZJ9" firstAttribute="leading" secondItem="QDQ-cL-5d7" secondAttribute="trailing" constant="5" id="287-Wr-vlh"/>
+                                                <constraint firstItem="mUO-BQ-ZJ9" firstAttribute="leading" secondItem="DwG-Ut-rCt" secondAttribute="trailing" constant="5" id="9Si-QF-jcb"/>
+                                                <constraint firstItem="mUO-BQ-ZJ9" firstAttribute="leading" secondItem="ntn-Bm-1Ka" secondAttribute="trailing" constant="5" id="Itq-sc-0ZE"/>
+                                                <constraint firstItem="1X7-b8-mif" firstAttribute="top" secondItem="QDQ-cL-5d7" secondAttribute="bottom" constant="10" id="Lx9-3J-0Dy"/>
                                                 <constraint firstItem="1X7-b8-mif" firstAttribute="leading" secondItem="LkK-EZ-Zc7" secondAttribute="leading" constant="5" id="TPs-pu-EVK"/>
                                                 <constraint firstItem="QDQ-cL-5d7" firstAttribute="leading" secondItem="LkK-EZ-Zc7" secondAttribute="leading" constant="5" id="YfD-ks-5qJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="mUO-BQ-ZJ9" secondAttribute="trailing" constant="5" id="d68-LW-qXy"/>
@@ -459,6 +468,13 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.29411764705882354" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="389" height="160"/>
+                                        <connections>
+                                            <outlet property="endDateLabel" destination="ntn-Bm-1Ka" id="Ftp-ad-eLt"/>
+                                            <outlet property="eventNameLabel" destination="QDQ-cL-5d7" id="uRw-tE-ozQ"/>
+                                            <outlet property="petsLabel" destination="1X7-b8-mif" id="yC6-j0-AU0"/>
+                                            <outlet property="pictureImageView" destination="mUO-BQ-ZJ9" id="yyC-Zi-FzY"/>
+                                            <outlet property="startDateLabel" destination="DwG-Ut-rCt" id="BYy-RG-Ii0"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -480,6 +496,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="eventCollectionView" destination="8xS-HR-eT3" id="hVb-L5-f3y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eC1-vt-KHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -594,7 +613,13 @@
                             <constraint firstItem="SRQ-mv-x8N" firstAttribute="leading" secondItem="XsU-LT-8PV" secondAttribute="leading" id="mSr-lM-HXY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mUa-lV-DyL"/>
+                    <navigationItem key="navigationItem" id="mUa-lV-DyL">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="7oM-r1-UyT">
+                            <connections>
+                                <action selector="saveButton:" destination="yWC-Lq-NXW" id="C72-y6-eDk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
                         <outlet property="endDateAndTimeLabel" destination="pSC-N1-fnh" id="xYk-ed-gaI"/>
@@ -616,8 +641,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqW-9B-mne">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="linkColor"/>
-                        <color key="sectionIndexBackgroundColor" systemColor="linkColor"/>
+                        <color key="backgroundColor" red="0.078431372550000003" green="0.68627450980000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.078431372550000003" green="0.68627450980000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="petCell" rowHeight="120" id="Nq7-xR-EiB" customClass="PetCell" customModule="petCare" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="120"/>
@@ -649,7 +674,7 @@
                                         <constraint firstItem="il7-KA-jcJ" firstAttribute="leading" secondItem="lzI-Rg-sPf" secondAttribute="leadingMargin" constant="15" id="ndg-cO-pxV"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.68627450980000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="petImageView" destination="gFt-kl-2ig" id="lOR-TX-JGh"/>
                                     <outlet property="petNameLabel" destination="il7-KA-jcJ" id="MZO-NQ-IDo"/>
@@ -664,7 +689,7 @@
                     <navigationItem key="navigationItem" title="Select Pets" id="qzN-J8-mGS">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="kah-DV-BiX">
                             <connections>
-                                <segue destination="yWC-Lq-NXW" kind="show" id="emo-ya-2pZ"/>
+                                <segue destination="yWC-Lq-NXW" kind="show" identifier="AddEventDetailSegue" id="emo-ya-2pZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

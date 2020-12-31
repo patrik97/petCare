@@ -9,17 +9,31 @@
 import Foundation
 
 class Event {
+    var name: String
+    var description: String
     var startDate: Date
-    var endDate: Date
+    var endDate: Date?
     var pets: [Pet]
     
-    init(startDate: Date, endDate: Date, pets: [Pet]) {
+    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet]) {
+        self.name = name
+        self.description = description
         self.startDate = startDate
         self.endDate = endDate
         self.pets = pets
     }
     
-    convenience init(startDate: Date, endDate: Date, pet: Pet) {
-        self.init(startDate: startDate, endDate: endDate, pets: [pet])
+    func names() -> String {
+        var names = ""
+        var first = true
+        for pet in pets {
+            if !first {
+                names += ", "
+            }
+            
+            names += pet.name
+            first = false
+        }
+        return names
     }
 }

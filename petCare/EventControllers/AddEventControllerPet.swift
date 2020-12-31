@@ -9,7 +9,7 @@
 import UIKit
 
 class AddEventControllerPet: UITableViewController {
-    
+    private var pets: [Pet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +35,33 @@ class AddEventControllerPet: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pets.append(DataStorage.pets[indexPath.row])
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.contentView.backgroundColor = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
         }
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        pets.removeAll(where: { $0 === DataStorage.pets[indexPath.row] })
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.contentView.backgroundColor = UIColor.link
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "AddEventDetailSegue" && pets.isEmpty {
+            let alert = UIAlertController(title: "No pet selected", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+            return false
+        }
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddEventDetailSegue", let addEventControllerDetail = segue.destination as? AddEventControllerDetail {
+            addEventControllerDetail.pets = pets
+            addEventControllerDetail.addEventControllerPet = self
         }
     }
 }

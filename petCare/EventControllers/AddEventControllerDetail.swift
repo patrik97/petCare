@@ -9,6 +9,8 @@
 import UIKit
 
 class AddEventControllerDetail: UIViewController {
+    var pets: [Pet] = []
+    var addEventControllerPet: AddEventControllerPet? = nil
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventDescriptionTextField: UITextField!
     @IBOutlet weak var eventStartDatePicker: UIDatePicker!
@@ -35,5 +37,39 @@ class AddEventControllerDetail: UIViewController {
         } else {
             eventEndDatePickerHeight.constant = 0
         }
+    }
+    
+    @IBAction func saveButton(_ sender: Any) {
+        if !eventEndDatePicker.isHidden && eventEndDatePicker.date <= eventStartDatePicker.date {
+            invalidParameter(title: "Invalid date", message: "End date must be later then start date")
+            return
+        }
+        
+        guard let eventName = eventNameTextField.text else {
+            invalidParameter(title: "Invalid name", message: "Please type an event name")
+            return
+        }
+        
+        if eventName.count == 0 || eventName.count > 30 {
+            if eventName.count == 0 {
+                invalidParameter(title: "Invalid name", message: "Please type an event name")
+            } else {
+                invalidParameter(title: "Invalid name", message: "Name is bigger then 30 characters")
+            }
+            return
+        }
+        
+        let endDate = eventEndDatePicker.isHidden ? nil : eventEndDatePicker.date
+        let description = eventDescriptionTextField.text ?? ""
+        DataStorage.addEvent(event: Event(name: eventName, description: description, startDate: eventStartDatePicker.date, endDate: endDate, pets: pets))
+        addEventControllerPet?.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func invalidParameter(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        return
     }
 }
