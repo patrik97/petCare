@@ -15,6 +15,7 @@
 		B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */; };
 		B84061B2259E173B0051B00B /* AddEventControllerPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84061B1259E173B0051B00B /* AddEventControllerPet.swift */; };
 		B84061B5259E20150051B00B /* AddEventControllerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84061B4259E20150051B00B /* AddEventControllerDetail.swift */; };
+		B8489CC0259FB1CD006553CA /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8489CBF259FB1CD006553CA /* EventDetailController.swift */; };
 		B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB63124EC58EF00D1B926 /* AppDelegate.swift */; };
 		B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB63324EC58EF00D1B926 /* SceneDelegate.swift */; };
 		B84DB63924EC58EF00D1B926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63724EC58EF00D1B926 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		B84061B1259E173B0051B00B /* AddEventControllerPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventControllerPet.swift; sourceTree = "<group>"; };
 		B84061B4259E20150051B00B /* AddEventControllerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventControllerDetail.swift; sourceTree = "<group>"; };
+		B8489CBF259FB1CD006553CA /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
 		B84DB62E24EC58EF00D1B926 /* petCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84DB63124EC58EF00D1B926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B84DB63324EC58EF00D1B926 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				B8EA59EE259D38AF00D52E5D /* EventsController.swift */,
 				B84061B1259E173B0051B00B /* AddEventControllerPet.swift */,
 				B84061B4259E20150051B00B /* AddEventControllerDetail.swift */,
+				B8489CBF259FB1CD006553CA /* EventDetailController.swift */,
 			);
 			path = EventControllers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				B82B0D8024F07B3A008132DC /* Species.swift in Sources */,
 				B88015A625420FAE005F6244 /* AddNewDateOfBirthController.swift in Sources */,
 				B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */,
+				B8489CC0259FB1CD006553CA /* EventDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

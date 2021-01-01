@@ -13,6 +13,8 @@ class EventsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventCollectionView.allowsSelection = true
+        eventCollectionView.allowsMultipleSelection = false
         eventCollectionView.dataSource = self
         eventCollectionView.delegate = self
         setCollectionViewLayout()
@@ -21,6 +23,12 @@ class EventsController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         eventCollectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EventDetailSegue", let eventDetailController = segue.destination as? EventDetailController {
+            eventDetailController.event = DataStorage.events[eventCollectionView.indexPathsForSelectedItems?.first?.row ?? 0]
+        }
     }
     
     /**
