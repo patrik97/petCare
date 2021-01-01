@@ -17,6 +17,8 @@ class AddEventControllerDetail: UIViewController {
     @IBOutlet weak var eventEndDatePicker: UIDatePicker!
     @IBOutlet weak var endDateAndTimeLabel: UILabel!
     @IBOutlet weak var eventEndDatePickerHeight: NSLayoutConstraint!
+    @IBOutlet weak var calendarAppSwitch: UISwitch!
+    @IBOutlet weak var calendarAppLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,8 @@ class AddEventControllerDetail: UIViewController {
     @IBAction func selectEndDateSwitchValueChanged(_ sender: UISwitch) {
         eventEndDatePicker.isHidden = !sender.isOn
         endDateAndTimeLabel.isHidden = !sender.isOn
+        calendarAppSwitch.isHidden = !sender.isOn
+        calendarAppLabel.isHidden = !sender.isOn
         if sender.isOn {
             eventEndDatePickerHeight.constant = 390
         } else {
@@ -61,7 +65,8 @@ class AddEventControllerDetail: UIViewController {
         
         let endDate = eventEndDatePicker.isHidden ? nil : eventEndDatePicker.date
         let description = eventDescriptionTextField.text ?? ""
-        DataStorage.addEvent(event: Event(name: eventName, description: description, startDate: eventStartDatePicker.date, endDate: endDate, pets: pets))
+        let addCalendarEvent = !eventEndDatePicker.isHidden && calendarAppSwitch.isOn
+        DataStorage.addEvent(event: Event(name: eventName, description: description, startDate: eventStartDatePicker.date, endDate: endDate, pets: pets, addCalendarEvent: addCalendarEvent))
         self.navigationController?.popToRootViewController(animated: true)
     }
     

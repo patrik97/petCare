@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EventKit
 
 class Event {
     var name: String
@@ -14,15 +15,25 @@ class Event {
     var startDate: Date
     var endDate: Date?
     var pets: [Pet]
+    private var calendarEvent: EKEvent? = nil
     
-    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet]) {
+    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet], addCalendarEvent: Bool) {
         self.name = name
         self.description = description
         self.startDate = startDate
         self.endDate = endDate
         self.pets = pets
+        
+        if addCalendarEvent, let end = endDate {
+            requestAccessAndCreateEvent(startDate: startDate, endDate: end, title: name)
+        }
     }
     
+    /**
+     Create string of all pets in event like: First, Second, Third etc.
+     
+     - Returns: string of all pets in event
+     */
     func names() -> String {
         var names = ""
         var first = true
@@ -35,5 +46,63 @@ class Event {
             first = false
         }
         return names
+    }
+}
+
+// Extension that works with iOS calendar
+extension Event {
+    /**
+     Requests access to iOS calendar, remove old event and add new event
+     Event cannot be renamed alone without change date. It is needed to rename event, change date and then event can be renamed
+     Rename means remove old event and add new one
+     
+     - Parameter startDate: date when event starts
+     - Parameter endDate: date when event ends
+     - Parameter title: new event name
+     */
+    public func requestAccessAndCreateEvent(startDate: Date, endDate: Date, title: String) {
+        let eventStore = EKEventStore()
+        let event = EKEvent(eventStore: eventStore)
+        event.title = title
+        event.isAllDay = false
+        event.startDate = startDate
+        event.endDate = endDate
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        
+        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
+            eventStore.requestAccess(to: .event, completion: {
+                granted, error in self.removeOldEventAndCreateNew(eventStore: eventStore, newEvent: event)
+            })
+        } else {
+            removeOldEventAndCreateNew(eventStore: eventStore, newEvent: event)
+        }
+    }
+    
+    private func removeOldEventAndCreateNew(eventStore: EKEventStore, newEvent: EKEvent) {
+        if removeOldEvent(eventStore: eventStore) {
+            createEvent(eventStore: eventStore, event: newEvent)
+        }
+    }
+    
+    private func removeOldEvent(eventStore: EKEventStore) -> Bool {
+        if let oldEvent = calendarEvent {
+            do {
+                try eventStore.remove(oldEvent, span: .thisEvent, commit: true)
+                calendarEvent = nil
+            } catch {
+                return false
+            }
+        }
+        return true
+    }
+    
+    private func createEvent(eventStore: EKEventStore, event: EKEvent) {
+        do {
+            try eventStore.save(event, span: .thisEvent)
+            calendarEvent = event
+        } catch {
+            calendarEvent = nil
+            print("Error saving calendar event")
+        }
     }
 }

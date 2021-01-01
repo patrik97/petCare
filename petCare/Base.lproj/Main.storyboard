@@ -220,8 +220,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-75-nFe">
-                                <rect key="frame" x="0.0" y="154" width="414" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-75-nFe">
+                                <rect key="frame" x="0.0" y="154" width="414" height="353.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </datePicker>
                         </subviews>
@@ -344,7 +344,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" systemColor="linkColor"/>
-                        <color key="selectedImageTintColor" red="0.99625188112258911" green="0.95493417978286743" blue="0.31432807445526123" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -461,7 +461,7 @@
                                                 <constraint firstItem="mUO-BQ-ZJ9" firstAttribute="leading" secondItem="1X7-b8-mif" secondAttribute="trailing" constant="10" id="zkA-QS-pj4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.29411764705882354" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.29411764705882354" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="customSize" width="389" height="160"/>
                                         <connections>
                                             <outlet property="endDateLabel" destination="ntn-Bm-1Ka" id="Ftp-ad-eLt"/>
@@ -511,7 +511,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1329"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfv-vX-Xou">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1133"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1092.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nWi-lU-DSt">
                                                 <rect key="frame" x="20" y="15" width="374" height="34"/>
@@ -528,74 +528,74 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date and time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-gN-nPT">
-                                                <rect key="frame" x="20" y="189" width="162" height="21"/>
+                                                <rect key="frame" x="20" y="113" width="162" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-me-sTX">
-                                                <rect key="frame" x="0.0" y="215" width="414" height="391"/>
+                                                <rect key="frame" x="0.0" y="139" width="414" height="391"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select end date?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oua-Xt-VE9">
-                                                <rect key="frame" x="20" y="641" width="136" height="21"/>
+                                                <rect key="frame" x="20" y="565" width="136" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Select end date?" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-HE-PGb">
-                                                <rect key="frame" x="181" y="636" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="selectEndDateSwitchValueChanged:" destination="yWC-Lq-NXW" eventType="valueChanged" id="lZJ-x4-Jki"/>
-                                                </connections>
-                                            </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date and time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSC-N1-fnh">
-                                                <rect key="frame" x="20" y="692" width="152" height="21"/>
+                                                <rect key="frame" x="20" y="651.5" width="152" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="EWx-UW-snN">
-                                                <rect key="frame" x="0.0" y="718" width="414" height="390"/>
+                                                <rect key="frame" x="0.0" y="677.5" width="414" height="390"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="390" id="Co8-8r-l04"/>
                                                 </constraints>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add event to Calendary app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2E-iw-Zzk">
-                                                <rect key="frame" x="20" y="143" width="212" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add event do Calendar app?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDT-nX-ohQ">
+                                                <rect key="frame" x="20" y="611" width="228" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="Add event to Calendary app" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-qf-PgS">
-                                                <rect key="frame" x="257" y="138" width="51" height="31"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hRY-iV-TVq">
+                                                <rect key="frame" x="263" y="605.5" width="51" height="31"/>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="Select end date?" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-HE-PGb">
+                                                <rect key="frame" x="263" y="560" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="selectEndDateSwitchValueChanged:" destination="yWC-Lq-NXW" eventType="valueChanged" id="lZJ-x4-Jki"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" name="BlueBackground"/>
                                         <constraints>
                                             <constraint firstItem="oua-Xt-VE9" firstAttribute="top" secondItem="Nxm-me-sTX" secondAttribute="bottom" constant="35" id="0YW-nF-T8k"/>
                                             <constraint firstItem="Nxm-me-sTX" firstAttribute="top" secondItem="xsB-gN-nPT" secondAttribute="bottom" constant="5" id="1mV-7f-RtS"/>
-                                            <constraint firstItem="0a4-HE-PGb" firstAttribute="leading" secondItem="oua-Xt-VE9" secondAttribute="trailing" constant="25" id="3Er-ds-PKt"/>
+                                            <constraint firstItem="0a4-HE-PGb" firstAttribute="centerX" secondItem="hRY-iV-TVq" secondAttribute="centerX" id="4Rs-sU-5cx"/>
+                                            <constraint firstItem="fDT-nX-ohQ" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="6LX-1R-DQl"/>
                                             <constraint firstItem="EWx-UW-snN" firstAttribute="top" secondItem="pSC-N1-fnh" secondAttribute="bottom" constant="5" id="6qk-er-gdl"/>
+                                            <constraint firstItem="pSC-N1-fnh" firstAttribute="top" secondItem="fDT-nX-ohQ" secondAttribute="bottom" constant="20" id="8VS-p9-bmq"/>
                                             <constraint firstItem="o3n-nh-GsH" firstAttribute="top" secondItem="nWi-lU-DSt" secondAttribute="bottom" constant="10" id="ArR-ag-pQo"/>
                                             <constraint firstItem="pSC-N1-fnh" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="BRv-Pw-ZEP"/>
                                             <constraint firstItem="0a4-HE-PGb" firstAttribute="centerY" secondItem="oua-Xt-VE9" secondAttribute="centerY" id="DIo-l8-8T9"/>
-                                            <constraint firstItem="V2E-iw-Zzk" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="Er7-eV-UZy"/>
-                                            <constraint firstItem="zgf-qf-PgS" firstAttribute="centerY" secondItem="V2E-iw-Zzk" secondAttribute="centerY" id="Pfu-kc-EGM"/>
+                                            <constraint firstItem="fDT-nX-ohQ" firstAttribute="top" secondItem="oua-Xt-VE9" secondAttribute="bottom" constant="25" id="Oxh-u4-1W1"/>
                                             <constraint firstItem="oua-Xt-VE9" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="U18-K1-pU5"/>
-                                            <constraint firstItem="pSC-N1-fnh" firstAttribute="top" secondItem="oua-Xt-VE9" secondAttribute="bottom" constant="30" id="V36-QV-fgp"/>
                                             <constraint firstItem="nWi-lU-DSt" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="VLT-HS-oUa"/>
+                                            <constraint firstItem="hRY-iV-TVq" firstAttribute="leading" secondItem="fDT-nX-ohQ" secondAttribute="trailing" constant="15" id="ZpZ-vN-3e7"/>
                                             <constraint firstItem="o3n-nh-GsH" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="bX7-3c-shR"/>
-                                            <constraint firstItem="zgf-qf-PgS" firstAttribute="leading" secondItem="V2E-iw-Zzk" secondAttribute="trailing" constant="25" id="dDh-qa-8LE"/>
                                             <constraint firstItem="Nxm-me-sTX" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" id="hgE-W3-FQD"/>
+                                            <constraint firstItem="xsB-gN-nPT" firstAttribute="top" secondItem="o3n-nh-GsH" secondAttribute="bottom" constant="20" id="i98-9l-o6a"/>
                                             <constraint firstAttribute="bottom" secondItem="EWx-UW-snN" secondAttribute="bottom" constant="25" id="iIk-6t-wa5"/>
                                             <constraint firstAttribute="trailing" secondItem="Nxm-me-sTX" secondAttribute="trailing" id="iZA-Cx-q1A"/>
-                                            <constraint firstItem="V2E-iw-Zzk" firstAttribute="top" secondItem="o3n-nh-GsH" secondAttribute="bottom" constant="50" id="mcn-H1-rdF"/>
                                             <constraint firstItem="nWi-lU-DSt" firstAttribute="top" secondItem="Wfv-vX-Xou" secondAttribute="top" constant="15" id="qBw-qJ-cjd"/>
                                             <constraint firstItem="xsB-gN-nPT" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" constant="20" id="sZC-Fs-NkP"/>
                                             <constraint firstItem="EWx-UW-snN" firstAttribute="leading" secondItem="Wfv-vX-Xou" secondAttribute="leading" id="wy3-Qp-iit"/>
-                                            <constraint firstItem="xsB-gN-nPT" firstAttribute="top" secondItem="V2E-iw-Zzk" secondAttribute="bottom" constant="25" id="xsY-Nz-516"/>
+                                            <constraint firstItem="hRY-iV-TVq" firstAttribute="centerY" secondItem="fDT-nX-ohQ" secondAttribute="centerY" id="xiE-2v-O7O"/>
                                             <constraint firstAttribute="trailing" secondItem="nWi-lU-DSt" secondAttribute="trailing" constant="20" id="yM3-4c-o8v"/>
                                             <constraint firstAttribute="trailing" secondItem="EWx-UW-snN" secondAttribute="trailing" id="yu6-H7-tmP"/>
                                             <constraint firstAttribute="trailing" secondItem="o3n-nh-GsH" secondAttribute="trailing" constant="20" id="z0H-Ev-meE"/>
@@ -632,6 +632,8 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
+                        <outlet property="calendarAppLabel" destination="fDT-nX-ohQ" id="BMx-H8-7XJ"/>
+                        <outlet property="calendarAppSwitch" destination="hRY-iV-TVq" id="Tjn-h8-acx"/>
                         <outlet property="endDateAndTimeLabel" destination="pSC-N1-fnh" id="xYk-ed-gaI"/>
                         <outlet property="eventDescriptionTextField" destination="o3n-nh-GsH" id="6Cw-yK-G1z"/>
                         <outlet property="eventEndDatePicker" destination="EWx-UW-snN" id="vX0-RZ-pbV"/>
@@ -744,7 +746,7 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="BlueBackground">
-            <color red="0.10000000000000001" green="0.69999999999999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10000000149011612" green="0.69999998807907104" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
