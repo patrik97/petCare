@@ -14,6 +14,7 @@ class SideMenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.backgroundColor = UIColor(named: "BlueBackground")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,6 +28,8 @@ class SideMenuController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = DataStorage.pets[indexPath.row].name
+        cell.textLabel?.textColor = UIColor.white
+        cell.backgroundColor = UIColor(named: "BlueBackground")
         return cell
     }
     

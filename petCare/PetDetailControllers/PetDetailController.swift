@@ -124,7 +124,11 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         labelSpecies.text = pet.species.description
         labelSex.text = pet.sex?.description ?? "-"
         profilePictureImageView.image = UIImage(named: pet.species.rawValue)
-        profilePictureImageView.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
+        if pet.sex == Sex.female {
+            profilePictureImageView.backgroundColor = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
+        } else {
+            profilePictureImageView.backgroundColor = UIColor.link
+        }
         if let birthday = pet.birth {
             changeBirth(newBirth: birthday)
         } else {
@@ -154,7 +158,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         if newSex == Sex.female {
             color = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
         } else {
-            color = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
+            color = UIColor.link
         }
         profilePictureImageView.backgroundColor = color
     }

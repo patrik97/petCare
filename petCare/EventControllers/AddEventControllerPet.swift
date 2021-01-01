@@ -44,7 +44,7 @@ class AddEventControllerPet: UITableViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         pets.removeAll(where: { $0 === DataStorage.pets[indexPath.row] })
         if let cell = tableView.cellForRow(at: indexPath) {
-            cell.contentView.backgroundColor = UIColor.link
+            cell.contentView.backgroundColor = UIColor(named: "BlueBackground")
         }
     }
     

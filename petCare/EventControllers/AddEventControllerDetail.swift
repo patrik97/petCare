@@ -62,8 +62,7 @@ class AddEventControllerDetail: UIViewController {
         let endDate = eventEndDatePicker.isHidden ? nil : eventEndDatePicker.date
         let description = eventDescriptionTextField.text ?? ""
         DataStorage.addEvent(event: Event(name: eventName, description: description, startDate: eventStartDatePicker.date, endDate: endDate, pets: pets))
-        addEventControllerPet?.navigationController?.popViewController(animated: true)
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     private func invalidParameter(title: String, message: String) {
