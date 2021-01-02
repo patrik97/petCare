@@ -16,6 +16,7 @@
 		B84061B2259E173B0051B00B /* AddEventControllerPet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84061B1259E173B0051B00B /* AddEventControllerPet.swift */; };
 		B84061B5259E20150051B00B /* AddEventControllerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84061B4259E20150051B00B /* AddEventControllerDetail.swift */; };
 		B8489CC0259FB1CD006553CA /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8489CBF259FB1CD006553CA /* EventDetailController.swift */; };
+		B84B368325A0DB070009453E /* NewDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B368225A0DB070009453E /* NewDescriptionController.swift */; };
 		B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB63124EC58EF00D1B926 /* AppDelegate.swift */; };
 		B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB63324EC58EF00D1B926 /* SceneDelegate.swift */; };
 		B84DB63924EC58EF00D1B926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63724EC58EF00D1B926 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		B84061B1259E173B0051B00B /* AddEventControllerPet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventControllerPet.swift; sourceTree = "<group>"; };
 		B84061B4259E20150051B00B /* AddEventControllerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventControllerDetail.swift; sourceTree = "<group>"; };
 		B8489CBF259FB1CD006553CA /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		B84B368225A0DB070009453E /* NewDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDescriptionController.swift; sourceTree = "<group>"; };
 		B84DB62E24EC58EF00D1B926 /* petCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84DB63124EC58EF00D1B926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B84DB63324EC58EF00D1B926 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				B84061B1259E173B0051B00B /* AddEventControllerPet.swift */,
 				B84061B4259E20150051B00B /* AddEventControllerDetail.swift */,
 				B8489CBF259FB1CD006553CA /* EventDetailController.swift */,
+				B84B368225A0DB070009453E /* NewDescriptionController.swift */,
 			);
 			path = EventControllers;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */,
 				B83867E8259D0A7A005865E0 /* Event.swift in Sources */,
 				B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */,
+				B84B368325A0DB070009453E /* NewDescriptionController.swift in Sources */,
 				B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */,
 				B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */,
 				B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */,

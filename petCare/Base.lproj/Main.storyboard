@@ -578,6 +578,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Edit Description"/>
+                                <connections>
+                                    <segue destination="rAe-71-Qg3" kind="show" identifier="NewDescriptionSegue" id="E0f-we-9yR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wLi-Xt-t0e"/>
@@ -619,7 +622,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIZ-IL-syc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="-990"/>
+            <point key="canvasLocation" x="3273.913043478261" y="-990.40178571428567"/>
+        </scene>
+        <!--New Description-->
+        <scene sceneID="Pls-mu-pQ0">
+            <objects>
+                <viewController id="rAe-71-Qg3" customClass="NewDescriptionController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fqC-0d-asl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vWo-QC-Zxu">
+                                <rect key="frame" x="20" y="108" width="374" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="w0u-B1-Fek"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ISe-Ei-O7s"/>
+                        <color key="backgroundColor" name="BlueBackground"/>
+                        <constraints>
+                            <constraint firstItem="vWo-QC-Zxu" firstAttribute="top" secondItem="ISe-Ei-O7s" secondAttribute="top" constant="20" id="EHm-lg-hSP"/>
+                            <constraint firstItem="vWo-QC-Zxu" firstAttribute="leading" secondItem="ISe-Ei-O7s" secondAttribute="leading" constant="20" id="bnF-lB-IBv"/>
+                            <constraint firstItem="ISe-Ei-O7s" firstAttribute="trailing" secondItem="vWo-QC-Zxu" secondAttribute="trailing" constant="20" id="x1b-kT-Kc5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Description" id="ocl-gG-4cv">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="gbt-wg-ecz">
+                            <connections>
+                                <action selector="saveButton:" destination="rAe-71-Qg3" id="EOI-Ot-hWP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newDescriptionTextView" destination="vWo-QC-Zxu" id="8U9-8r-PAU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UB7-6D-miV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4233" y="-2448"/>
         </scene>
         <!--Add Event Controller Detail-->
         <scene sceneID="vfH-xI-cVy">
@@ -766,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYg-up-Jev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4241" y="-2395"/>
+            <point key="canvasLocation" x="4236" y="-3333"/>
         </scene>
         <!--Select Pets-->
         <scene sceneID="oeZ-dB-M7T">
@@ -870,6 +917,9 @@
         <namedColor name="BlueBackground">
             <color red="0.10000000149011612" green="0.69999998807907104" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

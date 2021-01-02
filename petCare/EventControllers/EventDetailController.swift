@@ -8,7 +8,11 @@
 
 import UIKit
 
-class EventDetailController: UIViewController {
+protocol SetEventDescriptionProtocol {
+    func setDescription(description: String)
+}
+
+class EventDetailController: UIViewController, SetEventDescriptionProtocol {
     var event: Event? = nil
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var petsLabel: UILabel!
@@ -33,5 +37,22 @@ class EventDetailController: UIViewController {
             endLabel.text = "/"
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NewDescriptionSegue", let newDescriptionController = segue.destination as? NewDescriptionController {
+            newDescriptionController.event = event
+            newDescriptionController.newDescriptionDelegate = self
+        }
+    }
+    
+    /**
+     Change description including text in label
+     
+     - Parameter description: new description
+     */
+    func setDescription(description: String) {
+        event?.description = description
+        descriptionLabel.text = description
     }
 }
