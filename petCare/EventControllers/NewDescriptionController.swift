@@ -19,6 +19,7 @@ class NewDescriptionController: UIViewController {
             newDescriptionTextView.text = description
         }
     }
+    
     @IBAction func saveButton(_ sender: Any) {
         newDescriptionDelegate?.setDescription(description: newDescriptionTextView.text)
         self.navigationController?.popViewController(animated: true)
