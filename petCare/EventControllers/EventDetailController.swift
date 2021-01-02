@@ -40,9 +40,13 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewDescriptionSegue", let newDescriptionController = segue.destination as? NewDescriptionController {
+        if segue.identifier == "NewDescriptionSegue", let newDescriptionController = segue.destination as? NewEventDescriptionController {
             newDescriptionController.event = event
             newDescriptionController.newDescriptionDelegate = self
+        }
+        
+        if segue.identifier == "EditEventSegue", let editEventPetController = segue.destination as? AddEventControllerPet {
+            editEventPetController.event = event
         }
     }
     

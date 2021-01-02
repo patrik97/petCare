@@ -12,10 +12,16 @@ import EventKit
 class Event {
     var name: String
     var description: String
-    var startDate: Date
-    var endDate: Date?
+    private(set) var startDate: Date
+    private(set) var endDate: Date?
     var pets: [Pet]
     private var calendarEvent: EKEvent? = nil
+    
+    var hasCalendarEvent: Bool {
+        get {
+            return calendarEvent != nil
+        }
+    }
     
     init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet], addCalendarEvent: Bool) {
         self.name = name
@@ -25,7 +31,7 @@ class Event {
         self.pets = pets
         
         if addCalendarEvent, let end = endDate {
-            requestAccessAndCreateEvent(startDate: startDate, endDate: end, title: name)
+            requestAccessRemoveEventAndCreateNew(startDate: startDate, endDate: end, title: name)
         }
     }
     
@@ -60,7 +66,7 @@ extension Event {
      - Parameter endDate: date when event ends
      - Parameter title: new event name
      */
-    public func requestAccessAndCreateEvent(startDate: Date, endDate: Date, title: String) {
+    public func requestAccessRemoveEventAndCreateNew(startDate: Date, endDate: Date, title: String) {
         let eventStore = EKEventStore()
         let event = EKEvent(eventStore: eventStore)
         event.title = title
@@ -75,6 +81,17 @@ extension Event {
             })
         } else {
             removeOldEventAndCreateNew(eventStore: eventStore, newEvent: event)
+        }
+    }
+    
+    public func removeEvent() {
+        let eventStore = EKEventStore()
+        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
+            eventStore.requestAccess(to: .event, completion: {
+                granted, error in self.removeOldEvent(eventStore: eventStore)
+            })
+        } else {
+            removeOldEvent(eventStore: eventStore)
         }
     }
     

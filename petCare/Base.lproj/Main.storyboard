@@ -538,13 +538,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Of-I3w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Of-I3w">
                                 <rect key="frame" x="72" y="297" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GId-bY-65w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GId-bY-65w">
                                 <rect key="frame" x="76" y="338" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -610,7 +610,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Event Detail" id="wwh-Pu-sQy">
-                        <barButtonItem key="rightBarButtonItem" title="Photos" id="DIH-iN-Zr1"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Edit" id="pRB-GJ-S8H">
+                                <connections>
+                                    <segue destination="VrM-Am-ueB" kind="show" identifier="EditEventSegue" id="Dyy-SV-1ZM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="DIH-iN-Zr1"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="UcL-Qc-Fyd" id="bu3-D8-xR7"/>
@@ -627,7 +634,7 @@
         <!--New Description-->
         <scene sceneID="Pls-mu-pQ0">
             <objects>
-                <viewController id="rAe-71-Qg3" customClass="NewDescriptionController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rAe-71-Qg3" customClass="NewEventDescriptionController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fqC-0d-asl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -639,7 +646,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="w0u-B1-Fek"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -804,6 +811,7 @@
                         <outlet property="calendarAppLabel" destination="fDT-nX-ohQ" id="BMx-H8-7XJ"/>
                         <outlet property="calendarAppSwitch" destination="hRY-iV-TVq" id="Tjn-h8-acx"/>
                         <outlet property="endDateAndTimeLabel" destination="pSC-N1-fnh" id="xYk-ed-gaI"/>
+                        <outlet property="endDateSwitch" destination="0a4-HE-PGb" id="j2g-Do-l28"/>
                         <outlet property="eventDescriptionTextField" destination="o3n-nh-GsH" id="6Cw-yK-G1z"/>
                         <outlet property="eventEndDatePicker" destination="EWx-UW-snN" id="vX0-RZ-pbV"/>
                         <outlet property="eventEndDatePickerHeight" destination="Co8-8r-l04" id="XPZ-Mw-gAA"/>
@@ -880,6 +888,22 @@
             </objects>
             <point key="canvasLocation" x="3274" y="-1724"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="g9R-c5-YQk">
+            <objects>
+                <viewController id="pY2-Up-v6X" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fUE-mH-AdW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wOn-by-W50"/>
+                        <color key="backgroundColor" name="BlueBackground"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZIB-Uv-JOB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIM-To-JdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4232" y="-1724"/>
+        </scene>
         <!--Home-->
         <scene sceneID="ErV-2s-bAO">
             <objects>
@@ -907,6 +931,9 @@
             <point key="canvasLocation" x="961" y="-2448"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dyy-SV-1ZM"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="Other" width="438" height="416"/>

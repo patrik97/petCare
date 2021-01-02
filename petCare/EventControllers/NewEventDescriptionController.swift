@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewDescriptionController: UIViewController {
+class NewEventDescriptionController: UIViewController {
     var event: Event? = nil
     var newDescriptionDelegate: SetEventDescriptionProtocol? = nil
     @IBOutlet weak var newDescriptionTextView: UITextView!

@@ -9,13 +9,32 @@
 import UIKit
 
 class AddEventControllerPet: UITableViewController {
+    private var selectedIndicies: [IndexPath] = []
+    private var selectInViewWillAppear = true
     private var pets: [Pet] = []
+    var event: Event? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let realEvent = event {
+            pets = realEvent.pets
+        }
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if selectInViewWillAppear {
+            for index in selectedIndicies {
+                tableView.selectRow(at: index, animated: false, scrollPosition: .none)
+            }
+        }
+        selectInViewWillAppear = false
+        selectedIndicies = []
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,6 +46,11 @@ class AddEventControllerPet: UITableViewController {
         cell.petNameLabel.text = pet.name
         cell.petImageView.image = UIImage(named: pet.species.rawValue)
         cell.selectionStyle = .none
+        if pets.contains(where: { $0 === pet }) {
+            selectedIndicies.append(indexPath)
+            cell.contentView.backgroundColor = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
+        }
+
         return cell
     }
     
@@ -61,6 +85,7 @@ class AddEventControllerPet: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddEventDetailSegue", let addEventControllerDetail = segue.destination as? AddEventControllerDetail {
             addEventControllerDetail.pets = pets
+            addEventControllerDetail.event = event
             addEventControllerDetail.addEventControllerPet = self
         }
     }
