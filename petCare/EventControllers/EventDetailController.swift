@@ -17,11 +17,16 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var petsLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var textEndLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         eventNameLabel.text = event?.name
         petsLabel.text = event?.names()
         descriptionLabel.text = event?.description
@@ -34,17 +39,13 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
         if let endDate = event?.endDate {
             endLabel.text = formatter.string(from: endDate)
         } else {
-            endLabel.text = "/"
+            endLabel.isHidden = true
+            textEndLabel.isHidden = true
         }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewDescriptionSegue", let newDescriptionController = segue.destination as? NewEventDescriptionController {
-            newDescriptionController.event = event
-            newDescriptionController.newDescriptionDelegate = self
-        }
-        
         if segue.identifier == "EditEventSegue", let editEventPetController = segue.destination as? AddEventControllerPet {
             editEventPetController.event = event
         }

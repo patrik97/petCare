@@ -12,6 +12,8 @@ import EventKit
 class Event {
     var name: String
     var description: String
+    // date cannot be easily changed
+    // there must be classical setter 
     private(set) var startDate: Date
     private(set) var endDate: Date?
     var pets: [Pet]
