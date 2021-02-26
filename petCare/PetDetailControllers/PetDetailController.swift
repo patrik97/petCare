@@ -123,7 +123,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         labelName.text = pet.name
         labelSpecies.text = pet.species.description
         labelSex.text = pet.sex?.description ?? "-"
-        profilePictureImageView.image = UIImage(named: pet.species.rawValue)
+        profilePictureImageView.image = UIImage(named: pet.species.rawValue.lowercased())
         if pet.sex == Sex.female {
             profilePictureImageView.backgroundColor = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
         } else {
@@ -148,7 +148,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
     func changeSpecies(newSpecies: Species) {
         pet?.species = newSpecies
         labelSpecies.text = newSpecies.description
-        profilePictureImageView.image = UIImage(named: newSpecies.rawValue)
+        profilePictureImageView.image = UIImage(named: newSpecies.rawValue.lowercased())
     }
     
     func changeSex(newSex: Sex) {
