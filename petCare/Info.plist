@@ -4,6 +4,10 @@
 <dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Creating events with pets and their birthdays</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pick pictures from gallery - events, pets</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Taking new photos of events and pets</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

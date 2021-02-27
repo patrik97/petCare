@@ -591,7 +591,7 @@
                             </barButtonItem>
                             <barButtonItem title="Photos" id="DIH-iN-Zr1">
                                 <connections>
-                                    <segue destination="BGN-Lb-Vs4" kind="show" id="skJ-xU-IFS"/>
+                                    <segue destination="BGN-Lb-Vs4" kind="show" identifier="EventPhotosSegue" id="skJ-xU-IFS"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -624,7 +624,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tC2-KW-BAb" customClass="GalleryCell" customModule="petCare" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="tC2-KW-BAb" customClass="GalleryCell" customModule="petCare" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Od3-U4-3B8">
@@ -642,6 +642,7 @@
                                         <constraint firstItem="BdA-Rf-NAP" firstAttribute="top" secondItem="Od3-U4-3B8" secondAttribute="top" id="edr-mL-4LV"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <outlet property="photo" destination="BdA-Rf-NAP" id="zCI-j6-bn3"/>
                                 </connections>
@@ -653,7 +654,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Frn-7J-70x">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="U1h-3c-wbV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="U1h-3c-wbV">
+                            <connections>
+                                <action selector="cameraButtonClick:" destination="BGN-Lb-Vs4" id="s80-Zn-Lhs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj2-kg-xfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -919,6 +924,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

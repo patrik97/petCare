@@ -18,7 +18,7 @@ class Event {
     private(set) var endDate: Date?
     var pets: [Pet]
     private var calendarEvent: EKEvent? = nil
-    var photos = [NSData]()
+    var photos = [Data]()
     
     var hasCalendarEvent: Bool {
         get {

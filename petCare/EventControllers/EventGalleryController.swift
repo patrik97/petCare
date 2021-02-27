@@ -13,6 +13,8 @@ class EventGalleryController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     
@@ -21,15 +23,40 @@ class EventGalleryController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? GalleryCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? GalleryCell else {
             return UICollectionViewCell()
         }
         
         if let photoData =  event?.photos[indexPath.row] {
-            cell.photo.image = UIImage(data: photoData as Data)
+            cell.photo.image = UIImage(data: photoData)
         }
         
         return cell
+    }
+    
+    @IBAction func cameraButtonClick(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+extension EventGalleryController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            return
+        }
+        
+        if let selectedImageData: Data = selectedImage.pngData() {
+            event?.photos.append(selectedImageData)
+        }
+        
+        self.collectionView.reloadData()
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 

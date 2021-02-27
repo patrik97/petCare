@@ -49,6 +49,10 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
         if segue.identifier == "EditEventSegue", let editEventPetController = segue.destination as? AddEventControllerPet {
             editEventPetController.event = event
         }
+        
+        if segue.identifier == "EventPhotosSegue", let eventGalleryController = segue.destination as? EventGalleryController {
+            eventGalleryController.event = event
+        }
     }
     
     /**
