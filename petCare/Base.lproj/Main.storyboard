@@ -652,7 +652,9 @@
                             <outlet property="delegate" destination="BGN-Lb-Vs4" id="zH1-2e-vAJ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Frn-7J-70x"/>
+                    <navigationItem key="navigationItem" id="Frn-7J-70x">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="U1h-3c-wbV"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj2-kg-xfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -905,6 +907,7 @@
     <resources>
         <image name="Other" width="438" height="416"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
