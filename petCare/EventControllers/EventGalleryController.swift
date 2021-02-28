@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventGalleryController: UICollectionViewController {
+class EventGalleryController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var event: Event? = nil
     
     override func viewDidLoad() {
@@ -17,9 +17,21 @@ class EventGalleryController: UICollectionViewController {
         collectionView.dataSource = self
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return event?.photos.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (UIScreen.main.bounds.size.width / 2) - 20
+        var height = width * 1.3
+        if let photoData = event?.photos[indexPath.row] {
+            if let image = UIImage(data: photoData) {
+                let ratio = image.size.height / image.size.width
+                height = width * ratio
+            }
+        }
+        
+        return CGSize(width: width, height: height)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -27,7 +39,7 @@ class EventGalleryController: UICollectionViewController {
             return UICollectionViewCell()
         }
         
-        if let photoData =  event?.photos[indexPath.row] {
+        if let photoData = event?.photos[indexPath.row] {
             cell.photo.image = UIImage(data: photoData)
         }
         
