@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40A097304FCA8FABF00B28FE /* Pods_petCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D820C18EC57282A0D783E20 /* Pods_petCare.framework */; };
+		B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */; };
 		B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808BAFB2512690E00AC8662 /* DataStorage.swift */; };
 		B81EC2CE25EBF014004834AA /* Vet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2CD25EBF014004834AA /* Vet.swift */; };
 		B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2D125EBF0DB004834AA /* VetVisit.swift */; };
@@ -36,6 +37,7 @@
 		49F6DE445CE54D1F99130CEA /* Pods-petCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petCare.release.xcconfig"; path = "Target Support Files/Pods-petCare/Pods-petCare.release.xcconfig"; sourceTree = "<group>"; };
 		7D820C18EC57282A0D783E20 /* Pods_petCare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petCare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C0FA7D46569FA05ECAB1C4A /* Pods-petCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petCare.debug.xcconfig"; path = "Target Support Files/Pods-petCare/Pods-petCare.debug.xcconfig"; sourceTree = "<group>"; };
+		B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitsController.swift; sourceTree = "<group>"; };
 		B808BAFB2512690E00AC8662 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		B81EC2CD25EBF014004834AA /* Vet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vet.swift; sourceTree = "<group>"; };
 		B81EC2D125EBF0DB004834AA /* VetVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisit.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		B81EC2CC25EBEFF5004834AA /* HealthControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */,
 			);
 			path = HealthControllers;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84061B2259E173B0051B00B /* AddEventControllerPet.swift in Sources */,
+				B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */,
 				B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */,
 				B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */,
 				B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */,

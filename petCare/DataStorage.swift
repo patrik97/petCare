@@ -11,6 +11,7 @@ import Foundation
 class DataStorage {
     static var pets = [Pet]()
     static var events = [Event]()
+    static var vetVisits = [VetVisit]()
     
     static func addPet(pet: Pet) {
         pets.append(pet)
@@ -18,5 +19,9 @@ class DataStorage {
     
     static func addEvent(event: Event) {
         events.append(event)
+    }
+    
+    static func addVetVisit(vetVisit: VetVisit) {
+        vetVisits.append(vetVisit)
     }
 }
