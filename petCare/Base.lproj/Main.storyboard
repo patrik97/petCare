@@ -505,7 +505,7 @@
         <scene sceneID="RSA-Vw-EFs">
             <objects>
                 <tableViewController id="ja1-cM-b5l" customClass="VetVisitsController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5pa-1J-nCS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5pa-1J-nCS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -586,23 +586,35 @@
             </objects>
             <point key="canvasLocation" x="2260.8695652173915" y="2.6785714285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--New Vet Visit-->
         <scene sceneID="Bad-wZ-6pE">
             <objects>
-                <viewController id="SCx-mc-6hX" sceneMemberID="viewController">
+                <viewController id="SCx-mc-6hX" customClass="AddVetVisitController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jTh-os-wOO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-s4-3JB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-bx-4II">
+                                <rect key="frame" x="10" y="103" width="26" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOd-Qx-HfQ">
+                                <rect key="frame" x="328" y="103" width="76" height="34"/>
+                                <state key="normal" title="Insert vet"/>
+                                <connections>
+                                    <action selector="newVetButtonClick:" destination="SCx-mc-6hX" eventType="touchUpInside" id="xdV-NQ-e9T"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIF-Ul-9hT">
+                                <rect key="frame" x="0.0" y="124" width="414" height="216"/>
                             </pickerView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-S1-DHc">
-                                <rect key="frame" x="0.0" y="309" width="414" height="353.5"/>
-                                <color key="tintColor" systemColor="labelColor"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fZI-9H-ScF">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TOP-UL-M0f">
-                                <rect key="frame" x="10" y="677.5" width="394" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2cD-zn-Ixa">
+                                <rect key="frame" x="10" y="566" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -610,18 +622,34 @@
                         <viewLayoutGuide key="safeArea" id="ozA-gK-5I3"/>
                         <color key="backgroundColor" name="BlueBackground"/>
                         <constraints>
-                            <constraint firstItem="ISc-S1-DHc" firstAttribute="leading" secondItem="jTh-os-wOO" secondAttribute="leading" id="0BX-5P-8IL"/>
-                            <constraint firstItem="ITA-s4-3JB" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" id="6E3-bp-JcG"/>
-                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="ISc-S1-DHc" secondAttribute="trailing" id="Ctq-QW-jhY"/>
-                            <constraint firstItem="ISc-S1-DHc" firstAttribute="top" secondItem="ITA-s4-3JB" secondAttribute="bottom" constant="5" id="DJe-jO-RbZ"/>
-                            <constraint firstItem="TOP-UL-M0f" firstAttribute="top" secondItem="ISc-S1-DHc" secondAttribute="bottom" constant="15" id="J5Q-cu-Kd8"/>
-                            <constraint firstItem="ITA-s4-3JB" firstAttribute="trailing" secondItem="ozA-gK-5I3" secondAttribute="trailing" id="NUO-If-G4u"/>
-                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="TOP-UL-M0f" secondAttribute="trailing" constant="10" id="daL-2e-EE1"/>
-                            <constraint firstItem="TOP-UL-M0f" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="10" id="kgl-Kq-K1T"/>
-                            <constraint firstItem="ITA-s4-3JB" firstAttribute="top" secondItem="ozA-gK-5I3" secondAttribute="top" id="nvx-za-ZXB"/>
+                            <constraint firstItem="W3M-bx-4II" firstAttribute="top" secondItem="ozA-gK-5I3" secondAttribute="top" constant="15" id="40o-JI-aM7"/>
+                            <constraint firstItem="rIF-Ul-9hT" firstAttribute="leading" secondItem="jTh-os-wOO" secondAttribute="leading" id="4Jm-ez-BMj"/>
+                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="XOd-Qx-HfQ" secondAttribute="trailing" constant="10" id="6wW-Zf-kLR"/>
+                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="rIF-Ul-9hT" secondAttribute="trailing" id="7Ii-QM-cA4"/>
+                            <constraint firstItem="fZI-9H-ScF" firstAttribute="leading" secondItem="jTh-os-wOO" secondAttribute="leading" id="8FF-Zh-1kc"/>
+                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="fZI-9H-ScF" secondAttribute="trailing" id="Cpm-SD-996"/>
+                            <constraint firstItem="2cD-zn-Ixa" firstAttribute="top" secondItem="fZI-9H-ScF" secondAttribute="bottom" constant="10" id="JpN-5K-zjv"/>
+                            <constraint firstItem="rIF-Ul-9hT" firstAttribute="top" secondItem="W3M-bx-4II" secondAttribute="bottom" id="QfC-bp-Y6w"/>
+                            <constraint firstItem="XOd-Qx-HfQ" firstAttribute="top" secondItem="ozA-gK-5I3" secondAttribute="top" constant="15" id="Tdf-OG-xTQ"/>
+                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="2cD-zn-Ixa" secondAttribute="trailing" constant="10" id="Vkc-2H-kjw"/>
+                            <constraint firstItem="W3M-bx-4II" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="10" id="ZsV-IN-fR2"/>
+                            <constraint firstItem="2cD-zn-Ixa" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="10" id="vJq-od-PAC"/>
+                            <constraint firstItem="fZI-9H-ScF" firstAttribute="top" secondItem="rIF-Ul-9hT" secondAttribute="bottom" id="wWl-7U-y0p"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="W3C-KJ-Kw5"/>
+                    <navigationItem key="navigationItem" title="New Vet Visit" id="W3C-KJ-Kw5">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="5kQ-RP-7Xo">
+                            <connections>
+                                <action selector="saveButtonClick:" destination="SCx-mc-6hX" id="ftQ-Xv-kHu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="notesTextField" destination="2cD-zn-Ixa" id="YBn-we-6K5"/>
+                        <outlet property="vetLabel" destination="W3M-bx-4II" id="EEr-35-N31"/>
+                        <outlet property="vetsPickerView" destination="rIF-Ul-9hT" id="Bi8-Fh-HX4"/>
+                        <outlet property="visitDatePicker" destination="fZI-9H-ScF" id="Gzh-cw-NVZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Pt-FD-cRJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1071,9 +1099,6 @@
         <namedColor name="BlueBackground">
             <color red="0.10000000149011612" green="0.69999998807907104" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

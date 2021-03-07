@@ -12,6 +12,7 @@ class DataStorage {
     static var pets = [Pet]()
     static var events = [Event]()
     static var vetVisits = [VetVisit]()
+    static var vets = [Vet]()
     
     static func addPet(pet: Pet) {
         pets.append(pet)
@@ -23,5 +24,9 @@ class DataStorage {
     
     static func addVetVisit(vetVisit: VetVisit) {
         vetVisits.append(vetVisit)
+    }
+    
+    static func addVet(vet: Vet) {
+        vets.append(vet)
     }
 }
