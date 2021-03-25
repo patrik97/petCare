@@ -11,7 +11,6 @@
 		B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */; };
 		B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808BAFB2512690E00AC8662 /* DataStorage.swift */; };
 		B811AA8125F4CD04001B0583 /* AddVetVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */; };
-		B811AA8425F4D6B6001B0583 /* AddNewVetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811AA8325F4D6B6001B0583 /* AddNewVetController.swift */; };
 		B81EC2CE25EBF014004834AA /* Vet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2CD25EBF014004834AA /* Vet.swift */; };
 		B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2D125EBF0DB004834AA /* VetVisit.swift */; };
 		B82B0D8024F07B3A008132DC /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B0D7F24F07B3A008132DC /* Species.swift */; };
@@ -42,7 +41,6 @@
 		B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitsController.swift; sourceTree = "<group>"; };
 		B808BAFB2512690E00AC8662 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVetVisitController.swift; sourceTree = "<group>"; };
-		B811AA8325F4D6B6001B0583 /* AddNewVetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVetController.swift; sourceTree = "<group>"; };
 		B81EC2CD25EBF014004834AA /* Vet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vet.swift; sourceTree = "<group>"; };
 		B81EC2D125EBF0DB004834AA /* VetVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisit.swift; sourceTree = "<group>"; };
 		B82B0D7F24F07B3A008132DC /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			children = (
 				B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */,
 				B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */,
-				B811AA8325F4D6B6001B0583 /* AddNewVetController.swift */,
 			);
 			path = HealthControllers;
 			sourceTree = "<group>";
@@ -329,7 +326,6 @@
 				B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */,
 				B82B0D8024F07B3A008132DC /* Species.swift in Sources */,
 				B88015A625420FAE005F6244 /* AddNewDateOfBirthController.swift in Sources */,
-				B811AA8425F4D6B6001B0583 /* AddNewVetController.swift in Sources */,
 				B84DB63424EC58EF00D1B926 /* SceneDelegate.swift in Sources */,
 				B8489CC0259FB1CD006553CA /* EventDetailController.swift in Sources */,
 				B8D4B30E25E93179003DDEBB /* EventGalleryController.swift in Sources */,

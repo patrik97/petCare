@@ -17,12 +17,12 @@ class Event {
     private(set) var startDate: Date
     private(set) var endDate: Date?
     var pets: [Pet]
-    private var calendarEvent: EKEvent? = nil
+    private var eventIdentifier: String? = nil
     var photos = [Data]()
     
     var hasCalendarEvent: Bool {
         get {
-            return calendarEvent != nil
+            return eventIdentifier != nil
         }
     }
     
@@ -34,7 +34,7 @@ class Event {
         self.pets = pets
         
         if addCalendarEvent, let end = endDate {
-            requestAccessRemoveEventAndCreateNew(startDate: startDate, endDate: end, title: name)
+            requestAccessAndCreateEvent(startDate: startDate, endDate: end, title: name)
         }
     }
     
@@ -69,7 +69,7 @@ extension Event {
      - Parameter endDate: date when event ends
      - Parameter title: new event name
      */
-    public func requestAccessRemoveEventAndCreateNew(startDate: Date, endDate: Date, title: String) {
+    public func requestAccessAndCreateEvent(startDate: Date, endDate: Date, title: String) {
         let eventStore = EKEventStore()
         let event = EKEvent(eventStore: eventStore)
         event.title = title
@@ -77,13 +77,14 @@ extension Event {
         event.startDate = startDate
         event.endDate = endDate
         event.calendar = eventStore.defaultCalendarForNewEvents
+        eventIdentifier = event.eventIdentifier
         
         if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
             eventStore.requestAccess(to: .event, completion: {
-                granted, error in self.removeOldEventAndCreateNew(eventStore: eventStore, newEvent: event)
+                granted, error in self.createEvent(eventStore: eventStore, event: event)
             })
         } else {
-            removeOldEventAndCreateNew(eventStore: eventStore, newEvent: event)
+            createEvent(eventStore: eventStore, event: event)
         }
     }
     
@@ -98,31 +99,25 @@ extension Event {
         }
     }
     
-    private func removeOldEventAndCreateNew(eventStore: EKEventStore, newEvent: EKEvent) {
-        if removeOldEvent(eventStore: eventStore) {
-            createEvent(eventStore: eventStore, event: newEvent)
-        }
-    }
-    
-    private func removeOldEvent(eventStore: EKEventStore) -> Bool {
-        if let oldEvent = calendarEvent {
-            do {
-                try eventStore.remove(oldEvent, span: .thisEvent, commit: true)
-                calendarEvent = nil
-            } catch {
-                return false
+    private func removeOldEvent(eventStore: EKEventStore) {
+        if let identifier = eventIdentifier {
+            if let event = eventStore.event(withIdentifier: identifier) {
+                do {
+                    try eventStore.remove(event, span: .thisEvent, commit: true)
+                    eventIdentifier = nil
+                } catch {
+                    print("Error when deleting event")
+                }
             }
         }
-        return true
     }
     
     private func createEvent(eventStore: EKEventStore, event: EKEvent) {
         do {
             try eventStore.save(event, span: .thisEvent)
-            calendarEvent = event
+            eventIdentifier = event.eventIdentifier
         } catch {
-            calendarEvent = nil
-            print("Error saving calendar event")
+            eventIdentifier = nil
         }
     }
 }

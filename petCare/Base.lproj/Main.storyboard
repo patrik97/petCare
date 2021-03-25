@@ -489,7 +489,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="E6L-N0-Jd4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="VrM-Am-ueB" kind="show" id="tex-hT-siw"/>
+                                <segue destination="VrM-Am-ueB" kind="show" identifier="CreateEventSegue" id="tex-hT-siw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -510,10 +510,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" systemColor="linkColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="jsM-C3-S2Q">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search by pet or vet" id="jsM-C3-S2Q">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" name="BlueBackground"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <color key="tintColor" systemColor="linkColor"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -550,7 +551,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
                                     <constraints>
                                         <constraint firstItem="v4u-4B-QcI" firstAttribute="centerY" secondItem="77Z-Rb-dBL" secondAttribute="centerY" id="0vx-CW-e05"/>
                                         <constraint firstItem="CUm-ec-pf8" firstAttribute="leading" secondItem="77Z-Rb-dBL" secondAttribute="leadingMargin" constant="10" id="4Lc-mX-Z4S"/>
@@ -566,6 +567,7 @@
                                     <outlet property="dateLabel" destination="KO4-Uo-GyB" id="vhb-Ta-9Ow"/>
                                     <outlet property="notesLabel" destination="CUm-ec-pf8" id="Sgh-wk-7NG"/>
                                     <outlet property="vetLabel" destination="CZN-bT-ba8" id="WiQ-Uk-Dpj"/>
+                                    <segue destination="SCx-mc-6hX" kind="show" identifier="VetVisitDetailSegue" id="21b-VM-DbW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -577,10 +579,13 @@
                     <navigationItem key="navigationItem" title="Vet Visits" id="rhQ-3F-hbV">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Dpf-Th-rvX">
                             <connections>
-                                <segue destination="SCx-mc-6hX" kind="show" id="aUo-4e-vfR"/>
+                                <segue destination="SCx-mc-6hX" kind="show" identifier="CreateVetVisitSegue" id="aUo-4e-vfR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="vetVisitSearchBar" destination="jsM-C3-S2Q" id="4G8-U0-3dO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="py4-ux-742" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1084,6 +1089,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Dyy-SV-1ZM"/>
+        <segue reference="21b-VM-DbW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

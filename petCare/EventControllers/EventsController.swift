@@ -25,6 +25,16 @@ class EventsController: UIViewController {
         eventCollectionView.reloadData()
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if  identifier == "CreateEventSegue" && DataStorage.pets.isEmpty {
+            let alert = UIAlertController(title: "No pets avaliable!", message: "You have no pets. Add pet before creating an event.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EventDetailSegue", let eventDetailController = segue.destination as? EventDetailController {
             eventDetailController.event = DataStorage.events[eventCollectionView.indexPathsForSelectedItems?.first?.row ?? 0]

@@ -61,19 +61,16 @@ class AddEventControllerDetail: UIViewController {
             return
         }
         
-        let endDate = eventEndDatePicker.isHidden ? nil : eventEndDatePicker.date
+        let endDate = eventEndDatePicker.date
         let description = eventDescriptionTextField.text ?? ""
         let addCalendarEvent = !eventEndDatePicker.isHidden && calendarAppSwitch.isOn
         
         if let editedEvent = event {
             editedEvent.name = eventName
             editedEvent.description = description
-            if addCalendarEvent && (eventStartDatePicker.date != editedEvent.startDate || endDate != editedEvent.endDate), let notOptionalEndDate = endDate {
-                editedEvent.requestAccessRemoveEventAndCreateNew(startDate: eventStartDatePicker.date, endDate: notOptionalEndDate, title: eventName)
-            } else if editedEvent.hasCalendarEvent && !addCalendarEvent {
+            if !addCalendarEvent && editedEvent.hasCalendarEvent {
                 editedEvent.removeEvent()
             }
-            
             self.navigationController?.popBackTo(viewController: EventDetailController.self)
             return
         }

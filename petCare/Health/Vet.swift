@@ -8,10 +8,14 @@
 
 import Foundation
 
-class Vet {
+class Vet: Equatable {
     var name: String
     
     init(name: String) {
         self.name = name
+    }
+    
+    public static func==(lhs: Vet, rhs: Vet) -> Bool {
+        return lhs.name == rhs.name
     }
 }

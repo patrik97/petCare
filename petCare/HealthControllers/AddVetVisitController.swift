@@ -14,11 +14,15 @@ class AddVetVisitController: UIViewController {
     @IBOutlet weak var visitDatePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextField!
     private var selectedVet: Vet? = nil
+    var currentVetVisit: VetVisit? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vetsPickerView.delegate = self
         vetsPickerView.dataSource = self
+        if !DataStorage.vets.isEmpty {
+            vetsPickerView.selectRow(0, inComponent: 0, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +31,14 @@ class AddVetVisitController: UIViewController {
             vetLabel.text = "No vet available."
         } else {
             vetLabel.text = "Vet"
+        }
+        if let vetVisit = currentVetVisit {
+            let vet = DataStorage.vets.first(where: { $0 == vetVisit.vet })
+            let vetIndex = DataStorage.vets.firstIndex(of: vet ?? Vet(name: ""))
+            selectedVet = DataStorage.vets[vetIndex ?? 0]
+            vetsPickerView.selectRow(vetIndex ?? 0, inComponent: 0, animated: true)
+            visitDatePicker.setDate(vetVisit.date, animated: true)
+            notesTextField.text = vetVisit.notes
         }
     }
     
@@ -39,10 +51,23 @@ class AddVetVisitController: UIViewController {
         }
         let vetVisit = VetVisit(date: date, vet: vet)
         vetVisit.notes = notes
-        DataStorage.vetVisits.append(vetVisit)
+        if (currentVetVisit == nil) {
+            DataStorage.vetVisits.append(vetVisit)
+        } else {
+            let currentVet = DataStorage.vetVisits.first(where: { $0 == currentVetVisit })
+            if let current = currentVet {
+                let vetIndex = DataStorage.vetVisits.firstIndex(of: current)
+                if let index = vetIndex {
+                    DataStorage.vetVisits[index] = vetVisit
+                }
+            }
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
+    /**
+     Call alert to inform user there is no vet selected
+     */
     private func alertHandler() {
         let alert = UIAlertController(title: "No vet selected", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
