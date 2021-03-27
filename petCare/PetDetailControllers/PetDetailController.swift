@@ -36,7 +36,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
         setSideMenuParametres()
         
         // to hide empty rows and it's lines
-        self.tableView.tableFooterView = UIView()
+        //self.tableView.tableFooterView = UIView()
         //self.view.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
         self.navigationController?.view.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
         
@@ -183,7 +183,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
 extension PetDetailController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return view.safeAreaLayoutGuide.layoutFrame.height - 200
+            return view.safeAreaLayoutGuide.layoutFrame.height - 250
         }
         return 50
     }

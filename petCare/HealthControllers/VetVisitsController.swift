@@ -65,7 +65,7 @@ class VetVisitsController: UITableViewController {
         cell.dateLabel.text = formatter.string(from: vetVisit.date)
         
         var text: String
-        if vetVisit.notes.count > 13 {
+        if vetVisit.notes.count > 40 {
             let index = vetVisit.notes.index(vetVisit.notes.startIndex, offsetBy: 10)
             text = vetVisit.notes[..<index] + "..."
         } else {
@@ -80,7 +80,7 @@ class VetVisitsController: UITableViewController {
 extension VetVisitsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let text = vetVisitSearchBar.text {
-            if text == "" {
+            if text != "" {
             filteredVisits = DataStorage.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) })
             } else {
                 filteredVisits = DataStorage.vetVisits

@@ -20,6 +20,7 @@ class AddVetVisitController: UIViewController {
         super.viewDidLoad()
         vetsPickerView.delegate = self
         vetsPickerView.dataSource = self
+        notesTextField.delegate = self
         if !DataStorage.vets.isEmpty {
             vetsPickerView.selectRow(0, inComponent: 0, animated: true)
         }
@@ -106,5 +107,14 @@ extension AddVetVisitController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedVet = DataStorage.vets[row]
+    }
+}
+
+extension AddVetVisitController: UITextFieldDelegate {
+    /* not allow notes to be longer then 40 characters */
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text = (notesTextField.text ?? "") as NSString
+        let newText = text.replacingCharacters(in: range, with: string) as NSString
+        return newText.length <= 40
     }
 }
