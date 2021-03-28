@@ -58,4 +58,11 @@ class FoodEvent {
             eventIdentifier = nil
         }
     }
+    
+    public static func ==(lhs: FoodEvent, rhs: FoodEvent) -> Bool {
+        let name = lhs.eventName == rhs.eventName
+        let description = lhs.eventDescription == rhs.eventDescription
+        let date = lhs.dateAndTime == rhs.dateAndTime
+        return name && description && date
+    }
 }

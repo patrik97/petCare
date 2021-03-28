@@ -30,6 +30,7 @@
 		B84DB63E24EC58F800D1B926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB63C24EC58F800D1B926 /* LaunchScreen.storyboard */; };
 		B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */; };
 		B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64924EC605A00D1B926 /* Pet.swift */; };
+		B84F54D4261106E800E3ECA6 /* FoodDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F54D3261106E800E3ECA6 /* FoodDetailController.swift */; };
 		B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DD8AF253C8257003CEFF5 /* Sex.swift */; };
 		B88015A625420FAE005F6244 /* AddNewDateOfBirthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */; };
 		B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D375B5251657340074EBB9 /* PetDetailController.swift */; };
@@ -65,6 +66,7 @@
 		B84DB63F24EC58F800D1B926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPetController.swift; sourceTree = "<group>"; };
 		B84DB64924EC605A00D1B926 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		B84F54D3261106E800E3ECA6 /* FoodDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailController.swift; sourceTree = "<group>"; };
 		B86DD8AF253C8257003CEFF5 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDateOfBirthController.swift; sourceTree = "<group>"; };
 		B8D375B5251657340074EBB9 /* PetDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				B8098DA8261080D30041EBD6 /* FoodController.swift */,
 				B8098DAE261089770041EBD6 /* AddFoodController.swift */,
+				B84F54D3261106E800E3ECA6 /* FoodDetailController.swift */,
 			);
 			path = FoodControllers;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84F54D4261106E800E3ECA6 /* FoodDetailController.swift in Sources */,
 				B84061B2259E173B0051B00B /* AddEventControllerPet.swift in Sources */,
 				B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */,
 				B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */,

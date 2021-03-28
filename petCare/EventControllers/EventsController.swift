@@ -22,6 +22,7 @@ class EventsController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         eventCollectionView.reloadData()
     }
     

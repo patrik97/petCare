@@ -18,6 +18,7 @@ class SideMenuController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         self.tableView.reloadData()
     }
     

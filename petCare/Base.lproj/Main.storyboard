@@ -332,6 +332,7 @@
                                         <connections>
                                             <outlet property="eventDescriptionLabel" destination="NKb-4T-pua" id="JqS-cc-qAs"/>
                                             <outlet property="eventNameLabel" destination="UFl-A9-b7X" id="3Ik-uB-e67"/>
+                                            <segue destination="XKn-w0-hU5" kind="show" identifier="FoodEventDetailSegue" id="Kdx-QW-Iy5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -466,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNh-e9-uQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3273.913043478261" y="-1519.4196428571429"/>
+            <point key="canvasLocation" x="3274" y="-1778"/>
         </scene>
         <!--New Name-->
         <scene sceneID="it1-MD-NPd">
@@ -1216,6 +1217,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYg-up-Jev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5203" y="-563"/>
+        </scene>
+        <!--Food Detail Controller-->
+        <scene sceneID="QNZ-l7-qHf">
+            <objects>
+                <viewController id="XKn-w0-hU5" customClass="FoodDetailController" customModule="petCare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BhR-RO-66a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-j2-8eB">
+                                <rect key="frame" x="10" y="108" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST1-lF-OqM">
+                                <rect key="frame" x="10" y="164" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUe-7a-int">
+                                <rect key="frame" x="10" y="215" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7c-1H-F0D">
+                                <rect key="frame" x="10" y="265.5" width="394" height="208"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="208" id="dO8-9f-fh8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wMl-Kd-3LQ"/>
+                        <color key="backgroundColor" name="BlueBackground"/>
+                        <constraints>
+                            <constraint firstItem="wMl-Kd-3LQ" firstAttribute="trailing" secondItem="i7c-1H-F0D" secondAttribute="trailing" constant="10" id="1Dw-tV-h9E"/>
+                            <constraint firstItem="ST1-lF-OqM" firstAttribute="leading" secondItem="wMl-Kd-3LQ" secondAttribute="leading" constant="10" id="5Di-h0-y7i"/>
+                            <constraint firstItem="i7c-1H-F0D" firstAttribute="leading" secondItem="wMl-Kd-3LQ" secondAttribute="leading" constant="10" id="7Tt-AW-x6d"/>
+                            <constraint firstItem="wMl-Kd-3LQ" firstAttribute="trailing" secondItem="fkZ-j2-8eB" secondAttribute="trailing" constant="10" id="8rG-DU-laj"/>
+                            <constraint firstItem="UUe-7a-int" firstAttribute="top" secondItem="ST1-lF-OqM" secondAttribute="bottom" constant="30" id="N9Q-3j-FYs"/>
+                            <constraint firstItem="wMl-Kd-3LQ" firstAttribute="trailing" secondItem="ST1-lF-OqM" secondAttribute="trailing" constant="10" id="Pqy-SL-QMq"/>
+                            <constraint firstItem="ST1-lF-OqM" firstAttribute="top" secondItem="fkZ-j2-8eB" secondAttribute="bottom" constant="35" id="TZn-VH-k77"/>
+                            <constraint firstItem="UUe-7a-int" firstAttribute="leading" secondItem="wMl-Kd-3LQ" secondAttribute="leading" constant="10" id="XAe-1r-fUZ"/>
+                            <constraint firstItem="fkZ-j2-8eB" firstAttribute="top" secondItem="wMl-Kd-3LQ" secondAttribute="top" constant="20" id="ayi-Db-D3B"/>
+                            <constraint firstItem="wMl-Kd-3LQ" firstAttribute="trailing" secondItem="UUe-7a-int" secondAttribute="trailing" constant="10" id="h0w-4O-xV2"/>
+                            <constraint firstItem="fkZ-j2-8eB" firstAttribute="leading" secondItem="wMl-Kd-3LQ" secondAttribute="leading" constant="10" id="kbE-gA-rAe"/>
+                            <constraint firstItem="i7c-1H-F0D" firstAttribute="top" secondItem="UUe-7a-int" secondAttribute="bottom" constant="30" id="mD3-Kr-u5l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fEU-jh-2Yf">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="pwL-12-jxf"/>
+                            <barButtonItem systemItem="trash" id="Lxg-Cj-k3j">
+                                <connections>
+                                    <action selector="deleteButtonClick:" destination="XKn-w0-hU5" id="YtQ-t4-D9j"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="foodEventDateLabel" destination="UUe-7a-int" id="aRp-8i-8oO"/>
+                        <outlet property="foodEventDescriptionLabel" destination="i7c-1H-F0D" id="TyU-8j-67c"/>
+                        <outlet property="foodEventNameLabel" destination="ST1-lF-OqM" id="4Kf-c1-hdH"/>
+                        <outlet property="petNameLabel" destination="fkZ-j2-8eB" id="OGF-xd-bQk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CCT-4E-wko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3272" y="-1116"/>
         </scene>
         <!--Select Pets-->
         <scene sceneID="oeZ-dB-M7T">
