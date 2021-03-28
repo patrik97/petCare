@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,16 +22,25 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="d9z-gc-Zgq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_launch" translatesAutoresizingMaskIntoConstraints="NO" id="lID-CC-XEx">
+                                <rect key="frame" x="87" y="320" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="GPz-Rz-zdP"/>
+                                    <constraint firstAttribute="width" constant="240" id="xQS-Jc-zI1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
                             <constraint firstItem="hwJ-f2-DXm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="1Qv-C0-24a"/>
+                            <constraint firstItem="lID-CC-XEx" firstAttribute="top" secondItem="hwJ-f2-DXm" secondAttribute="bottom" constant="40" id="HMJ-4e-9H1"/>
                             <constraint firstItem="hwJ-f2-DXm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Uqv-y1-wHP"/>
+                            <constraint firstItem="lID-CC-XEx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xO5-F1-n0j"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,6 +50,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo_launch" width="105" height="83"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

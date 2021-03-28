@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoodController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FoodController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var pet: Pet? = nil
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var foodEventsCollectionView: UICollectionView!
@@ -19,6 +19,16 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
         petNameLabel.text = pet?.name ?? "Pet Name"
         foodEventsCollectionView.dataSource = self
         foodEventsCollectionView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        foodEventsCollectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddFoodSegue", let addFoodController = segue.destination as? AddFoodController {
+            addFoodController.pet = pet
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -37,8 +47,8 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.width / 2) - 8
-        return CGSize(width: width, height: 130)
+        let width = (UIScreen.main.bounds.width / 2) - 10
+        return CGSize(width: width, height: 128.0)
     }
 }
 

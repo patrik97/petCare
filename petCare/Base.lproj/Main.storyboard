@@ -290,7 +290,6 @@
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="71T-qv-Ihg">
                                     <size key="itemSize" width="200" height="128"/>
-                                    <size key="estimatedItemSize" width="200" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -365,7 +364,7 @@
                     <navigationItem key="navigationItem" title="Food" id="Xcq-Ew-mHk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2HJ-M3-QWw">
                             <connections>
-                                <segue destination="GMI-iC-etW" kind="show" id="Eue-xm-Hvh"/>
+                                <segue destination="GMI-iC-etW" kind="show" identifier="AddFoodSegue" id="Eue-xm-Hvh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1311,7 +1310,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dyy-SV-1ZM"/>
+        <segue reference="tex-hT-siw"/>
         <segue reference="aUo-4e-vfR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
