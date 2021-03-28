@@ -13,6 +13,7 @@ class DataStorage {
     static var events = [Event]()
     static var vetVisits = [VetVisit]()
     static var vets = [Vet]()
+    static var selectedPet: Pet? = nil
     
     static func addPet(pet: Pet) {
         pets.append(pet)

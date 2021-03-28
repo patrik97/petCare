@@ -10,6 +10,9 @@
 		40A097304FCA8FABF00B28FE /* Pods_petCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D820C18EC57282A0D783E20 /* Pods_petCare.framework */; };
 		B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */; };
 		B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808BAFB2512690E00AC8662 /* DataStorage.swift */; };
+		B8098DA9261080D30041EBD6 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DA8261080D30041EBD6 /* FoodController.swift */; };
+		B8098DAC261083010041EBD6 /* FoodEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DAB261083010041EBD6 /* FoodEvent.swift */; };
+		B8098DAF261089770041EBD6 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DAE261089770041EBD6 /* AddFoodController.swift */; };
 		B811AA8125F4CD04001B0583 /* AddVetVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */; };
 		B81EC2CE25EBF014004834AA /* Vet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2CD25EBF014004834AA /* Vet.swift */; };
 		B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2D125EBF0DB004834AA /* VetVisit.swift */; };
@@ -40,6 +43,9 @@
 		8C0FA7D46569FA05ECAB1C4A /* Pods-petCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petCare.debug.xcconfig"; path = "Target Support Files/Pods-petCare/Pods-petCare.debug.xcconfig"; sourceTree = "<group>"; };
 		B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitsController.swift; sourceTree = "<group>"; };
 		B808BAFB2512690E00AC8662 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		B8098DA8261080D30041EBD6 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
+		B8098DAB261083010041EBD6 /* FoodEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEvent.swift; sourceTree = "<group>"; };
+		B8098DAE261089770041EBD6 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
 		B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVetVisitController.swift; sourceTree = "<group>"; };
 		B81EC2CD25EBF014004834AA /* Vet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vet.swift; sourceTree = "<group>"; };
 		B81EC2D125EBF0DB004834AA /* VetVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisit.swift; sourceTree = "<group>"; };
@@ -84,6 +90,23 @@
 				7D820C18EC57282A0D783E20 /* Pods_petCare.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8098DA5261080460041EBD6 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				B8098DAB261083010041EBD6 /* FoodEvent.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		B8098DA62610804C0041EBD6 /* FoodControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8098DA8261080D30041EBD6 /* FoodController.swift */,
+				B8098DAE261089770041EBD6 /* AddFoodController.swift */,
+			);
+			path = FoodControllers;
 			sourceTree = "<group>";
 		};
 		B81EC2CB25EBEFED004834AA /* Health */ = {
@@ -167,6 +190,8 @@
 		B84DB63024EC58EF00D1B926 /* petCare */ = {
 			isa = PBXGroup;
 			children = (
+				B8098DA62610804C0041EBD6 /* FoodControllers */,
+				B8098DA5261080460041EBD6 /* Food */,
 				B81EC2CC25EBEFF5004834AA /* HealthControllers */,
 				B81EC2CB25EBEFED004834AA /* Health */,
 				B84061AF259E168A0051B00B /* Event */,
@@ -315,6 +340,7 @@
 				B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */,
 				B833A78B25178B1D006F5FF2 /* AddNewNameController.swift in Sources */,
 				B84061B5259E20150051B00B /* AddEventControllerDetail.swift in Sources */,
+				B8098DA9261080D30041EBD6 /* FoodController.swift in Sources */,
 				B8EA59EF259D38AF00D52E5D /* EventsController.swift in Sources */,
 				B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */,
 				B83867E8259D0A7A005865E0 /* Event.swift in Sources */,
@@ -322,6 +348,8 @@
 				B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */,
 				B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */,
 				B81EC2CE25EBF014004834AA /* Vet.swift in Sources */,
+				B8098DAF261089770041EBD6 /* AddFoodController.swift in Sources */,
+				B8098DAC261083010041EBD6 /* FoodEvent.swift in Sources */,
 				B811AA8125F4CD04001B0583 /* AddVetVisitController.swift in Sources */,
 				B83CF354250D5DFD003BEBB9 /* SideMenuController.swift in Sources */,
 				B82B0D8024F07B3A008132DC /* Species.swift in Sources */,

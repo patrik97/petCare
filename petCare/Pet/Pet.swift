@@ -15,6 +15,7 @@ class Pet {
     var birth: Date? = nil
     var sex: Sex? = nil
     var hasBirthdayReminder: Bool = false
+    var foodEvents = [FoodEvent]()
     
     init(name: String, species: Species) {
         self.name = name
@@ -23,7 +24,6 @@ class Pet {
     
     /**
      Requests access to iOS calendar if not have and creates birthday event every year
-     Currently not using (prepared for future). Main problem is what to do with events when user changes date of birth
      
      - Parameter startDate date when event starts
      - Parameter endDate date when event ends

@@ -120,6 +120,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
      */
     func selectPet(pet: Pet) {
         self.pet = pet;
+        DataStorage.selectedPet = pet
         labelName.text = pet.name
         labelSpecies.text = pet.species.description
         labelSex.text = pet.sex?.description ?? "-"
@@ -183,7 +184,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
 extension PetDetailController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return view.safeAreaLayoutGuide.layoutFrame.height - 250
+            return view.safeAreaLayoutGuide.layoutFrame.height - 200
         }
         return 50
     }
