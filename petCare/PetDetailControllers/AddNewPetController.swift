@@ -11,7 +11,7 @@ import UIKit
 class AddNewPetController: UIViewController {
     let species = Species.allCases.map { $0.rawValue }
     var currentSpecies: Species = Species.dog
-    var petDetailDelegate: PetDetailDelegate?
+    var petDetailDelegate: SelectPetDelegate?
     @IBOutlet weak var speciesPickerView: UIPickerView!
     @IBOutlet weak var nameTextField: UITextField!
     

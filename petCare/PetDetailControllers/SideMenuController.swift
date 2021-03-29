@@ -9,7 +9,7 @@
 import UIKit
 
 class SideMenuController: UITableViewController {
-    var petDetailDelegate: PetDetailDelegate?
+    var selectPetDelegate: SelectPetDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class SideMenuController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        petDetailDelegate?.selectPet(pet: DataStorage.pets[indexPath.row])
+        selectPetDelegate?.selectPet(pet: DataStorage.pets[indexPath.row])
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

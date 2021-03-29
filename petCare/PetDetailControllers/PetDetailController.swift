@@ -10,7 +10,7 @@ import DropDown
 import SideMenu
 import UIKit
 
-protocol PetDetailDelegate {
+protocol SelectPetDelegate {
     func selectPet(pet: Pet)
 }
 
@@ -22,7 +22,7 @@ protocol PetDetailChangeBirthday {
     func changeBirth(newBirth: Date, createBirthdayEvent: Bool)
 }
 
-class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailChangeName, PetDetailChangeBirthday {
+class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailChangeName, PetDetailChangeBirthday {
     var menu: SideMenuNavigationController?
     var pet: Pet?
     @IBOutlet weak var profilePictureImageView: UIImageView!
@@ -65,7 +65,7 @@ class PetDetailController: UITableViewController, PetDetailDelegate, PetDetailCh
      */
     private func setSideMenuParametres() {
         let sideMenuController = SideMenuController()
-        sideMenuController.petDetailDelegate = self
+        sideMenuController.selectPetDelegate = self
         menu = SideMenuNavigationController(rootViewController: sideMenuController)
         menu?.leftSide = true
         SideMenuManager.default.leftMenuNavigationController = menu
