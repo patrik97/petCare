@@ -93,7 +93,7 @@ class FoodEvent {
         }
     }
     
-    private func removeEvent() {
+    public func removeEvent() {
         if eventIdentifier == nil {
             return
         }

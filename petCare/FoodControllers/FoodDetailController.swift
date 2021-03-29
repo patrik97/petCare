@@ -59,6 +59,7 @@ class FoodDetailController: UIViewController {
     
     private func removeEventAt(index: Int?) {
         if let i = index {
+            pet?.foodEvents[i].removeEvent()
             pet?.foodEvents.remove(at: i)
             self.navigationController?.popToRootViewController(animated: true)
         }
