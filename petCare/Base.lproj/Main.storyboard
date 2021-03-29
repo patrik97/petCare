@@ -237,6 +237,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Date of Birth" id="JSk-qi-GfO">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="t5f-sl-2Ky">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="SaveButton:" destination="wLR-xA-AjC" id="aij-Rb-c8O"/>
                             </connections>
@@ -260,6 +261,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" systemColor="linkColor"/>
                         <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -363,7 +367,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Food" id="Xcq-Ew-mHk">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="Jqu-0B-CTy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2HJ-M3-QWw">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="GMI-iC-etW" kind="show" identifier="AddFoodSegue" id="Eue-xm-Hvh"/>
                             </connections>
@@ -453,6 +461,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SJN-i3-rg5">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tEg-DH-Qju">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveButtonClick:" destination="GMI-iC-etW" id="xa3-Ta-xB5"/>
                             </connections>
@@ -496,6 +505,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Name" id="NQq-y7-SG8">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="B1Q-dh-M91">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveButton:" destination="A5d-7F-vNM" id="5eG-7s-DRE"/>
                             </connections>
@@ -541,6 +551,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Pet" id="iOb-8I-UAp">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="qOa-aE-PJ1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveButton:" destination="a5Q-RX-Ic1" id="fl1-O8-MSg"/>
                             </connections>
@@ -707,6 +718,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Events" id="1aL-Th-dpn">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="xCJ-Xd-Wkf">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="E6L-N0-Jd4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -801,6 +815,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Vet Visits" id="rhQ-3F-hbV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dpf-Th-rvX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="SCx-mc-6hX" kind="show" identifier="CreateVetVisitSegue" id="aUo-4e-vfR"/>
                             </connections>
@@ -868,6 +883,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Vet Visit" id="W3C-KJ-Kw5">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="5kQ-RP-7Xo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveButtonClick:" destination="SCx-mc-6hX" id="ftQ-Xv-kHu"/>
                             </connections>
@@ -991,11 +1007,13 @@
                     <navigationItem key="navigationItem" title="Event Detail" id="wwh-Pu-sQy">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="edit" id="pRB-GJ-S8H">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="VrM-Am-ueB" kind="show" identifier="EditEventSegue" id="Dyy-SV-1ZM"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="camera" id="DIH-iN-Zr1">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="BGN-Lb-Vs4" kind="show" identifier="EventPhotosSegue" id="skJ-xU-IFS"/>
                                 </connections>
@@ -1061,6 +1079,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="Frn-7J-70x">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="U1h-3c-wbV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cameraButtonClick:" destination="BGN-Lb-Vs4" id="s80-Zn-Lhs"/>
                             </connections>
@@ -1275,11 +1294,13 @@
                     <navigationItem key="navigationItem" id="fEU-jh-2Yf">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="edit" id="pwL-12-jxf">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="GMI-iC-etW" kind="show" identifier="EditFoodSegue" id="EtG-3i-ufG"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="trash" id="Lxg-Cj-k3j">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="deleteButtonClick:" destination="XKn-w0-hU5" id="YtQ-t4-D9j"/>
                                 </connections>
@@ -1390,7 +1411,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tex-hT-siw"/>
+        <segue reference="Dyy-SV-1ZM"/>
         <segue reference="aUo-4e-vfR"/>
         <segue reference="EtG-3i-ufG"/>
     </inferredMetricsTieBreakers>

@@ -10,10 +10,6 @@ import DropDown
 import SideMenu
 import UIKit
 
-protocol SelectPetDelegate {
-    func selectPet(pet: Pet)
-}
-
 protocol PetDetailChangeName {
     func changeName(newName: String)
 }

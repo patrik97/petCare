@@ -136,7 +136,6 @@
 				B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */,
 				B8D375B5251657340074EBB9 /* PetDetailController.swift */,
 				B833A78A25178B1D006F5FF2 /* AddNewNameController.swift */,
-				B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */,
 				B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */,
 			);
 			path = PetDetailControllers;
@@ -193,6 +192,7 @@
 		B84DB63024EC58EF00D1B926 /* petCare */ = {
 			isa = PBXGroup;
 			children = (
+				B8FA6A0E2612484100E859B0 /* Global */,
 				B8098DA62610804C0041EBD6 /* FoodControllers */,
 				B8098DA5261080460041EBD6 /* Food */,
 				B81EC2CC25EBEFF5004834AA /* HealthControllers */,
@@ -210,6 +210,14 @@
 				B808BAFB2512690E00AC8662 /* DataStorage.swift */,
 			);
 			path = petCare;
+			sourceTree = "<group>";
+		};
+		B8FA6A0E2612484100E859B0 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		E2F4092BD74D83E8875C279A /* Pods */ = {

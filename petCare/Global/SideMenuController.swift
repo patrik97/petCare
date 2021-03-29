@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SelectPetDelegate {
+    func selectPet(pet: Pet)
+}
+
 class SideMenuController: UITableViewController {
     var selectPetDelegate: SelectPetDelegate?
     
