@@ -10,15 +10,28 @@ import UIKit
 
 class AddFoodController: UIViewController, UITextFieldDelegate {
     var pet: Pet? = nil
+    var event: FoodEvent? = nil
     @IBOutlet weak var characterLeftLabel: UILabel!
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var eventDateTimeDatePickerView: UIDatePicker!
+    @IBOutlet weak var showDatePickerSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         eventNameTextField.delegate = self
         eventDateTimeDatePickerView.preferredDatePickerStyle = .wheels
+        if let e = event {
+            characterLeftLabel.text = String(e.eventName.count) + "/10"
+            eventNameTextField.text = e.eventName
+            eventDescriptionTextView.text = e.eventDescription
+            if let d = e.dateAndTime {
+                showDatePickerSwitch.isOn = true
+                eventDateTimeDatePickerView.date = d
+            } else {
+                showDatePickerSwitch.isOn = false
+            }
+        }
     }
     
     @IBAction func didChangeValueSwitch(_ sender: Any) {
@@ -26,11 +39,40 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButtonClick(_ sender: Any) {
-        if eventDateTimeDatePickerView.isHidden {
+        if eventNameTextField.text == nil || eventNameTextField.text == "" {
+            let alert = UIAlertController(title: "Empty name", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        if event != nil {
+            createAlertAndUpdateFoodEvent()
+        }
+        else if eventDateTimeDatePickerView.isHidden {
             saveWithoutDateInCalendar()
         } else {
             addEventToCalendarAlert()
         }
+    }
+    
+    private func createAlertAndUpdateFoodEvent() {
+        if !showDatePickerSwitch.isOn {
+            event?.update(eventName: eventNameTextField.text ?? "", eventDescription: eventDescriptionTextView.text ?? "")
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            let eventName = eventNameTextField.text ?? ""
+            let description = eventDescriptionTextView.text ?? ""
+            let date = eventDateTimeDatePickerView.date
+            let alert = UIAlertController(title: "Update event in iOS calendar", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in self.updateFoodEvent(name: eventName, description: description, date: date, addCalendarItem: true) }))
+            alert.addAction(UIAlertAction(title: "No and remove old", style: .destructive, handler: { _ in self.updateFoodEvent(name: eventName, description: description, date: date, addCalendarItem: false) }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func updateFoodEvent(name: String, description: String, date: Date, addCalendarItem: Bool) {
+        event?.update(eventName: name, eventDescription: description, dateAndTime: date, addCalendarItem: addCalendarItem)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func saveWithDateInCalendar() {

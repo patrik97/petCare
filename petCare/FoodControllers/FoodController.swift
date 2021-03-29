@@ -26,6 +26,16 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
         foodEventsCollectionView.reloadData()
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if  identifier == "AddFoodSegue" && DataStorage.pets.isEmpty {
+            let alert = UIAlertController(title: "No pets avaliable!", message: "You have no pets. Add pet before vet visit.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddFoodSegue", let addFoodController = segue.destination as? AddFoodController {
             addFoodController.pet = pet

@@ -28,6 +28,39 @@ class FoodEvent {
     }
     
     /**
+     Updates name and description and also set's dateAndTime value to nil and removes calendar item if exists
+     
+     - Parameter eventName: event's name
+     - Parameter eventDescription: event's description
+     */
+    public func update(eventName: String, eventDescription: String) {
+        self.eventName = eventName
+        self.eventDescription = eventDescription
+        removeEvent()
+    }
+    
+    /**
+     Updates name, description, date and also add or remove calendar item
+     
+     - Parameter eventName: event's name
+     - Parameter eventDescription: event's description
+     - Parameter dateAndTime: event's date
+     - Parameter addCalendarItem: whether calendar item should be updated or add if needs, otherwise is removed
+     */
+    public func update(eventName: String, eventDescription: String, dateAndTime: Date, addCalendarItem: Bool) {
+        if !addCalendarItem {
+            removeEvent()
+        } else if addCalendarItem && (dateAndTime != self.dateAndTime || eventName != self.eventName) {
+            removeEvent()
+            requestAccessAndCreateEvent(startDate: dateAndTime)
+        }
+        
+        self.eventName = eventName
+        self.eventDescription = eventDescription
+        self.dateAndTime = dateAndTime
+    }
+    
+    /**
      Request access and creates event
      
      - Parameter startDate: date of start
@@ -56,6 +89,33 @@ class FoodEvent {
             eventIdentifier = event.eventIdentifier
         } catch {
             eventIdentifier = nil
+        }
+    }
+    
+    private func removeEvent() {
+        if eventIdentifier == nil {
+            return
+        }
+        let eventStore = EKEventStore()
+        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
+            eventStore.requestAccess(to: .event, completion: {
+                granted, error in self.removeOldEvent(eventStore: eventStore)
+            })
+        } else {
+            removeOldEvent(eventStore: eventStore)
+        }
+    }
+    
+    private func removeOldEvent(eventStore: EKEventStore) {
+        if let identifier = eventIdentifier {
+            if let event = eventStore.event(withIdentifier: identifier) {
+                do {
+                    try eventStore.remove(event, span: .thisEvent, commit: true)
+                    eventIdentifier = nil
+                } catch {
+                    print("Error when deleting food event")
+                }
+            }
         }
     }
     

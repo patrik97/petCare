@@ -28,8 +28,11 @@ class SideMenuController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = DataStorage.pets[indexPath.row].name
+        let pet = DataStorage.pets[indexPath.row]
+        cell.textLabel?.text = pet.name
         cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.00)
+        cell.imageView?.image = UIImage(named: pet.species.rawValue.lowercased())
         cell.backgroundColor = UIColor(named: "BlueBackground")
         return cell
     }

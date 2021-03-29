@@ -463,11 +463,12 @@
                         <outlet property="eventDateTimeDatePickerView" destination="ntT-dU-9XM" id="w5r-3V-NRB"/>
                         <outlet property="eventDescriptionTextView" destination="v64-TJ-ekT" id="pXf-6I-3hL"/>
                         <outlet property="eventNameTextField" destination="qZx-No-un0" id="RoL-fY-04Q"/>
+                        <outlet property="showDatePickerSwitch" destination="5HN-WF-nGM" id="VPa-vz-NfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNh-e9-uQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="-1778"/>
+            <point key="canvasLocation" x="4287" y="-1519"/>
         </scene>
         <!--New Name-->
         <scene sceneID="it1-MD-NPd">
@@ -1273,7 +1274,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="fEU-jh-2Yf">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="pwL-12-jxf"/>
+                            <barButtonItem systemItem="edit" id="pwL-12-jxf">
+                                <connections>
+                                    <segue destination="GMI-iC-etW" kind="show" identifier="EditFoodSegue" id="EtG-3i-ufG"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="trash" id="Lxg-Cj-k3j">
                                 <connections>
                                     <action selector="deleteButtonClick:" destination="XKn-w0-hU5" id="YtQ-t4-D9j"/>
@@ -1387,6 +1392,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="tex-hT-siw"/>
         <segue reference="aUo-4e-vfR"/>
+        <segue reference="EtG-3i-ufG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

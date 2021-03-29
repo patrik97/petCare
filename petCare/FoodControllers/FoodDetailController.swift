@@ -27,6 +27,13 @@ class FoodDetailController: UIViewController {
         foodEventDescriptionLabel.text = foodEvent?.eventDescription
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditFoodSegue", let addFoodController = segue.destination as? AddFoodController {
+            addFoodController.pet = pet
+            addFoodController.event = foodEvent
+        }
+    }
+    
     @IBAction func deleteButtonClick(_ sender: Any) {
         guard let event = foodEvent else {
             return
