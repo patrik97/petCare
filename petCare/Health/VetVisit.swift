@@ -21,4 +21,10 @@ class VetVisit: Equatable {
     public static func ==(lhs: VetVisit, rhs: VetVisit) -> Bool {
         return lhs.date == rhs.date && lhs.notes == rhs.notes && lhs.vet == rhs.vet;
     }
+    
+    public func update(date: Date, vet: Vet, notes: String) {
+        self.date = date
+        self.vet = vet
+        self.notes = notes
+    }
 }

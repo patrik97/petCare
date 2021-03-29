@@ -16,6 +16,7 @@ class Pet {
     var sex: Sex? = nil
     var hasBirthdayReminder: Bool = false
     var foodEvents = [FoodEvent]()
+    var vetVisits = [VetVisit]()
     
     init(name: String, species: Species) {
         self.name = name

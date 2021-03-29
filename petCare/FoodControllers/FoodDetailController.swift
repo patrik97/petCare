@@ -25,6 +25,17 @@ class FoodDetailController: UIViewController {
         petNameLabel.text = pet?.name
         foodEventNameLabel.text = foodEvent?.eventName
         foodEventDescriptionLabel.text = foodEvent?.eventDescription
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .full
+        if let date = foodEvent?.dateAndTime {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full
+            formatter.timeStyle = .medium
+            foodEventDateLabel.text = formatter.string(from: date)
+        } else {
+            foodEventDateLabel.text = ""
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

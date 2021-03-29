@@ -15,6 +15,7 @@ class AddVetVisitController: UIViewController {
     @IBOutlet weak var notesTextField: UITextField!
     private var selectedVet: Vet? = nil
     var currentVetVisit: VetVisit? = nil
+    var pet: Pet? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +54,9 @@ class AddVetVisitController: UIViewController {
         let vetVisit = VetVisit(date: date, vet: vet)
         vetVisit.notes = notes
         if (currentVetVisit == nil) {
-            DataStorage.vetVisits.append(vetVisit)
+            pet?.vetVisits.append(vetVisit)
         } else {
-            let currentVet = DataStorage.vetVisits.first(where: { $0 == currentVetVisit })
-            if let current = currentVet {
-                let vetIndex = DataStorage.vetVisits.firstIndex(of: current)
-                if let index = vetIndex {
-                    DataStorage.vetVisits[index] = vetVisit
-                }
-            }
+            currentVetVisit?.update(date: date, vet: vet, notes: notes)
         }
         self.navigationController?.popViewController(animated: true)
     }

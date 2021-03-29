@@ -21,8 +21,8 @@ class SideMenuController: UITableViewController {
         self.tableView.backgroundColor = UIColor(named: "BlueBackground")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.tableView.reloadData()
     }
     
@@ -42,6 +42,7 @@ class SideMenuController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DataStorage.selectedPet = DataStorage.pets[indexPath.row]
         selectPetDelegate?.selectPet(pet: DataStorage.pets[indexPath.row])
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }

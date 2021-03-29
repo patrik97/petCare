@@ -52,6 +52,13 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         self.tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let p = DataStorage.selectedPet {
+            selectPet(pet: p)
+        }
+    }
+    
     @IBAction func menuButtonItem(_ sender: UIBarButtonItem) {
         present(menu!, animated: true)
     }

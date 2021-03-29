@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SideMenu
 
-class VetVisitsController: UITableViewController {
+class VetVisitsController: UITableViewController, SelectPetDelegate {
+    var menu: SideMenuNavigationController?
+    var pet: Pet? = nil
     @IBOutlet weak var vetVisitSearchBar: UISearchBar!
-    var filteredVisits = DataStorage.vetVisits
+    var filteredVisits = [VetVisit]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +23,42 @@ class VetVisitsController: UITableViewController {
         self.tableView.tableFooterView = UIView()
         self.tableView.backgroundColor = UIColor.link
         vetVisitSearchBar.searchTextField.backgroundColor = UIColor.white
+        setSideMenuParametres()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        filteredVisits = DataStorage.vetVisits
+        pet = DataStorage.selectedPet
+        if let p = pet {
+            filteredVisits = p.vetVisits
+        } else {
+            filteredVisits = []
+        }
         vetVisitSearchBar.text = nil
         tableView.reloadData()
+    }
+    
+    func selectPet(pet: Pet) {
+        self.pet = pet
+        filteredVisits = pet.vetVisits
+        vetVisitSearchBar.text = nil
+        tableView.reloadData()
+    }
+    
+    /**
+    Sets parametres of SideMenu that is used to change pet-context
+     */
+    private func setSideMenuParametres() {
+        let sideMenuController = SideMenuController()
+        sideMenuController.selectPetDelegate = self
+        menu = SideMenuNavigationController(rootViewController: sideMenuController)
+        menu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+    }
+    
+    @IBAction func sideMenuButtonClick(_ sender: Any) {
+        present(menu!, animated: true)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -41,9 +73,13 @@ class VetVisitsController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "VetVisitDetailSegue", let detailVetVisitController = segue.destination as? AddVetVisitController {
+            detailVetVisitController.pet = pet
             if let index = self.tableView.indexPathForSelectedRow?.first {
                 detailVetVisitController.currentVetVisit = filteredVisits[index]
             }
+        }
+        if segue.identifier == "CreateVetVisitSegue", let addVetVisitController = segue.destination as? AddVetVisitController {
+            addVetVisitController.pet = pet
         }
     }
     
@@ -80,13 +116,13 @@ class VetVisitsController: UITableViewController {
 extension VetVisitsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let text = vetVisitSearchBar.text {
-            if text != "" {
-            filteredVisits = DataStorage.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) })
+            if text != "", let p = pet {
+            filteredVisits = p.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) })
             } else {
-                filteredVisits = DataStorage.vetVisits
+                filteredVisits = pet?.vetVisits ?? []
             }
         } else {
-            filteredVisits = DataStorage.vetVisits
+            filteredVisits = pet?.vetVisits ?? []
         }
         
         self.tableView.reloadData()

@@ -31,7 +31,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Other" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-wN-pmI">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-wN-pmI">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                                     <color key="backgroundColor" systemColor="linkColor"/>
                                                     <accessibility key="accessibilityConfiguration">
@@ -369,6 +369,9 @@
                     <navigationItem key="navigationItem" title="Food" id="Xcq-Ew-mHk">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="Jqu-0B-CTy">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="sideMenuButtonClick:" destination="Wne-DI-jS5" id="GIk-ua-M04"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2HJ-M3-QWw">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -718,9 +721,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Events" id="1aL-Th-dpn">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="xCJ-Xd-Wkf">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="E6L-N0-Jd4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -814,6 +814,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vet Visits" id="rhQ-3F-hbV">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="fZf-zu-MIl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="sideMenuButtonClick:" destination="ja1-cM-b5l" id="Xbf-X1-Izb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dpf-Th-rvX">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -1411,20 +1417,20 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dyy-SV-1ZM"/>
+        <segue reference="tex-hT-siw"/>
         <segue reference="aUo-4e-vfR"/>
-        <segue reference="EtG-3i-ufG"/>
+        <segue reference="Eue-xm-Hvh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="Bowl" width="688" height="302"/>
-        <image name="Other" width="438" height="416"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="cross" catalog="system" width="128" height="116"/>
         <image name="cross.fill" catalog="system" width="128" height="116"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="leaf.fill" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="other" width="438" height="416"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="BlueBackground">
             <color red="0.10000000149011612" green="0.69999998807907104" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

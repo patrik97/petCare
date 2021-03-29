@@ -36,6 +36,7 @@ class FoodEvent {
     public func update(eventName: String, eventDescription: String) {
         self.eventName = eventName
         self.eventDescription = eventDescription
+        self.dateAndTime = nil
         removeEvent()
     }
     

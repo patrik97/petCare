@@ -57,7 +57,7 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
     private func createAlertAndUpdateFoodEvent() {
         if !showDatePickerSwitch.isOn {
             event?.update(eventName: eventNameTextField.text ?? "", eventDescription: eventDescriptionTextView.text ?? "")
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popBackTo(viewController: FoodController.self)
         } else {
             let eventName = eventNameTextField.text ?? ""
             let description = eventDescriptionTextView.text ?? ""
@@ -72,7 +72,7 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
     
     private func updateFoodEvent(name: String, description: String, date: Date, addCalendarItem: Bool) {
         event?.update(eventName: name, eventDescription: description, dateAndTime: date, addCalendarItem: addCalendarItem)
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popBackTo(viewController: FoodController.self)
     }
     
     private func saveWithDateInCalendar() {

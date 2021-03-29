@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SideMenu
 
-class FoodController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class FoodController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SelectPetDelegate {
     var pet: Pet? = nil
+    var menu: SideMenuNavigationController?
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var foodEventsCollectionView: UICollectionView!
     
@@ -17,12 +19,31 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         foodEventsCollectionView.dataSource = self
         foodEventsCollectionView.delegate = self
+        setSideMenuParametres()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         pet = DataStorage.selectedPet
         petNameLabel.text = pet?.name ?? "Pet Name"
+        foodEventsCollectionView.reloadData()
+    }
+    
+    /**
+    Sets parametres of SideMenu that is used to change pet-context
+     */
+    private func setSideMenuParametres() {
+        let sideMenuController = SideMenuController()
+        sideMenuController.selectPetDelegate = self
+        menu = SideMenuNavigationController(rootViewController: sideMenuController)
+        menu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+    }
+    
+    func selectPet(pet: Pet) {
+        self.pet = pet
+        petNameLabel.text = pet.name
         foodEventsCollectionView.reloadData()
     }
     
@@ -69,6 +90,10 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (UIScreen.main.bounds.width / 2) - 10
         return CGSize(width: width, height: 128.0)
+    }
+    
+    @IBAction func sideMenuButtonClick(_ sender: Any) {
+        present(menu!, animated: true)
     }
 }
 
