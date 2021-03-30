@@ -1,0 +1,201 @@
+
+/* Class = "UITabBarItem"; title = "Events"; ObjectID = "0P4-Dr-WD6"; */
+"0P4-Dr-WD6.title" = "Události";
+
+/* Class = "UISwitch"; title = "Select end date?"; ObjectID = "0a4-HE-PGb"; */
+"0a4-HE-PGb.title" = "Vybrat datum do?";
+
+/* Class = "UILabel"; text = "Pets"; ObjectID = "1X7-b8-mif"; */
+"1X7-b8-mif.text" = "Mazlíčci";
+
+/* Class = "UINavigationItem"; title = "Events"; ObjectID = "1aL-Th-dpn"; */
+"1aL-Th-dpn.title" = "Události";
+
+/* Class = "UITextField"; placeholder = "Notes"; ObjectID = "2cD-zn-Ixa"; */
+"2cD-zn-Ixa.placeholder" = "Poznámky";
+
+/* Class = "UILabel"; text = "Start date"; ObjectID = "3hp-Of-I3w"; */
+"3hp-Of-I3w.text" = "Datum od";
+
+/* Class = "UILabel"; text = "0/10"; ObjectID = "6Qf-19-Pgm"; */
+"6Qf-19-Pgm.text" = "0/10";
+
+/* Class = "UILabel"; text = "Event name"; ObjectID = "7mH-s2-ueQ"; */
+"7mH-s2-ueQ.text" = "Název události";
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "CUm-ec-pf8"; */
+"CUm-ec-pf8.text" = "Poznámky";
+
+/* Class = "UILabel"; text = "Vet"; ObjectID = "CZN-bT-ba8"; */
+"CZN-bT-ba8.text" = "Veterinář";
+
+/* Class = "UILabel"; text = "Start"; ObjectID = "DwG-Ut-rCt"; */
+"DwG-Ut-rCt.text" = "Začátek";
+
+/* Class = "UINavigationItem"; title = "Pet Detail"; ObjectID = "EAU-9A-SP5"; */
+"EAU-9A-SP5.title" = "Detail mazlíčka";
+
+/* Class = "UITabBarItem"; title = "Food"; ObjectID = "FC1-aK-b83"; */
+"FC1-aK-b83.title" = "Krmení";
+
+/* Class = "UILabel"; text = "End date"; ObjectID = "GId-bY-65w"; */
+"GId-bY-65w.text" = "Datum do";
+
+/* Class = "UILabel"; text = "Date of Birth"; ObjectID = "Gg6-YQ-JCJ"; */
+"Gg6-YQ-JCJ.text" = "Datum narození";
+
+/* Class = "UITabBarItem"; title = "Health"; ObjectID = "HWQ-dl-ynk"; */
+"HWQ-dl-ynk.title" = "Zdraví";
+
+/* Class = "UILabel"; text = "Sex"; ObjectID = "IAA-UU-J7d"; */
+"IAA-UU-J7d.text" = "Pohlaví";
+
+/* Class = "UINavigationItem"; title = "New Date of Birth"; ObjectID = "JSk-qi-GfO"; */
+"JSk-qi-GfO.title" = "Nové datum narození";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Jqu-0B-CTy"; */
+"Jqu-0B-CTy.title" = "Předmět";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "KO4-Uo-GyB"; */
+"KO4-Uo-GyB.text" = "Datum";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "KX3-AL-0fS"; */
+"KX3-AL-0fS.text" = "Popis";
+
+/* Class = "UILabel"; text = "Start:"; ObjectID = "Lnf-kG-ayj"; */
+"Lnf-kG-ayj.text" = "Začátek:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "NKb-4T-pua"; */
+"NKb-4T-pua.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "New Name"; ObjectID = "NQq-y7-SG8"; */
+"NQq-y7-SG8.title" = "Nové jméno";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OzC-uS-cmp"; */
+"OzC-uS-cmp.title" = "Předmět";
+
+/* Class = "UILabel"; text = "labelBirthday"; ObjectID = "P5A-Dq-mHS"; */
+"P5A-Dq-mHS.text" = "labelNarozeni";
+
+/* Class = "UILabel"; text = "Event name"; ObjectID = "QDQ-cL-5d7"; */
+"QDQ-cL-5d7.text" = "Název události";
+
+/* Class = "UILabel"; text = "Select Date and Time"; ObjectID = "QHg-RN-k6D"; */
+"QHg-RN-k6D.text" = "Vyber datum a čas";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ST1-lF-OqM"; */
+"ST1-lF-OqM.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UFl-A9-b7X"; */
+"UFl-A9-b7X.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UUe-7a-int"; */
+"UUe-7a-int.text" = "Label";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "UcL-Qc-Fyd"; */
+"UcL-Qc-Fyd.text" = "Popis";
+
+/* Class = "UINavigationItem"; title = "New Vet Visit"; ObjectID = "W3C-KJ-Kw5"; */
+"W3C-KJ-Kw5.title" = "Nová návštěva veterináře";
+
+/* Class = "UILabel"; text = "Vet"; ObjectID = "W3M-bx-4II"; */
+"W3M-bx-4II.text" = "Veterinář";
+
+/* Class = "UIButton"; normalTitle = "Insert vet"; ObjectID = "XOd-Qx-HfQ"; */
+"XOd-Qx-HfQ.normalTitle" = "Přidat veterináře";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XbV-EM-VHM"; */
+"XbV-EM-VHM.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Food"; ObjectID = "Xcq-Ew-mHk"; */
+"Xcq-Ew-mHk.title" = "Krmení";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "c72-rl-U2C"; */
+"c72-rl-U2C.title" = "Domů";
+
+/* Class = "UILabel"; text = "Pets"; ObjectID = "dMR-li-WNv"; */
+"dMR-li-WNv.text" = "Mazlíčci";
+
+/* Class = "UILabel"; text = "labelSex"; ObjectID = "dxX-ty-Tth"; */
+"dxX-ty-Tth.text" = "labelSex";
+
+/* Class = "UILabel"; text = "labelName"; ObjectID = "f4Y-Yo-hIw"; */
+"f4Y-Yo-hIw.text" = "labelName";
+
+/* Class = "UILabel"; text = "Add event do Calendar app?"; ObjectID = "fDT-nX-ohQ"; */
+"fDT-nX-ohQ.text" = "Přidat event do iOS kalendáře?";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "fZf-zu-MIl"; */
+"fZf-zu-MIl.title" = "Předmět";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fkZ-j2-8eB"; */
+"fkZ-j2-8eB.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "g5Z-B7-cv1"; */
+"g5Z-B7-cv1.title" = "Předmět";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "i7c-1H-F0D"; */
+"i7c-1H-F0D.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Add New Pet"; ObjectID = "iOb-8I-UAp"; */
+"iOb-8I-UAp.title" = "Přidat nového mazlíčka";
+
+/* Class = "UILabel"; text = "End:"; ObjectID = "iiW-FT-8S9"; */
+"iiW-FT-8S9.text" = "Konec:";
+
+/* Class = "UILabel"; text = "Pet"; ObjectID = "il7-KA-jcJ"; */
+"il7-KA-jcJ.text" = "Mazlíček";
+
+/* Class = "UILabel"; text = "Species"; ObjectID = "jeH-Vd-j81"; */
+"jeH-Vd-j81.text" = "Druh";
+
+/* Class = "UISearchBar"; placeholder = "Search by vet"; ObjectID = "jsM-C3-S2Q"; */
+"jsM-C3-S2Q.placeholder" = "Hledat pomocí veterináře";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "kah-DV-BiX"; */
+"kah-DV-BiX.title" = "Další";
+
+/* Class = "UITextField"; placeholder = "Type new name"; ObjectID = "lLm-zi-QvB"; */
+"lLm-zi-QvB.placeholder" = "Nové jméno";
+
+/* Class = "UITextField"; placeholder = "Event name"; ObjectID = "nWi-lU-DSt"; */
+"nWi-lU-DSt.placeholder" = "Název události";
+
+/* Class = "UILabel"; text = "End"; ObjectID = "ntn-Bm-1Ka"; */
+"ntn-Bm-1Ka.text" = "Konec";
+
+/* Class = "UITextField"; placeholder = "Event Description"; ObjectID = "o3n-nh-GsH"; */
+"o3n-nh-GsH.placeholder" = "Popis události";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "oHH-WB-d49"; */
+"oHH-WB-d49.placeholder" = "Jméno";
+
+/* Class = "UILabel"; text = "Select end date?"; ObjectID = "oua-Xt-VE9"; */
+"oua-Xt-VE9.text" = "Vybrat datum do?";
+
+/* Class = "UILabel"; text = "Select new date of birth"; ObjectID = "pQi-AV-zv2"; */
+"pQi-AV-zv2.text" = "Vyber nové datum narození";
+
+/* Class = "UILabel"; text = "End date and time:"; ObjectID = "pSC-N1-fnh"; */
+"pSC-N1-fnh.text" = "Datum a čas konce:";
+
+/* Class = "UITextField"; placeholder = "Event Name"; ObjectID = "qZx-No-un0"; */
+"qZx-No-un0.placeholder" = "Název události";
+
+/* Class = "UINavigationItem"; title = "Select Pets"; ObjectID = "qzN-J8-mGS"; */
+"qzN-J8-mGS.title" = "Vyber mazlíčky";
+
+/* Class = "UINavigationItem"; title = "Vet Visits"; ObjectID = "rhQ-3F-hbV"; */
+"rhQ-3F-hbV.title" = "Návštěvy veterináře";
+
+/* Class = "UILabel"; text = "labelSpecies"; ObjectID = "vwz-c2-HML"; */
+"vwz-c2-HML.text" = "labelSpecies";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "wmh-7f-Vdo"; */
+"wmh-7f-Vdo.text" = "Jméno";
+
+/* Class = "UINavigationItem"; title = "Event Detail"; ObjectID = "wwh-Pu-sQy"; */
+"wwh-Pu-sQy.title" = "Detail události";
+
+/* Class = "UILabel"; text = "Start date and time:"; ObjectID = "xsB-gN-nPT"; */
+"xsB-gN-nPT.text" = "Datum a čas začátku:";

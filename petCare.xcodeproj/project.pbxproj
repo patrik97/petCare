@@ -48,6 +48,8 @@
 		B8098DAB261083010041EBD6 /* FoodEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEvent.swift; sourceTree = "<group>"; };
 		B8098DAE261089770041EBD6 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
 		B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVetVisitController.swift; sourceTree = "<group>"; };
+		B81B55592613A2D30062BEBA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
+		B81B555A2613A2D30062BEBA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B81EC2CD25EBF014004834AA /* Vet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vet.swift; sourceTree = "<group>"; };
 		B81EC2D125EBF0DB004834AA /* VetVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisit.swift; sourceTree = "<group>"; };
 		B82B0D7F24F07B3A008132DC /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
 			);
 			mainGroup = B84DB62524EC58EE00D1B926;
 			productRefGroup = B84DB62F24EC58EF00D1B926 /* Products */;
@@ -379,6 +382,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B84DB63824EC58EF00D1B926 /* Base */,
+				B81B55592613A2D30062BEBA /* cs */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -387,6 +391,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B84DB63D24EC58F800D1B926 /* Base */,
+				B81B555A2613A2D30062BEBA /* cs */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -458,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
