@@ -32,6 +32,7 @@
 		B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DB64924EC605A00D1B926 /* Pet.swift */; };
 		B84F54D4261106E800E3ECA6 /* FoodDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F54D3261106E800E3ECA6 /* FoodDetailController.swift */; };
 		B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DD8AF253C8257003CEFF5 /* Sex.swift */; };
+		B875672C261B562900B77DA0 /* DropDownInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875672B261B562900B77DA0 /* DropDownInitializer.swift */; };
 		B88015A625420FAE005F6244 /* AddNewDateOfBirthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */; };
 		B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D375B5251657340074EBB9 /* PetDetailController.swift */; };
 		B8D4B30E25E93179003DDEBB /* EventGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4B30D25E93179003DDEBB /* EventGalleryController.swift */; };
@@ -70,6 +71,7 @@
 		B84DB64924EC605A00D1B926 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		B84F54D3261106E800E3ECA6 /* FoodDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailController.swift; sourceTree = "<group>"; };
 		B86DD8AF253C8257003CEFF5 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		B875672B261B562900B77DA0 /* DropDownInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownInitializer.swift; sourceTree = "<group>"; };
 		B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDateOfBirthController.swift; sourceTree = "<group>"; };
 		B8D375B5251657340074EBB9 /* PetDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailController.swift; sourceTree = "<group>"; };
 		B8D4B30D25E93179003DDEBB /* EventGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventGalleryController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B83CF353250D5DFD003BEBB9 /* SideMenuController.swift */,
+				B875672B261B562900B77DA0 /* DropDownInitializer.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				B84F54D4261106E800E3ECA6 /* FoodDetailController.swift in Sources */,
 				B84061B2259E173B0051B00B /* AddEventControllerPet.swift in Sources */,
 				B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */,
+				B875672C261B562900B77DA0 /* DropDownInitializer.swift in Sources */,
 				B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */,
 				B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */,
 				B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */,

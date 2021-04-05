@@ -856,35 +856,38 @@
                                     <action selector="newVetButtonClick:" destination="SCx-mc-6hX" eventType="touchUpInside" id="xdV-NQ-e9T"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIF-Ul-9hT">
-                                <rect key="frame" x="0.0" y="137" width="414" height="216"/>
-                            </pickerView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fZI-9H-ScF">
-                                <rect key="frame" x="0.0" y="353" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="184" width="414" height="216"/>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2cD-zn-Ixa">
-                                <rect key="frame" x="10" y="579" width="394" height="34"/>
+                                <rect key="frame" x="10" y="410" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-ky-7YR">
+                                <rect key="frame" x="5" y="147" width="99" height="22"/>
+                                <state key="normal" title="Select Vet" image="arrowtriangle.down.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="selectVetButtonClick:" destination="SCx-mc-6hX" eventType="touchUpInside" id="xah-pc-Vfl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ozA-gK-5I3"/>
                         <color key="backgroundColor" name="BlueBackground"/>
                         <constraints>
                             <constraint firstItem="W3M-bx-4II" firstAttribute="top" secondItem="ozA-gK-5I3" secondAttribute="top" constant="15" id="40o-JI-aM7"/>
-                            <constraint firstItem="rIF-Ul-9hT" firstAttribute="leading" secondItem="jTh-os-wOO" secondAttribute="leading" id="4Jm-ez-BMj"/>
                             <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="XOd-Qx-HfQ" secondAttribute="trailing" constant="10" id="6wW-Zf-kLR"/>
-                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="rIF-Ul-9hT" secondAttribute="trailing" id="7Ii-QM-cA4"/>
                             <constraint firstItem="fZI-9H-ScF" firstAttribute="leading" secondItem="jTh-os-wOO" secondAttribute="leading" id="8FF-Zh-1kc"/>
+                            <constraint firstItem="fZI-9H-ScF" firstAttribute="top" secondItem="zlv-ky-7YR" secondAttribute="bottom" constant="15" id="99K-S6-EP9"/>
                             <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="fZI-9H-ScF" secondAttribute="trailing" id="Cpm-SD-996"/>
                             <constraint firstItem="2cD-zn-Ixa" firstAttribute="top" secondItem="fZI-9H-ScF" secondAttribute="bottom" constant="10" id="JpN-5K-zjv"/>
                             <constraint firstItem="XOd-Qx-HfQ" firstAttribute="centerY" secondItem="W3M-bx-4II" secondAttribute="centerY" id="OW5-rf-k9z"/>
-                            <constraint firstItem="rIF-Ul-9hT" firstAttribute="top" secondItem="W3M-bx-4II" secondAttribute="bottom" id="QfC-bp-Y6w"/>
+                            <constraint firstItem="zlv-ky-7YR" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="5" id="Ofu-v6-M2T"/>
+                            <constraint firstItem="zlv-ky-7YR" firstAttribute="top" secondItem="W3M-bx-4II" secondAttribute="bottom" constant="10" id="QdO-5D-U2Y"/>
                             <constraint firstItem="XOd-Qx-HfQ" firstAttribute="top" secondItem="ozA-gK-5I3" secondAttribute="top" constant="15" id="Tdf-OG-xTQ"/>
                             <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="2cD-zn-Ixa" secondAttribute="trailing" constant="10" id="Vkc-2H-kjw"/>
                             <constraint firstItem="W3M-bx-4II" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="10" id="ZsV-IN-fR2"/>
                             <constraint firstItem="2cD-zn-Ixa" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="10" id="vJq-od-PAC"/>
-                            <constraint firstItem="fZI-9H-ScF" firstAttribute="top" secondItem="rIF-Ul-9hT" secondAttribute="bottom" id="wWl-7U-y0p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Vet Visit" id="W3C-KJ-Kw5">
@@ -898,7 +901,6 @@
                     <connections>
                         <outlet property="notesTextField" destination="2cD-zn-Ixa" id="YBn-we-6K5"/>
                         <outlet property="vetLabel" destination="W3M-bx-4II" id="EEr-35-N31"/>
-                        <outlet property="vetsPickerView" destination="rIF-Ul-9hT" id="Bi8-Fh-HX4"/>
                         <outlet property="visitDatePicker" destination="fZI-9H-ScF" id="Gzh-cw-NVZ"/>
                     </connections>
                 </viewController>
@@ -1424,6 +1426,7 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="Bowl" width="688" height="302"/>
+        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="cross" catalog="system" width="128" height="116"/>
         <image name="cross.fill" catalog="system" width="128" height="116"/>

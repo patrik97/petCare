@@ -198,7 +198,7 @@ extension PetDetailController {
             if let species = pet?.species {
                 dropDown.selectRow(species.index)
             }
-            dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.selectionBackgroundColor = UIColor.lightGray
             dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSpecies(newSpecies: Species.allCases[index])}
             dropDown.show()
         }
@@ -208,7 +208,7 @@ extension PetDetailController {
             if let sex = pet?.sex {
                 dropDown.selectRow(sex.index)
             }
-            dropDown.selectionBackgroundColor = UIColor.blue
+            dropDown.selectionBackgroundColor = UIColor.lightGray
             dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeSex(newSex: Sex.allCases[index]) }
             dropDown.show()
         }

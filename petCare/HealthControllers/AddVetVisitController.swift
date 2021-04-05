@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import DropDown
 
 class AddVetVisitController: UIViewController {
     @IBOutlet weak var vetLabel: UILabel!
-    @IBOutlet weak var vetsPickerView: UIPickerView!
     @IBOutlet weak var visitDatePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextField!
     private var selectedVet: Vet? = nil
@@ -19,12 +19,7 @@ class AddVetVisitController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vetsPickerView.delegate = self
-        vetsPickerView.dataSource = self
         notesTextField.delegate = self
-        if !DataStorage.vets.isEmpty {
-            vetsPickerView.selectRow(0, inComponent: 0, animated: true)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,16 +27,31 @@ class AddVetVisitController: UIViewController {
         if DataStorage.vets.isEmpty {
             vetLabel.text = "No vet available."
         } else {
-            vetLabel.text = "Vet"
+            vetLabel.text = "Vet: " + DataStorage.vets[0].name
+            selectedVet = DataStorage.vets[0]
         }
         if let vetVisit = currentVetVisit {
             let vet = DataStorage.vets.first(where: { $0 == vetVisit.vet })
             let vetIndex = DataStorage.vets.firstIndex(of: vet ?? Vet(name: ""))
             selectedVet = DataStorage.vets[vetIndex ?? 0]
-            vetsPickerView.selectRow(vetIndex ?? 0, inComponent: 0, animated: true)
             visitDatePicker.setDate(vetVisit.date, animated: true)
             notesTextField.text = vetVisit.notes
         }
+    }
+    
+    @IBAction func selectVetButtonClick(_ sender: Any) {
+        guard let vet = selectedVet else {
+            return
+        }
+        let anchorView: AnchorView? = sender as? AnchorView
+        let dropDown = DropDownInitializer.Initialize(dataSource: DataStorage.vets.map({ $0.name }), anchorView: anchorView, width: self.view.frame.size.width, selectedRow: DataStorage.vets.firstIndex(of: vet) ?? 0)
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.selectVet(vet: DataStorage.vets[index]) }
+        dropDown.show()
+    }
+    
+    private func selectVet(vet: Vet) {
+        selectedVet = vet
+        vetLabel.text = "Vet: " + vet.name
     }
     
     @IBAction func saveButtonClick(_ sender: Any) {
@@ -75,33 +85,12 @@ class AddVetVisitController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addTextField(configurationHandler: {textField in textField.placeholder = "Name"})
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in if let name = alert.textFields?.first?.text {
-            DataStorage.vets.append(Vet(name: name))
-            self.vetsPickerView.reloadAllComponents()
-            self.vetsPickerView.selectRow(0, inComponent: 0, animated: true)
-            self.pickerView(self.vetsPickerView, didSelectRow: 0, inComponent: 0)
-            if self.vetLabel.text != "Vet" {
-                self.vetLabel.text = "Vet"
-            }
+            let newVet = Vet(name: name)
+            DataStorage.vets.append(newVet)
+            self.selectedVet = newVet
+            self.vetLabel.text = "Vet: " + newVet.name
         }}))
         self.present(alert, animated: true, completion: nil)
-    }
-}
-
-extension AddVetVisitController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return DataStorage.vets.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return DataStorage.vets[row].name
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedVet = DataStorage.vets[row]
     }
 }
 
