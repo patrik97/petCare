@@ -16,6 +16,9 @@ class AddVetVisitController: UIViewController {
     private var selectedVet: Vet? = nil
     var currentVetVisit: VetVisit? = nil
     var pet: Pet? = nil
+    @IBOutlet weak var repeatSlider: UISlider!
+    @IBOutlet weak var repeatLabel: UILabel!
+    @IBOutlet weak var repeatFrequencyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +94,18 @@ class AddVetVisitController: UIViewController {
             self.vetLabel.text = "Vet: " + newVet.name
         }}))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func selectRepeatingButtonClick(_ sender: Any) {
+        let dataSource = ["Yearly", "Monthly", "Daily"]
+        let anchorView: AnchorView? = sender as? AnchorView
+        let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: repeatFrequencyLabel.text ?? "") ?? 0)
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.repeatFrequencyLabel.text = dataSource[index] }
+        dropDown.show()
+    }
+    
+    @IBAction func sliderChangedValue(_ sender: Any) {
+        repeatLabel.text = String(Int(repeatSlider.value)) + "x"
     }
 }
 
