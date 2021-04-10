@@ -34,7 +34,7 @@ class Event {
         self.pets = pets
         
         if addCalendarEvent, let end = endDate {
-            requestAccessAndCreateEvent(startDate: startDate, endDate: end, title: name)
+            eventIdentifier = CalendarManager.createEvent(title: name, isAllDay: false, startDate: startDate, endDate: end)
         }
     }
     
@@ -56,68 +56,12 @@ class Event {
         }
         return names
     }
-}
-
-// Extension that works with iOS calendar
-extension Event {
-    /**
-     Requests access to iOS calendar, remove old event and add new event
-     Event cannot be renamed alone without change date. It is needed to rename event, change date and then event can be renamed
-     Rename means remove old event and add new one
-     
-     - Parameter startDate: date when event starts
-     - Parameter endDate: date when event ends
-     - Parameter title: new event name
-     */
-    public func requestAccessAndCreateEvent(startDate: Date, endDate: Date, title: String) {
-        let eventStore = EKEventStore()
-        let event = EKEvent(eventStore: eventStore)
-        event.title = title
-        event.isAllDay = false
-        event.startDate = startDate
-        event.endDate = endDate
-        event.calendar = eventStore.defaultCalendarForNewEvents
-        eventIdentifier = event.eventIdentifier
-        
-        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
-            eventStore.requestAccess(to: .event, completion: {
-                granted, error in self.createEvent(eventStore: eventStore, event: event)
-            })
-        } else {
-            createEvent(eventStore: eventStore, event: event)
-        }
-    }
     
     public func removeEvent() {
-        let eventStore = EKEventStore()
-        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
-            eventStore.requestAccess(to: .event, completion: {
-                granted, error in self.removeOldEvent(eventStore: eventStore)
-            })
-        } else {
-            removeOldEvent(eventStore: eventStore)
-        }
-    }
-    
-    private func removeOldEvent(eventStore: EKEventStore) {
         if let identifier = eventIdentifier {
-            if let event = eventStore.event(withIdentifier: identifier) {
-                do {
-                    try eventStore.remove(event, span: .thisEvent, commit: true)
-                    eventIdentifier = nil
-                } catch {
-                    print("Error when deleting event")
-                }
+            if CalendarManager.removeEvent(withIdentifier: identifier) {
+                eventIdentifier = nil
             }
-        }
-    }
-    
-    private func createEvent(eventStore: EKEventStore, event: EKEvent) {
-        do {
-            try eventStore.save(event, span: .thisEvent)
-            eventIdentifier = event.eventIdentifier
-        } catch {
-            eventIdentifier = nil
         }
     }
 }
