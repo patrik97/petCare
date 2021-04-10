@@ -49,16 +49,14 @@ class CalendarManager {
      
      - Returns unique event identifier if success, else nil
      */
-    public static func createEvent(title: String, isAllDay: Bool, startDate: Date, endDate: Date, frequency: Calendar.Component, interval: Int) -> String? {
+    public static func createEvent(title: String, isAllDay: Bool, startDate: Date, endDate: Date, reccurenceCount: Int) -> String? {
         let eventStore = EKEventStore()
         let event = EKEvent(eventStore: eventStore)
         event.title = title
         event.isAllDay = false
         event.startDate = startDate
         event.endDate = endDate
-        if let reccurenceEndDate = Calendar.current.date(byAdding: frequency, value: interval, to: startDate) {
-            event.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: .yearly, interval: 1, end: EKRecurrenceEnd(end: reccurenceEndDate)))
-        }
+        event.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: .yearly, interval: 1, end: EKRecurrenceEnd(occurrenceCount: reccurenceCount)))
         
         event.calendar = eventStore.defaultCalendarForNewEvents
         let eventIdentifier = event.eventIdentifier

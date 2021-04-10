@@ -19,6 +19,8 @@ class AddVetVisitController: UIViewController {
     @IBOutlet weak var repeatSlider: UISlider!
     @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var repeatFrequencyLabel: UILabel!
+    var vetVisitType = VetVisitType.Examination
+    @IBOutlet weak var vetVisitTypeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +66,11 @@ class AddVetVisitController: UIViewController {
             alertHandler()
             return
         }
-        let vetVisit = VetVisit(date: date, vet: vet)
-        vetVisit.notes = notes
+        let vetVisit = VetVisit(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: repeatFrequencyLabel.text, interval: Int(repeatSlider.value))
         if (currentVetVisit == nil) {
             pet?.vetVisits.append(vetVisit)
         } else {
-            currentVetVisit?.update(date: date, vet: vet, notes: notes)
+            currentVetVisit?.update(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: repeatFrequencyLabel.text, interval: Int(repeatSlider.value))
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -106,6 +107,19 @@ class AddVetVisitController: UIViewController {
     
     @IBAction func sliderChangedValue(_ sender: Any) {
         repeatLabel.text = String(Int(repeatSlider.value)) + "x"
+    }
+    
+    @IBAction func selectTypeButtonClick(_ sender: Any) {
+        let dataSource = VetVisitType.allTypesString()
+        let anchorView: AnchorView? = sender as? AnchorView
+        let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: vetVisitTypeLabel.text ?? "") ?? 0)
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeVetVisitType(index: index) }
+        dropDown.show()
+    }
+    
+    private func changeVetVisitType(index: Int) {
+        vetVisitType = VetVisitType.allCases[index]
+        vetVisitTypeLabel.text = VetVisitType.allTypesString()[index]
     }
 }
 
