@@ -11,6 +11,7 @@
 		B8043DE52621A65700A180A3 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DE42621A65700A180A3 /* CalendarManager.swift */; };
 		B8043DE82621E2DB00A180A3 /* VetVisitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DE72621E2DB00A180A3 /* VetVisitType.swift */; };
 		B8043DEB26232B0B00A180A3 /* VetVisitFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DEA26232B0B00A180A3 /* VetVisitFrequency.swift */; };
+		B8043DEE262361E000A180A3 /* VetVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DED262361E000A180A3 /* VetVisitController.swift */; };
 		B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */; };
 		B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808BAFB2512690E00AC8662 /* DataStorage.swift */; };
 		B8098DA9261080D30041EBD6 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DA8261080D30041EBD6 /* FoodController.swift */; };
@@ -49,6 +50,7 @@
 		B8043DE42621A65700A180A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		B8043DE72621E2DB00A180A3 /* VetVisitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitType.swift; sourceTree = "<group>"; };
 		B8043DEA26232B0B00A180A3 /* VetVisitFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitFrequency.swift; sourceTree = "<group>"; };
+		B8043DED262361E000A180A3 /* VetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitController.swift; sourceTree = "<group>"; };
 		B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitsController.swift; sourceTree = "<group>"; };
 		B808BAFB2512690E00AC8662 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		B8098DA8261080D30041EBD6 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */,
 				B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */,
+				B8043DED262361E000A180A3 /* VetVisitController.swift */,
 			);
 			path = HealthControllers;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				B84DB64A24EC605A00D1B926 /* Pet.swift in Sources */,
 				B833A78B25178B1D006F5FF2 /* AddNewNameController.swift in Sources */,
 				B84061B5259E20150051B00B /* AddEventControllerDetail.swift in Sources */,
+				B8043DEE262361E000A180A3 /* VetVisitController.swift in Sources */,
 				B8098DA9261080D30041EBD6 /* FoodController.swift in Sources */,
 				B8EA59EF259D38AF00D52E5D /* EventsController.swift in Sources */,
 				B84DB64824EC5FEE00D1B926 /* AddNewPetController.swift in Sources */,

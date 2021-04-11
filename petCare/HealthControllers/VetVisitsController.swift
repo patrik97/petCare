@@ -13,7 +13,6 @@ class VetVisitsController: UITableViewController, SelectPetDelegate {
     var menu: SideMenuNavigationController?
     var pet: Pet? = nil
     @IBOutlet weak var vetVisitSearchBar: UISearchBar!
-    @IBOutlet var swipeGestureRecognizer: UISwipeGestureRecognizer!
     var filteredVisits = [VetVisit]()
     
     override func viewDidLoad() {
@@ -160,7 +159,7 @@ class VetVisitsController: UITableViewController, SelectPetDelegate {
         return configuration
     }
 }
-/*
+
 extension VetVisitsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let text = vetVisitSearchBar.text {
@@ -175,7 +174,7 @@ extension VetVisitsController: UISearchBarDelegate {
         
         self.tableView.reloadData()
     }
-}*/
+}
 
 class VetVisitCell: UITableViewCell {
     @IBOutlet weak var vetLabel: UILabel!
