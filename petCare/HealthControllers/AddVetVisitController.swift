@@ -19,6 +19,7 @@ class AddVetVisitController: UIViewController {
     @IBOutlet weak var repeatSlider: UISlider!
     @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var repeatFrequencyLabel: UILabel!
+    var vetVisitFrequency = VetVisitFrequency.Yearly
     var vetVisitType = VetVisitType.Examination
     @IBOutlet weak var vetVisitTypeLabel: UILabel!
     
@@ -41,6 +42,12 @@ class AddVetVisitController: UIViewController {
             selectedVet = DataStorage.vets[vetIndex ?? 0]
             visitDatePicker.setDate(vetVisit.date, animated: true)
             notesTextField.text = vetVisit.notes
+            vetVisitType = vetVisit.type
+            vetVisitTypeLabel.text = vetVisit.type.rawValue
+            repeatSlider.value = Float(vetVisit.interval)
+            repeatLabel.text = String(Int(repeatSlider.value)) + "x"
+            vetVisitFrequency = vetVisit.frequency
+            repeatFrequencyLabel.text = vetVisitFrequency.rawValue
         }
     }
     
@@ -66,11 +73,11 @@ class AddVetVisitController: UIViewController {
             alertHandler()
             return
         }
-        let vetVisit = VetVisit(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: repeatFrequencyLabel.text, interval: Int(repeatSlider.value))
+        let vetVisit = VetVisit(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: vetVisitFrequency, interval: Int(repeatSlider.value))
         if (currentVetVisit == nil) {
             pet?.vetVisits.append(vetVisit)
         } else {
-            currentVetVisit?.update(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: repeatFrequencyLabel.text, interval: Int(repeatSlider.value))
+            currentVetVisit?.update(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: vetVisitFrequency, interval: Int(repeatSlider.value))
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -98,11 +105,16 @@ class AddVetVisitController: UIViewController {
     }
     
     @IBAction func selectRepeatingButtonClick(_ sender: Any) {
-        let dataSource = ["Yearly", "Monthly", "Daily"]
+        let dataSource = VetVisitFrequency.allTypesString()
         let anchorView: AnchorView? = sender as? AnchorView
         let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: repeatFrequencyLabel.text ?? "") ?? 0)
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.repeatFrequencyLabel.text = dataSource[index] }
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeFrequency(index: index) }
         dropDown.show()
+    }
+    
+    private func changeFrequency(index: Int) {
+        vetVisitFrequency = VetVisitFrequency.allCases[index]
+        repeatFrequencyLabel.text = vetVisitFrequency.rawValue
     }
     
     @IBAction func sliderChangedValue(_ sender: Any) {

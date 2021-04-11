@@ -13,14 +13,16 @@ class VetVisitsController: UITableViewController, SelectPetDelegate {
     var menu: SideMenuNavigationController?
     var pet: Pet? = nil
     @IBOutlet weak var vetVisitSearchBar: UISearchBar!
+    @IBOutlet var swipeGestureRecognizer: UISwipeGestureRecognizer!
     var filteredVisits = [VetVisit]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        vetVisitSearchBar.delegate = self
-        self.tableView.tableFooterView = UIView()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        //vetVisitSearchBar.delegate = self
+        //self.tableView.tableFooterView = UIView()
+        self.tableView.isScrollEnabled = true
         self.tableView.backgroundColor = UIColor.link
         vetVisitSearchBar.searchTextField.backgroundColor = UIColor.white
         setSideMenuParametres()
@@ -100,6 +102,12 @@ class VetVisitsController: UITableViewController, SelectPetDelegate {
         formatter.timeStyle = .none
         cell.dateLabel.text = formatter.string(from: vetVisit.date)
         
+        var repeating = vetVisit.frequency.rawValue
+        repeating.removeLast()
+        repeating.removeLast()
+        repeating = "every " + repeating.lowercased() + " " + String(vetVisit.interval) + "x"
+        cell.typeLabel.text = vetVisit.type.rawValue + ", " + repeating
+        
         var text: String
         if vetVisit.notes.count > 40 {
             let index = vetVisit.notes.index(vetVisit.notes.startIndex, offsetBy: 10)
@@ -111,8 +119,48 @@ class VetVisitsController: UITableViewController, SelectPetDelegate {
         
         return cell
     }
-}
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            pet?.vetVisits[indexPath.row].removeEvent()
+            pet?.vetVisits.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    private func removeRowAt(indexPath: IndexPath) {
+        pet?.vetVisits[indexPath.row].removeEvent()
+        pet?.vetVisits.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, completion) in self.removeRowAt(indexPath: indexPath)
+            completion(true)
+        })
+        deleteAction.backgroundColor = .red
 
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, completion) in self.removeRowAt(indexPath: indexPath)
+            completion(true)
+        })
+        deleteAction.backgroundColor = .red
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+}
+/*
 extension VetVisitsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let text = vetVisitSearchBar.text {
@@ -127,10 +175,11 @@ extension VetVisitsController: UISearchBarDelegate {
         
         self.tableView.reloadData()
     }
-}
+}*/
 
 class VetVisitCell: UITableViewCell {
     @IBOutlet weak var vetLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
 }

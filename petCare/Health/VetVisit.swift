@@ -16,21 +16,23 @@ class VetVisit: Equatable {
     var type: VetVisitType
     var interval: Int
     var eventIdentifier: String? = nil
+    var frequency: VetVisitFrequency
     
-    init(date: Date, vet: Vet, notes: String, type: VetVisitType, frequency: String?, interval: Int) {
+    init(date: Date, vet: Vet, notes: String, type: VetVisitType, frequency: VetVisitFrequency, interval: Int) {
         self.date = date
         self.vet = vet
         self.notes = notes
         self.type = type
         self.interval = interval
-        eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(10 * 60 * 60), reccurenceCount: interval)
+        self.frequency = frequency
+        //eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
     }
     
     public static func ==(lhs: VetVisit, rhs: VetVisit) -> Bool {
-        return lhs.date == rhs.date && lhs.notes == rhs.notes && lhs.vet == rhs.vet;
+        return lhs.date == rhs.date && lhs.notes == rhs.notes && lhs.vet == rhs.vet && lhs.type == rhs.type && lhs.interval == rhs.interval && lhs.eventIdentifier == rhs.eventIdentifier && lhs.frequency == rhs.frequency;
     }
     
-    public func update(date: Date, vet: Vet, notes: String, type: VetVisitType, frequency: String?, interval: Int) {
+    public func update(date: Date, vet: Vet, notes: String, type: VetVisitType, frequency: VetVisitFrequency, interval: Int) {
         let updateEvent = date != self.date || type != self.type || self.interval != interval
         
         self.date = date
@@ -38,14 +40,30 @@ class VetVisit: Equatable {
         self.notes = notes
         self.interval = interval
         self.type = type
+        self.frequency = frequency
         
         if updateEvent {
-            if let identifier = eventIdentifier {
-                if CalendarManager.removeEvent(withIdentifier: identifier) {
-                    eventIdentifier = nil
-                }
-            }
-            eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(10 * 60 * 60), reccurenceCount: interval)
+            removeEvent()
+            //eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
         }
+    }
+    
+    public func removeEvent() {
+        if let identifier = eventIdentifier {
+            if CalendarManager.removeEvent(withIdentifier: identifier) {
+                eventIdentifier = nil
+            }
+        }
+    }
+    
+    public func delete() {
+        if let identifier = eventIdentifier {
+            if CalendarManager.removeEvent(withIdentifier: identifier) {
+                eventIdentifier = nil
+            }
+        }
+        
+        let owner = DataStorage.pets.first(where: { $0.vetVisits.contains(self) })
+        owner?.vetVisits.removeAll(where: { $0 == self })
     }
 }
