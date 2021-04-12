@@ -12,12 +12,12 @@
 		B8043DE82621E2DB00A180A3 /* VetVisitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DE72621E2DB00A180A3 /* VetVisitType.swift */; };
 		B8043DEB26232B0B00A180A3 /* VetVisitFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DEA26232B0B00A180A3 /* VetVisitFrequency.swift */; };
 		B8043DEE262361E000A180A3 /* VetVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8043DED262361E000A180A3 /* VetVisitController.swift */; };
-		B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */; };
 		B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808BAFB2512690E00AC8662 /* DataStorage.swift */; };
 		B8098DA9261080D30041EBD6 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DA8261080D30041EBD6 /* FoodController.swift */; };
 		B8098DAC261083010041EBD6 /* FoodEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DAB261083010041EBD6 /* FoodEvent.swift */; };
 		B8098DAF261089770041EBD6 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DAE261089770041EBD6 /* AddFoodController.swift */; };
 		B811AA8125F4CD04001B0583 /* AddVetVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */; };
+		B8149A122624C86800B8D718 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8149A112624C86800B8D718 /* EventType.swift */; };
 		B81EC2CE25EBF014004834AA /* Vet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2CD25EBF014004834AA /* Vet.swift */; };
 		B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2D125EBF0DB004834AA /* VetVisit.swift */; };
 		B82B0D8024F07B3A008132DC /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B0D7F24F07B3A008132DC /* Species.swift */; };
@@ -51,12 +51,12 @@
 		B8043DE72621E2DB00A180A3 /* VetVisitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitType.swift; sourceTree = "<group>"; };
 		B8043DEA26232B0B00A180A3 /* VetVisitFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitFrequency.swift; sourceTree = "<group>"; };
 		B8043DED262361E000A180A3 /* VetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitController.swift; sourceTree = "<group>"; };
-		B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetVisitsController.swift; sourceTree = "<group>"; };
 		B808BAFB2512690E00AC8662 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		B8098DA8261080D30041EBD6 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
 		B8098DAB261083010041EBD6 /* FoodEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEvent.swift; sourceTree = "<group>"; };
 		B8098DAE261089770041EBD6 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
 		B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVetVisitController.swift; sourceTree = "<group>"; };
+		B8149A112624C86800B8D718 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		B81B55592613A2D30062BEBA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		B81B555A2613A2D30062BEBA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B81EC2CD25EBF014004834AA /* Vet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vet.swift; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 		B81EC2CC25EBEFF5004834AA /* HealthControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B80449C625EC2B4600DA4AE8 /* VetVisitsController.swift */,
 				B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */,
 				B8043DED262361E000A180A3 /* VetVisitController.swift */,
 			);
@@ -182,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B83867E7259D0A7A005865E0 /* Event.swift */,
+				B8149A112624C86800B8D718 /* EventType.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -364,7 +364,6 @@
 			files = (
 				B84F54D4261106E800E3ECA6 /* FoodDetailController.swift in Sources */,
 				B84061B2259E173B0051B00B /* AddEventControllerPet.swift in Sources */,
-				B80449C725EC2B4600DA4AE8 /* VetVisitsController.swift in Sources */,
 				B875672C261B562900B77DA0 /* DropDownInitializer.swift in Sources */,
 				B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */,
 				B81EC2D225EBF0DB004834AA /* VetVisit.swift in Sources */,
@@ -379,6 +378,7 @@
 				B83867E8259D0A7A005865E0 /* Event.swift in Sources */,
 				B808BAFC2512690E00AC8662 /* DataStorage.swift in Sources */,
 				B84DB63224EC58EF00D1B926 /* AppDelegate.swift in Sources */,
+				B8149A122624C86800B8D718 /* EventType.swift in Sources */,
 				B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */,
 				B81EC2CE25EBF014004834AA /* Vet.swift in Sources */,
 				B8098DAF261089770041EBD6 /* AddFoodController.swift in Sources */,

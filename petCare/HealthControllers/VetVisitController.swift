@@ -9,11 +9,11 @@
 import UIKit
 import SideMenu
 
-protocol VetVisitControllerReloadData {
-    func reloadData()
+protocol VetVisitDelegate {
+    func removeVetVisit(vetVisit: VetVisit)
 }
 
-class VetVisitController: UIViewController, VetVisitControllerReloadData {
+class VetVisitController: UIViewController, VetVisitDelegate {
     var menu: SideMenuNavigationController?
     var pet: Pet? = nil
     var filteredVisits = [VetVisit]()
@@ -41,7 +41,7 @@ class VetVisitController: UIViewController, VetVisitControllerReloadData {
         vetVisitsCollectionView.reloadData()
     }
     
-    func reloadData() {
+    private func reloadData() {
         if let text = vetVisitSearchBar.text {
             if text != "", let p = pet {
                 filteredVisits = p.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) || visit.type.rawValue.lowercased().contains(text.lowercased()) })
@@ -53,6 +53,16 @@ class VetVisitController: UIViewController, VetVisitControllerReloadData {
         }
         
         self.vetVisitsCollectionView.reloadData()
+    }
+    
+    internal func removeVetVisit(vetVisit: VetVisit) {
+        let alert = UIAlertController(title: "Remove " + vetVisit.type.rawValue.lowercased() + "?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in
+            vetVisit.delete()
+            self.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -109,7 +119,7 @@ extension VetVisitController: UICollectionViewDataSource, UICollectionViewDelega
         cell.notesLabel.text = text
         cell.cornerRadius()
         cell.vetVisit = vetVisit
-        cell.vetVisitReloadData = self
+        cell.vetVisitDelegate = self
         return cell
     }
     
@@ -168,13 +178,24 @@ extension VetVisitController: SelectPetDelegate {
 
 class VetVisitCollectionViewCell: UICollectionViewCell {
     var vetVisit: VetVisit? = nil
-    var vetVisitReloadData: VetVisitControllerReloadData?
+    var vetVisitDelegate: VetVisitDelegate?
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var vetLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     
+    @IBAction func deleteButtonClick(_ sender: Any) {
+        if let visit = vetVisit {
+            vetVisitDelegate?.removeVetVisit(vetVisit: visit)
+        }
+    }
+}
+
+extension UICollectionViewCell {
+    /**
+     Sets round corners to collection view cell
+     */
     public func cornerRadius() {
         let radius: CGFloat = 10
         contentView.layer.cornerRadius = radius
@@ -183,10 +204,5 @@ class VetVisitCollectionViewCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
         layer.masksToBounds = false
         layer.cornerRadius = radius
-    }
-    
-    @IBAction func deleteButtonClick(_ sender: Any) {
-        vetVisit?.delete()
-        vetVisitReloadData?.reloadData()
     }
 }

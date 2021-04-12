@@ -50,12 +50,17 @@ class CalendarManager {
      - Returns unique event identifier if success, else nil
      */
     public static func createEvent(title: String, isAllDay: Bool, startDate: Date, endDate: Date, reccurenceCount: Int, reccurenceWith: String) -> String? {
+        if reccurenceCount <= 1 {
+            return createEvent(title: title, isAllDay: isAllDay, startDate: startDate, endDate: endDate)
+        }
+        
         let eventStore = EKEventStore()
         let event = EKEvent(eventStore: eventStore)
         event.title = title
         event.isAllDay = false
         event.startDate = startDate
         event.endDate = endDate
+        
         var frequency: EKRecurrenceFrequency = .daily
         if reccurenceWith == "Yearly" {
             frequency = .yearly
