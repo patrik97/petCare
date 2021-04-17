@@ -20,6 +20,7 @@ class Event {
     var pets: [Pet]
     private var eventIdentifier: String? = nil
     var photos = [Data]()
+    var mainPhoto: Data? = nil
     
     var hasCalendarEvent: Bool {
         get {
@@ -63,7 +64,20 @@ class Event {
         if let identifier = eventIdentifier {
             if CalendarManager.removeEvent(withIdentifier: identifier) {
                 eventIdentifier = nil
+                endDate = nil
             }
         }
+    }
+    
+    public func setPhotoAsMain(index: Int) {
+        mainPhoto = photos[index]
+    }
+    
+    public func removePhotoAt(index: Int) {
+        if index >= photos.count {
+            return
+        }
+        
+        photos.remove(at: index)
     }
 }

@@ -20,6 +20,7 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
     @IBOutlet weak var textEndLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var mainPhotoLabel: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,12 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
         eventNameLabel.text = event?.name
         petsLabel.text = event?.names()
         descriptionLabel.text = event?.description
+        
+        if let photoData = event?.mainPhoto {
+            if let image = UIImage(data: photoData) {
+                mainPhotoLabel.image = image
+            }
+        }
         
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

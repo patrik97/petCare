@@ -31,6 +31,7 @@ class EventGalleryController: UICollectionViewController, UICollectionViewDelega
             }
         }
         
+        //let size = (UIScreen.main.bounds.size.width - 20) / 2
         return CGSize(width: width, height: height)
     }
     
@@ -40,7 +41,9 @@ class EventGalleryController: UICollectionViewController, UICollectionViewDelega
         }
         
         if let photoData = event?.photos[indexPath.row] {
-            cell.photo.image = UIImage(data: photoData)
+            if let image = UIImage(data: photoData) {
+                cell.photo.image = image
+            }
         }
         
         return cell
@@ -59,7 +62,7 @@ extension EventGalleryController: UIImagePickerControllerDelegate, UINavigationC
             return
         }
         
-        if let selectedImageData: Data = selectedImage.pngData() {
+        if let selectedImageData: Data = selectedImage.jpegData(compressionQuality: 1) {
             event?.photos.append(selectedImageData)
         }
         
@@ -69,6 +72,16 @@ extension EventGalleryController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Select as main event picture", style: .default, handler: { _ in self.event?.setPhotoAsMain(index: indexPath.row) } ))
+        alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in self.event?.removePhotoAt(index: indexPath.row)
+            self.collectionView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
 }
 
