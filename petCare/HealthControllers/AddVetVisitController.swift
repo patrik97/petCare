@@ -51,6 +51,18 @@ class AddVetVisitController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func notesEditingDidEnd(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func notesDidEndOnExit(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func selectVetButtonClick(_ sender: Any) {
         guard let vet = selectedVet else {
             return
@@ -105,6 +117,7 @@ class AddVetVisitController: UIViewController {
     }
     
     @IBAction func selectRepeatingButtonClick(_ sender: Any) {
+        self.view.endEditing(true)
         let dataSource = VetVisitFrequency.allTypesString()
         let anchorView: AnchorView? = sender as? AnchorView
         let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: repeatFrequencyLabel.text ?? "") ?? 0)
@@ -118,10 +131,12 @@ class AddVetVisitController: UIViewController {
     }
     
     @IBAction func sliderChangedValue(_ sender: Any) {
+        self.view.endEditing(true)
         repeatLabel.text = String(Int(repeatSlider.value)) + "x"
     }
     
     @IBAction func selectTypeButtonClick(_ sender: Any) {
+        self.view.endEditing(true)
         let dataSource = VetVisitType.allTypesString()
         let anchorView: AnchorView? = sender as? AnchorView
         let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: vetVisitTypeLabel.text ?? "") ?? 0)

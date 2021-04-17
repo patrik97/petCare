@@ -12,6 +12,7 @@ import EventKit
 class Event {
     var name: String
     var description: String
+    var eventType: EventType
     // date cannot be easily changed
     // there must be classical setter 
     private(set) var startDate: Date
@@ -26,12 +27,13 @@ class Event {
         }
     }
     
-    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet], addCalendarEvent: Bool) {
+    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet], addCalendarEvent: Bool, eventType: EventType) {
         self.name = name
         self.description = description
         self.startDate = startDate
         self.endDate = endDate
         self.pets = pets
+        self.eventType = eventType
         
         if addCalendarEvent, let end = endDate {
             eventIdentifier = CalendarManager.createEvent(title: name, isAllDay: false, startDate: startDate, endDate: end)
