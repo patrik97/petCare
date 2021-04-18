@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="NSFoodEvent" representedClassName="NSFoodEvent" syncable="YES" codeGenerationType="class">
+        <attribute name="dateAndTime" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="eventDescription" optional="YES" attributeType="String"/>
+        <attribute name="eventIdentifier" optional="YES" attributeType="String"/>
+        <attribute name="eventName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NSPet" representedClassName="NSPet" syncable="YES" codeGenerationType="class">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sex" optional="YES" attributeType="String"/>
+        <attribute name="species" optional="YES" attributeType="String"/>
+        <relationship name="foodEvents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="NSFoodEvent"/>
+    </entity>
+    <entity name="NSVet" representedClassName="NSVet" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="NSFoodEvent" positionX="-222.1171875" positionY="-13.24609375" width="128" height="89"/>
+        <element name="NSPet" positionX="27" positionY="72" width="128" height="118"/>
+        <element name="NSVet" positionX="-233.625" positionY="-204.265625" width="128" height="44"/>
+    </elements>
+</model>

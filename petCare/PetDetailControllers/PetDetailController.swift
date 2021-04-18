@@ -9,6 +9,7 @@
 import DropDown
 import SideMenu
 import UIKit
+import CoreData
 
 protocol PetDetailChangeName {
     func changeName(newName: String)
@@ -20,6 +21,8 @@ protocol PetDetailChangeBirthday {
 
 class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailChangeName, PetDetailChangeBirthday {
     var menu: SideMenuNavigationController?
+    var pets: [NSManagedObject] = []
+    var NSPet: NSManagedObject? = nil
     var pet: Pet?
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var labelName: UILabel!
@@ -31,13 +34,33 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         super.viewDidLoad()
         setSideMenuParametres()
         
+        /* delete all data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "NSPet")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for object in result {
+                guard let objectData = object as? NSManagedObject else {continue}
+                managedContext.delete(objectData)
+            }
+        } catch let error {
+            print("ERROR \(error)")
+        }*/
+        
         // to hide empty rows and it's lines
         //self.tableView.tableFooterView = UIView()
         //self.view.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
         self.navigationController?.view.backgroundColor = UIColor(red: 20/255, green: 175/255, blue: 255/255, alpha: 1)
         
+        loadData()
         if DataStorage.pets.count > 0 {
             pet = DataStorage.pets[0]
+            DataStorage.selectedPet = pet
+            NSPet = pets[0]
         } else {
             pet = nil
             self.tableView.allowsSelection = false
@@ -50,6 +73,59 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         /* need for overriding heightForRowAt in tableView that is needed
          * for correct size of top cell at small devices */
         self.tableView.reloadData()
+    }
+    
+    private func loadData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "NSPet")
+        
+        do {
+            try pets = managedContext.fetch(fetchRequest)
+            DataStorage.pets = pets.map({ createPet($0) })
+        } catch let error {
+            print("Error when loading data for pet: \(error)")
+        }
+    }
+    
+    private func updateData(_ pet: Pet) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        NSPet?.setValue(pet.name, forKeyPath: "name")
+        NSPet?.setValue(pet.species.rawValue, forKey: "species")
+        if let sex = pet.sex {
+            NSPet?.setValue(sex.rawValue, forKey: "sex")
+        }
+        if let birthday = pet.birth {
+            NSPet?.setValue(birthday, forKey: "birthday")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error {
+            print("Could not save \(pet.name), error: '\(error)'")
+        }
+    }
+    
+    private func createPet(_ NSPet: NSManagedObject) -> Pet {
+        var sex: Sex? = nil
+        var birthday: Date? = nil
+        let name = NSPet.value(forKey: "name") as! String
+        let species = Species(rawValue: NSPet.value(forKey: "species") as! String) ?? Species.dog
+        if let sexString = NSPet.value(forKey: "sex") as? String {
+            sex = Sex(rawValue: sexString)
+        }
+        if let birthdayDate = NSPet.value(forKey: "birthday") as? Date {
+            birthday = birthdayDate
+        }
+        
+        return Pet(name: name, species: species, sex: sex, birth: birthday)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +200,7 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
     func selectPet(pet: Pet) {
         self.pet = pet;
         DataStorage.selectedPet = pet
+        NSPet = pets[DataStorage.pets.firstIndex(where: { $0 == pet }) ?? 0]
         labelName.text = pet.name
         labelSpecies.text = pet.species.description
         labelSex.text = pet.sex?.description ?? "-"
@@ -147,12 +224,18 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         }
         pet?.name = newName
         labelName.text = newName
+        if let p = pet {
+            updateData(p)
+        }
     }
     
     func changeSpecies(newSpecies: Species) {
         pet?.species = newSpecies
         labelSpecies.text = newSpecies.description
         profilePictureImageView.image = UIImage(named: newSpecies.rawValue.lowercased())
+        if let p = pet {
+            updateData(p)
+        }
     }
     
     func changeSex(newSex: Sex) {
@@ -165,6 +248,9 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
             color = UIColor.link
         }
         profilePictureImageView.backgroundColor = color
+        if let p = pet {
+            updateData(p)
+        }
     }
     
     func changeBirth(newBirth: Date, createBirthdayEvent: Bool = false) {
@@ -177,6 +263,9 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         
         if createBirthdayEvent {
             pet?.requestAccessAndCreateEvent(startDate: newBirth, endDate: newBirth)
+        }
+        if let p = pet {
+            updateData(p)
         }
     }
 }

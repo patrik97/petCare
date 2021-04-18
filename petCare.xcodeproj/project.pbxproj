@@ -16,6 +16,7 @@
 		B8098DA9261080D30041EBD6 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DA8261080D30041EBD6 /* FoodController.swift */; };
 		B8098DAC261083010041EBD6 /* FoodEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DAB261083010041EBD6 /* FoodEvent.swift */; };
 		B8098DAF261089770041EBD6 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8098DAE261089770041EBD6 /* AddFoodController.swift */; };
+		B80E60B0262C430E00ED2E9E /* petCare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B80E60AE262C430E00ED2E9E /* petCare.xcdatamodeld */; };
 		B811AA8125F4CD04001B0583 /* AddVetVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */; };
 		B8149A122624C86800B8D718 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8149A112624C86800B8D718 /* EventType.swift */; };
 		B81EC2CE25EBF014004834AA /* Vet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EC2CD25EBF014004834AA /* Vet.swift */; };
@@ -55,6 +56,7 @@
 		B8098DA8261080D30041EBD6 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
 		B8098DAB261083010041EBD6 /* FoodEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEvent.swift; sourceTree = "<group>"; };
 		B8098DAE261089770041EBD6 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
+		B80E60AF262C430E00ED2E9E /* petCare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = petCare.xcdatamodel; sourceTree = "<group>"; };
 		B811AA8025F4CD04001B0583 /* AddVetVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVetVisitController.swift; sourceTree = "<group>"; };
 		B8149A112624C86800B8D718 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		B81B55592613A2D30062BEBA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				B84DB63C24EC58F800D1B926 /* LaunchScreen.storyboard */,
 				B84DB63F24EC58F800D1B926 /* Info.plist */,
 				B808BAFB2512690E00AC8662 /* DataStorage.swift */,
+				B80E60AE262C430E00ED2E9E /* petCare.xcdatamodeld */,
 			);
 			path = petCare;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				B8149A122624C86800B8D718 /* EventType.swift in Sources */,
 				B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */,
 				B81EC2CE25EBF014004834AA /* Vet.swift in Sources */,
+				B80E60B0262C430E00ED2E9E /* petCare.xcdatamodeld in Sources */,
 				B8098DAF261089770041EBD6 /* AddFoodController.swift in Sources */,
 				B8098DAC261083010041EBD6 /* FoodEvent.swift in Sources */,
 				B811AA8125F4CD04001B0583 /* AddVetVisitController.swift in Sources */,
@@ -595,6 +599,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B80E60AE262C430E00ED2E9E /* petCare.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B80E60AF262C430E00ED2E9E /* petCare.xcdatamodel */,
+			);
+			currentVersion = B80E60AF262C430E00ED2E9E /* petCare.xcdatamodel */;
+			path = petCare.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B84DB62624EC58EE00D1B926 /* Project object */;
 }
