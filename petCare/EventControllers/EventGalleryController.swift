@@ -64,6 +64,9 @@ extension EventGalleryController: UIImagePickerControllerDelegate, UINavigationC
         
         if let selectedImageData: Data = selectedImage.jpegData(compressionQuality: 1) {
             event?.photos.append(selectedImageData)
+            if let e = event {
+                DataStorage.updateEvent(event: e)
+            }
         }
         
         self.collectionView.reloadData()

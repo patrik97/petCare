@@ -10,6 +10,7 @@ import Foundation
 import EventKit
 
 class Event: Encodable, Decodable {
+    let id: Int
     var name: String
     var description: String
     var eventType: EventType
@@ -29,6 +30,14 @@ class Event: Encodable, Decodable {
     }
     
     init(name: String, description: String, startDate: Date, endDate: Date?, pets: [String], addCalendarEvent: Bool, eventType: EventType) {
+        var myID: Int = 1
+        for event in DataStorage.events {
+            if event.id > myID {
+                myID = event.id
+            }
+        }
+        
+        id = myID + 1
         self.name = name
         self.description = description
         self.startDate = startDate
@@ -67,10 +76,13 @@ class Event: Encodable, Decodable {
                 endDate = nil
             }
         }
+        
+        DataStorage.updateEvent(event: self)
     }
     
     public func setPhotoAsMain(index: Int) {
         mainPhoto = photos[index]
+        DataStorage.updateEvent(event: self)
     }
     
     public func removePhotoAt(index: Int) {
@@ -79,5 +91,6 @@ class Event: Encodable, Decodable {
         }
         
         photos.remove(at: index)
+        DataStorage.updateEvent(event: self)
     }
 }

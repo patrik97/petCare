@@ -106,6 +106,11 @@ class DataStorage {
         }
     }
     
+    public static func updateEvent(event: Event) {
+        events.removeAll(where: { $0.id == event.id })
+        addEvent(event: event)
+    }
+    
     public static func persistAndLoadAll() {
         persistPets()
         persistVets()
