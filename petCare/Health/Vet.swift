@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vet: Equatable {
+class Vet: Equatable, Encodable, Decodable {
     var name: String
     
     init(name: String) {

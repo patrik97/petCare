@@ -48,38 +48,29 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="dcP-y2-LVE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="50" id="dcP-y2-LVE">
                                         <rect key="frame" x="0.0" y="378" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dcP-y2-LVE" id="fLs-i3-5Sa">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmh-7f-Vdo">
-                                                    <rect key="frame" x="30" y="13" width="54" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4Y-Yo-hIw">
-                                                    <rect key="frame" x="267" y="12" width="98" height="26"/>
+                                                    <rect key="frame" x="158" y="12" width="98" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wmh-7f-Vdo" firstAttribute="centerY" secondItem="fLs-i3-5Sa" secondAttribute="centerY" constant="1" id="CT7-dz-o2Y"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="f4Y-Yo-hIw" secondAttribute="trailing" constant="10" id="Ofw-g1-yCc"/>
                                                 <constraint firstItem="f4Y-Yo-hIw" firstAttribute="centerY" secondItem="fLs-i3-5Sa" secondAttribute="centerY" id="ZNL-wv-Q4T"/>
-                                                <constraint firstItem="wmh-7f-Vdo" firstAttribute="leading" secondItem="fLs-i3-5Sa" secondAttribute="leadingMargin" constant="10" id="efe-f2-aQT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="A5d-7F-vNM" kind="push" identifier="addNewNameSegue" id="mhR-wc-BPZ"/>
-                                        </connections>
+                                        <constraints>
+                                            <constraint firstItem="f4Y-Yo-hIw" firstAttribute="centerX" secondItem="dcP-y2-LVE" secondAttribute="centerX" id="RzZ-vV-ypR"/>
+                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="bJm-2f-Cg3">
                                         <rect key="frame" x="0.0" y="428" width="414" height="50"/>
@@ -491,7 +482,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type new name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lLm-zi-QvB">
-                                <rect key="frame" x="10" y="138" width="394" height="34"/>
+                                <rect key="frame" x="10" y="94" width="394" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1566,7 +1557,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Dyy-SV-1ZM"/>
         <segue reference="Szw-8K-dyj"/>
-        <segue reference="EtG-3i-ufG"/>
+        <segue reference="Eue-xm-Hvh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

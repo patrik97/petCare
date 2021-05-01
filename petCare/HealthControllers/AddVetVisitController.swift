@@ -109,7 +109,7 @@ class AddVetVisitController: UIViewController {
         alert.addTextField(configurationHandler: {textField in textField.placeholder = "Name"})
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in if let name = alert.textFields?.first?.text {
             let newVet = Vet(name: name)
-            DataStorage.vets.append(newVet)
+            DataStorage.addVet(vet: newVet)
             self.selectedVet = newVet
             self.vetLabel.text = "Vet: " + newVet.name
         }}))

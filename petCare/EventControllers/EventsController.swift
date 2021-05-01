@@ -77,7 +77,8 @@ extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource
             cell.endDateLabel.text = ""
         }
         
-        cell.pictureImageView.image = UIImage(named: event.pets[0].species.rawValue.lowercased())
+        let imageSpecies = DataStorage.pets.first(where: { $0.name == event.pets[0] })?.species ?? Species.other
+        cell.pictureImageView.image = UIImage(named: imageSpecies.rawValue.lowercased())
         cell.cornerRadius()
         return cell
     }

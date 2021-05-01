@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class Event {
+class Event: Encodable, Decodable {
     var name: String
     var description: String
     var eventType: EventType
@@ -17,7 +17,7 @@ class Event {
     // there must be classical setter 
     private(set) var startDate: Date
     private(set) var endDate: Date?
-    var pets: [Pet]
+    var pets: [String]
     private var eventIdentifier: String? = nil
     var photos = [Data]()
     var mainPhoto: Data? = nil
@@ -28,7 +28,7 @@ class Event {
         }
     }
     
-    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [Pet], addCalendarEvent: Bool, eventType: EventType) {
+    init(name: String, description: String, startDate: Date, endDate: Date?, pets: [String], addCalendarEvent: Bool, eventType: EventType) {
         self.name = name
         self.description = description
         self.startDate = startDate
@@ -54,7 +54,7 @@ class Event {
                 names += ", "
             }
             
-            names += pet.name
+            names += pet
             first = false
         }
         return names

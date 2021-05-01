@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class VetVisit: Equatable {
+class VetVisit: Equatable, Encodable, Decodable {
     var date: Date
     var notes: String = ""
     var vet: Vet

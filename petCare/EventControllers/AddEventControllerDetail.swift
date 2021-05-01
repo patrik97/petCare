@@ -93,7 +93,8 @@ class AddEventControllerDetail: UIViewController {
             dateOfEnd = endDate
         }
         
-        DataStorage.addEvent(event: Event(name: eventName, description: description, startDate: eventStartDatePicker.date, endDate: dateOfEnd, pets: pets, addCalendarEvent: addCalendarEvent, eventType: eventType))
+        let petNames = pets.map({ $0.name })
+        DataStorage.addEvent(event: Event(name: eventName, description: description, startDate: eventStartDatePicker.date, endDate: dateOfEnd, pets: petNames, addCalendarEvent: addCalendarEvent, eventType: eventType))
         self.navigationController?.popToRootViewController(animated: true)
     }
     

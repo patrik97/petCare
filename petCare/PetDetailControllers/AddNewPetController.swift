@@ -33,6 +33,15 @@ class AddNewPetController: UIViewController {
             self.present(alert, animated: true)
             return
         }
+        if let name = nameTextField.text {
+            if DataStorage.pets.contains(where: { $0.name == name }) {
+                let alert = UIAlertController(title: "Pet with this name already exists", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                return
+            }
+        }
+        
         let newPet = Pet(name: nameTextField.text ?? "invalid name", species: currentSpecies)
         DataStorage.addPet(pet: newPet)
         petDetailDelegate?.selectPet(pet: newPet)

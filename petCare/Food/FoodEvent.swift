@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class FoodEvent {
+class FoodEvent : Encodable, Decodable {
     var eventName: String
     var eventDescription: String
     var dateAndTime: Date? = nil

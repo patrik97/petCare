@@ -30,6 +30,9 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
     override func viewDidLoad() {
         super.viewDidLoad()
         setSideMenuParametres()
+        DataStorage.loadPets()
+        DataStorage.loadVets()
+        DataStorage.loadEvents()
         
         // to hide empty rows and it's lines
         //self.tableView.tableFooterView = UIView()
@@ -147,12 +150,14 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         }
         pet?.name = newName
         labelName.text = newName
+        DataStorage.persistAndLoadAll()
     }
     
     func changeSpecies(newSpecies: Species) {
         pet?.species = newSpecies
         labelSpecies.text = newSpecies.description
         profilePictureImageView.image = UIImage(named: newSpecies.rawValue.lowercased())
+        DataStorage.persistAndLoadAll()
     }
     
     func changeSex(newSex: Sex) {
@@ -165,6 +170,7 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
             color = UIColor.link
         }
         profilePictureImageView.backgroundColor = color
+        DataStorage.persistAndLoadAll()
     }
     
     func changeBirth(newBirth: Date, createBirthdayEvent: Bool = false) {
@@ -178,6 +184,8 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         if createBirthdayEvent {
             pet?.requestAccessAndCreateEvent(startDate: newBirth, endDate: newBirth)
         }
+        
+        DataStorage.persistAndLoadAll()
     }
 }
 

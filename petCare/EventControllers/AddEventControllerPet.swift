@@ -18,7 +18,7 @@ class AddEventControllerPet: UITableViewController {
         super.viewDidLoad()
         
         if let realEvent = event {
-            pets = realEvent.pets
+            pets = DataStorage.pets.filter({ realEvent.pets.contains($0.name) })
         }
         
         tableView.dataSource = self
@@ -46,9 +46,10 @@ class AddEventControllerPet: UITableViewController {
         cell.petNameLabel.text = pet.name
         cell.petImageView.image = UIImage(named: pet.species.rawValue)
         cell.selectionStyle = .none
-        if pets.contains(where: { $0 === pet }) {
+        if pets.contains(where: { $0 == pet }) {
             selectedIndicies.append(indexPath)
             cell.contentView.backgroundColor = UIColor(red: 255/255, green: 75/255, blue: 255/255, alpha: 1)
+            cell.isSelected = true
         }
 
         return cell
