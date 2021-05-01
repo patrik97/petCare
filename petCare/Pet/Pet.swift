@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class Pet: Equatable {
+class Pet {
     var name: String
     var species: Species
     var birth: Date? = nil
@@ -21,17 +21,6 @@ class Pet: Equatable {
     init(name: String, species: Species) {
         self.name = name
         self.species = species
-    }
-    
-    init(name: String, species: Species, sex: Sex?, birth: Date?) {
-        self.name = name
-        self.species = species
-        self.sex = sex
-        self.birth = birth
-    }
-    
-    public static func ==(lhs: Pet, rhs: Pet) -> Bool {
-        return lhs.name == rhs.name && lhs.species == rhs.species && lhs.birth == rhs.birth && lhs.sex == rhs.sex && lhs.hasBirthdayReminder == rhs.hasBirthdayReminder && lhs.foodEvents == rhs.foodEvents && lhs.vetVisits == rhs.vetVisits
     }
     
     /**

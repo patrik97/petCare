@@ -8,13 +8,11 @@
 
 import UIKit
 import DropDown
-import CoreData
 
 class AddVetVisitController: UIViewController {
     @IBOutlet weak var vetLabel: UILabel!
     @IBOutlet weak var visitDatePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextField!
-    var vets: [NSManagedObject] = []
     private var selectedVet: Vet? = nil
     var currentVetVisit: VetVisit? = nil
     var pet: Pet? = nil
@@ -28,21 +26,6 @@ class AddVetVisitController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTextField.delegate = self
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "NSVet")
-        
-        do {
-            try vets = managedContext.fetch(fetchRequest)
-        } catch let error {
-            print("Error when loading data for vets: \(error)")
-        }
-        
-        DataStorage.vets = vets.map({ Vet(name: $0.value(forKey: "name") as! String) })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,28 +110,10 @@ class AddVetVisitController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in if let name = alert.textFields?.first?.text {
             let newVet = Vet(name: name)
             DataStorage.vets.append(newVet)
-            self.saveVet(newVet)
             self.selectedVet = newVet
             self.vetLabel.text = "Vet: " + newVet.name
         }}))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func saveVet(_ vet: Vet) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entinty = NSEntityDescription.entity(forEntityName: "NSVet", in: managedContext)!
-        let vetObject = NSManagedObject(entity: entinty, insertInto: managedContext)
-        vetObject.setValue(vet.name, forKeyPath: "name")
-        
-        do {
-            try managedContext.save()
-        } catch let error {
-            print("Could not save \(vet.name), error: '\(error)'")
-        }
     }
     
     @IBAction func selectRepeatingButtonClick(_ sender: Any) {

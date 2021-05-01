@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class FoodEvent: Equatable {
+class FoodEvent {
     var eventName: String
     var eventDescription: String
     var dateAndTime: Date? = nil
@@ -25,13 +25,6 @@ class FoodEvent: Equatable {
         self.eventDescription = eventDescription
         self.dateAndTime = dateAndTime
         eventIdentifier = CalendarManager.createEvent(title: eventName, isAllDay: false, startDate: dateAndTime, endDate: dateAndTime.addingTimeInterval(10 * 60))
-    }
-    
-    init(eventName: String, eventDescription: String, dateAndTime: Date?, eventIdentifier: String?) {
-        self.eventName = eventName
-        self.eventDescription = eventDescription
-        self.dateAndTime = dateAndTime
-        self.eventIdentifier = eventIdentifier
     }
     
     /**

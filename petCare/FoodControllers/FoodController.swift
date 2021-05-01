@@ -8,7 +8,6 @@
 
 import UIKit
 import SideMenu
-import CoreData
 
 class FoodController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SelectPetDelegate {
     var pet: Pet? = nil

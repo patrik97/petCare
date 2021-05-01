@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class AddNewPetController: UIViewController {
     let species = Species.allCases.map { $0.rawValue }
@@ -37,27 +36,7 @@ class AddNewPetController: UIViewController {
         let newPet = Pet(name: nameTextField.text ?? "invalid name", species: currentSpecies)
         DataStorage.addPet(pet: newPet)
         petDetailDelegate?.selectPet(pet: newPet)
-        savePet(newPet)
-        
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    private func savePet(_ pet: Pet) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entinty = NSEntityDescription.entity(forEntityName: "NSPet", in: managedContext)!
-        let petObject = NSManagedObject(entity: entinty, insertInto: managedContext)
-        petObject.setValue(pet.name, forKeyPath: "name")
-        petObject.setValue(pet.species.rawValue, forKey: "species")
-        
-        do {
-            try managedContext.save()
-        } catch let error {
-            print("Could not save \(pet.name), error: '\(error)'")
-        }
     }
 }
 
