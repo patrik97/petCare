@@ -11,6 +11,7 @@ import EventKit
 
 class AddNewDateOfBirthController: UIViewController {
     var petDetailChangeBirthday: PetDetailChangeBirthday?
+    var date: Date?
     @IBOutlet weak var BirthDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
@@ -21,12 +22,18 @@ class AddNewDateOfBirthController: UIViewController {
         } else {
             BirthDatePicker.preferredDatePickerStyle = .wheels
         }
+        
+        if let d = date {
+            BirthDatePicker.date = d
+        }
     }
     
     @IBAction func SaveButton(_ sender: Any) {
         let date = BirthDatePicker.date
         if date.isPastOrCurrentDate {
-            petDetailChangeBirthday?.changeBirth(newBirth: date, createBirthdayEvent: false)
+            if date != self.date {
+                petDetailChangeBirthday?.changeBirth(newBirth: date)
+            }
             self.navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Invalid date", message: "Date must be today or before", preferredStyle: .alert)

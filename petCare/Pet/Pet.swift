@@ -17,59 +17,54 @@ class Pet: Equatable, Encodable, Decodable {
     var hasBirthdayReminder: Bool = false
     var foodEvents = [FoodEvent]()
     var vetVisits = [VetVisit]()
+    var eventIdentifier: String? = nil
     
     init(name: String, species: Species) {
         self.name = name
         self.species = species
     }
     
-    /**
-     Requests access to iOS calendar if not have and creates birthday event every year
-     
-     - Parameter startDate date when event starts
-     - Parameter endDate date when event ends
-     */
-    public func requestAccessAndCreateEvent(startDate: Date, endDate: Date) {
-        let eventStore = EKEventStore()
-        
-        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
-            eventStore.requestAccess(to: .event, completion: {
-                granted, error in self.createBirthdayEvent(eventStore: eventStore, startDate: startDate, endDate: endDate)
-            })
-        } else {
-            createBirthdayEvent(eventStore: eventStore, startDate: startDate, endDate: endDate)
-        }
-    }
-    
     public static func==(lhs: Pet, rhs: Pet) -> Bool {
         return lhs.name == rhs.name && lhs.species == rhs.species && lhs.birth == rhs.birth && lhs.sex == rhs.sex && rhs.hasBirthdayReminder == lhs.hasBirthdayReminder
     }
     
-    private func createBirthdayEvent(eventStore: EKEventStore, startDate: Date, endDate: Date) {
-        guard let year = Calendar.current.dateComponents([.year], from: Date()).year else {
+    public func addBirthday() {
+        removeBirthday()
+        
+        guard let birthday = birth else {
             return
         }
         
-        let event = EKEvent(eventStore: eventStore)
-        event.title = name + " birthday"
-        event.isAllDay = true
-        
-        var component = Calendar.current.dateComponents([.month], from: startDate)
-            
-        guard let month = component.month else {
-            return
+        let endDate = birthday.addingTimeInterval(1)
+        eventIdentifier = CalendarManager.createEvent(title: "\(name) birthday", isAllDay: true, startDate: birthday, endDate: endDate)
+    }
+    
+    public func removeBirthday() {
+        if let identifier = eventIdentifier {
+            if CalendarManager.removeEvent(withIdentifier: identifier) {
+                birth = nil
+                eventIdentifier = nil
+            }
         }
-        component.year = year
-        event.startDate = component.date
-        event.endDate = component.date
-
-        event.calendar = eventStore.defaultCalendarForNewEvents
-        event.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: .yearly, interval: 1, daysOfTheWeek: nil, daysOfTheMonth: nil, monthsOfTheYear: [NSNumber(value: month)], weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil))
-        
-        do {
-            try eventStore.save(event, span: .thisEvent)
-        } catch {
-            print("Error saving calendar event")
+    }
+    
+    public func delete() {
+        for visit in vetVisits {
+            visit.delete()
         }
+        
+        for event in foodEvents {
+            event.removeEvent()
+        }
+        
+        for event in DataStorage.events {
+            event.pets.removeAll(where: { $0 == name })
+        }
+        
+        removeBirthday()
+        DataStorage.events.removeAll(where: { $0.pets.isEmpty })
+        DataStorage.pets.removeAll(where: { $0.name == name })
+        DataStorage.selectedPet = nil
+        DataStorage.persistAndLoadAll()
     }
 }

@@ -25,7 +25,7 @@ class VetVisit: Equatable, Encodable, Decodable {
         self.type = type
         self.interval = interval
         self.frequency = frequency
-        //eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
+        eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
     }
     
     public static func ==(lhs: VetVisit, rhs: VetVisit) -> Bool {
@@ -44,7 +44,7 @@ class VetVisit: Equatable, Encodable, Decodable {
         
         if updateEvent {
             removeEvent()
-            //eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
+            eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
         }
     }
     

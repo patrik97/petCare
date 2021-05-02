@@ -52,6 +52,25 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
         
     }
     
+    @IBAction func deleteButtonClick(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete this event?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in self.deleteEvent() }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    private func deleteEvent() {
+        guard let e = event else {
+            return
+        }
+        
+        e.removeEvent()
+        DataStorage.events.removeAll(where: { $0.id == e.id })
+        DataStorage.persistEvents()
+        DataStorage.loadEvents()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditEventSegue", let editEventPetController = segue.destination as? AddEventControllerPet {
             editEventPetController.event = event

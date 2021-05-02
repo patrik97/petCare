@@ -24,6 +24,7 @@ class VetVisitController: UIViewController, VetVisitDelegate {
         super.viewDidLoad()
         vetVisitsCollectionView.dataSource = self
         vetVisitsCollectionView.delegate = self
+        vetVisitsCollectionView.keyboardDismissMode = .onDrag
         vetVisitSearchBar.delegate = self
         setSideMenuParametres()
         setCollectionViewLayout()
@@ -148,6 +149,10 @@ extension VetVisitController: UISearchBarDelegate {
         }
         
         self.vetVisitsCollectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        vetVisitSearchBar.endEditing(true)
     }
 }
 

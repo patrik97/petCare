@@ -15,7 +15,7 @@ protocol PetDetailChangeName {
 }
 
 protocol PetDetailChangeBirthday {
-    func changeBirth(newBirth: Date, createBirthdayEvent: Bool)
+    func changeBirth(newBirth: Date)
 }
 
 class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailChangeName, PetDetailChangeBirthday {
@@ -26,6 +26,7 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
     @IBOutlet weak var labelSpecies: UILabel!
     @IBOutlet weak var labelSex: UILabel!
     @IBOutlet weak var labelBirthday: UILabel!
+    @IBOutlet weak var thrashButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,12 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         if let p = DataStorage.selectedPet {
             selectPet(pet: p)
         }
+        
+        if DataStorage.pets.count < 2 {
+            thrashButton.isEnabled = false
+        } else {
+            thrashButton.isEnabled = true
+        }
     }
     
     @IBAction func menuButtonItem(_ sender: UIBarButtonItem) {
@@ -92,6 +99,9 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         if segue.identifier == "addNewDateOfBirthSegue", let addNewDateOfBirthController = segue.destination as? AddNewDateOfBirthController {
             if pet != nil {
                 addNewDateOfBirthController.petDetailChangeBirthday = self
+                if let date = pet?.birth {
+                    addNewDateOfBirthController.date = date
+                }
             }
         }
     }
@@ -136,11 +146,8 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         } else {
             profilePictureImageView.backgroundColor = UIColor.link
         }
-        if let birthday = pet.birth {
-            changeBirth(newBirth: birthday)
-        } else {
-            labelBirthday.text = "-"
-        }
+
+        changeBirth()
         self.tableView.allowsSelection = true
     }
     
@@ -173,19 +180,56 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
         DataStorage.persistAndLoadAll()
     }
     
-    func changeBirth(newBirth: Date, createBirthdayEvent: Bool = false) {
+    func changeBirth(newBirth: Date) {
         pet?.birth = newBirth
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         let dateLabelText = formatter.string(from: newBirth)
         labelBirthday.text = dateLabelText
-        
-        if createBirthdayEvent {
-            pet?.requestAccessAndCreateEvent(startDate: newBirth, endDate: newBirth)
-        }
+        pet?.addBirthday()
         
         DataStorage.persistAndLoadAll()
+    }
+    
+    func changeBirth() {
+        guard let birth = pet?.birth else {
+            labelBirthday.text = "-"
+            return
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateLabelText = formatter.string(from: birth)
+        labelBirthday.text = dateLabelText
+    }
+    
+    @IBAction func deletePetButtonClick(_ sender: Any) {
+        if DataStorage.pets.count <= 1 {
+            let alert = UIAlertController(title: "Sorry, your only pet cannot be deleted", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+            return
+        }
+        
+        let alert = UIAlertController(title: "Delete pet?", message: "All events where this pet is only participant will be deleted", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in self.deletePet() }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    private func deletePet() {
+        pet?.delete()
+        if let p = DataStorage.selectedPet {
+            selectPet(pet: p)
+        }
+        
+        if DataStorage.pets.count < 2 {
+            thrashButton.isEnabled = false
+        } else {
+            thrashButton.isEnabled = true
+        }
     }
 }
 

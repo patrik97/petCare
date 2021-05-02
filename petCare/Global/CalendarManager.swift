@@ -24,17 +24,13 @@ class CalendarManager {
         let eventStore = EKEventStore()
         let event = EKEvent(eventStore: eventStore)
         event.title = title
-        event.isAllDay = false
+        event.isAllDay = isAllDay
         event.startDate = startDate
         event.endDate = endDate
+
         event.calendar = eventStore.defaultCalendarForNewEvents
-        let eventIdentifier = event.eventIdentifier
         
-        if requestAccess(eventStore: eventStore, event: event) {
-            return eventIdentifier
-        } else {
-            return nil
-        }
+        return requestAccess(eventStore: eventStore, event: event)
     }
     
     /**
@@ -72,17 +68,12 @@ class CalendarManager {
         event.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: frequency, interval: 1, end: EKRecurrenceEnd(occurrenceCount: reccurenceCount)))
         
         event.calendar = eventStore.defaultCalendarForNewEvents
-        let eventIdentifier = event.eventIdentifier
         
-        if requestAccess(eventStore: eventStore, event: event) {
-            return eventIdentifier
-        } else {
-            return nil
-        }
+        return requestAccess(eventStore: eventStore, event: event)
     }
     
-    private static func requestAccess(eventStore: EKEventStore, event: EKEvent) -> Bool {
-        var result = false
+    private static func requestAccess(eventStore: EKEventStore, event: EKEvent) -> String? {
+        var result: String? = nil
         
         if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
             eventStore.requestAccess(to: .event, completion: {
@@ -95,12 +86,12 @@ class CalendarManager {
         return result
     }
     
-    private static func insertEvent(eventStore: EKEventStore, event: EKEvent) -> Bool {
+    private static func insertEvent(eventStore: EKEventStore, event: EKEvent) -> String? {
         do {
             try eventStore.save(event, span: .thisEvent)
-            return true
+            return event.eventIdentifier
         } catch {
-            return false
+            return nil
         }
     }
     
