@@ -38,6 +38,7 @@
 		B86DD8B0253C8257003CEFF5 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DD8AF253C8257003CEFF5 /* Sex.swift */; };
 		B875672C261B562900B77DA0 /* DropDownInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875672B261B562900B77DA0 /* DropDownInitializer.swift */; };
 		B88015A625420FAE005F6244 /* AddNewDateOfBirthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */; };
+		B8CAEE64265001080002DC91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8CAEE66265001080002DC91 /* Localizable.strings */; };
 		B8D375B6251657340074EBB9 /* PetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D375B5251657340074EBB9 /* PetDetailController.swift */; };
 		B8D4B30E25E93179003DDEBB /* EventGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4B30D25E93179003DDEBB /* EventGalleryController.swift */; };
 		B8EA59EF259D38AF00D52E5D /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA59EE259D38AF00D52E5D /* EventsController.swift */; };
@@ -81,6 +82,8 @@
 		B86DD8AF253C8257003CEFF5 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		B875672B261B562900B77DA0 /* DropDownInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownInitializer.swift; sourceTree = "<group>"; };
 		B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDateOfBirthController.swift; sourceTree = "<group>"; };
+		B8CAEE65265001080002DC91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B8CAEE672650011C0002DC91 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B8D375B5251657340074EBB9 /* PetDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailController.swift; sourceTree = "<group>"; };
 		B8D4B30D25E93179003DDEBB /* EventGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventGalleryController.swift; sourceTree = "<group>"; };
 		B8EA59EE259D38AF00D52E5D /* EventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
@@ -147,8 +150,8 @@
 		B84061AB259E162F0051B00B /* PetDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */,
 				B8D375B5251657340074EBB9 /* PetDetailController.swift */,
+				B88015A525420FAE005F6244 /* AddNewDateOfBirthController.swift */,
 				B833A78A25178B1D006F5FF2 /* AddNewNameController.swift */,
 				B84DB64724EC5FEE00D1B926 /* AddNewPetController.swift */,
 			);
@@ -158,8 +161,8 @@
 		B84061AD259E16630051B00B /* Pet */ = {
 			isa = PBXGroup;
 			children = (
-				B84DB64924EC605A00D1B926 /* Pet.swift */,
 				B82B0D7F24F07B3A008132DC /* Species.swift */,
+				B84DB64924EC605A00D1B926 /* Pet.swift */,
 				B86DD8AF253C8257003CEFF5 /* Sex.swift */,
 			);
 			path = Pet;
@@ -223,6 +226,7 @@
 				B84DB63C24EC58F800D1B926 /* LaunchScreen.storyboard */,
 				B84DB63F24EC58F800D1B926 /* Info.plist */,
 				B808BAFB2512690E00AC8662 /* DataStorage.swift */,
+				B8CAEE66265001080002DC91 /* Localizable.strings */,
 			);
 			path = petCare;
 			sourceTree = "<group>";
@@ -308,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84DB63E24EC58F800D1B926 /* LaunchScreen.storyboard in Resources */,
+				B8CAEE64265001080002DC91 /* Localizable.strings in Resources */,
 				B84DB63B24EC58F800D1B926 /* Assets.xcassets in Resources */,
 				B84DB63924EC58EF00D1B926 /* Main.storyboard in Resources */,
 			);
@@ -414,6 +419,15 @@
 				B81B555A2613A2D30062BEBA /* cs */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B8CAEE66265001080002DC91 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8CAEE65265001080002DC91 /* en */,
+				B8CAEE672650011C0002DC91 /* cs */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

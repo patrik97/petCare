@@ -934,7 +934,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bfh-JZ-8K6">
-                                <rect key="frame" x="3" y="516" width="408" height="31"/>
+                                <rect key="frame" x="23" y="516" width="368" height="31"/>
                                 <connections>
                                     <action selector="sliderChangedValue:" destination="SCx-mc-6hX" eventType="valueChanged" id="bwf-eA-fLb"/>
                                 </connections>
@@ -977,7 +977,7 @@
                         <constraints>
                             <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="lEf-WV-GeX" secondAttribute="trailing" constant="20" id="3br-Wh-FUw"/>
                             <constraint firstItem="W3M-bx-4II" firstAttribute="top" secondItem="ozA-gK-5I3" secondAttribute="top" constant="15" id="40o-JI-aM7"/>
-                            <constraint firstItem="Bfh-JZ-8K6" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="5" id="4eZ-LX-Ry9"/>
+                            <constraint firstItem="Bfh-JZ-8K6" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="25" id="4eZ-LX-Ry9"/>
                             <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="XOd-Qx-HfQ" secondAttribute="trailing" constant="10" id="6wW-Zf-kLR"/>
                             <constraint firstItem="fZI-9H-ScF" firstAttribute="leading" secondItem="jTh-os-wOO" secondAttribute="leading" id="8FF-Zh-1kc"/>
                             <constraint firstItem="9k0-Qk-tXI" firstAttribute="centerY" secondItem="jV2-7W-cuZ" secondAttribute="centerY" id="8Uq-fZ-LoW"/>
@@ -1000,7 +1000,7 @@
                             <constraint firstItem="lEf-WV-GeX" firstAttribute="centerY" secondItem="hCe-bn-G26" secondAttribute="centerY" id="fuB-rR-Jer"/>
                             <constraint firstItem="YOU-FS-UCs" firstAttribute="leading" secondItem="hCe-bn-G26" secondAttribute="trailing" constant="20" id="uBw-9b-cq2"/>
                             <constraint firstItem="2cD-zn-Ixa" firstAttribute="leading" secondItem="ozA-gK-5I3" secondAttribute="leading" constant="10" id="vJq-od-PAC"/>
-                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="Bfh-JZ-8K6" secondAttribute="trailing" constant="5" id="xcQ-q9-KV3"/>
+                            <constraint firstItem="ozA-gK-5I3" firstAttribute="trailing" secondItem="Bfh-JZ-8K6" secondAttribute="trailing" constant="25" id="xcQ-q9-KV3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Vet Visit" id="W3C-KJ-Kw5">
