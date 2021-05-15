@@ -9,12 +9,27 @@
 import Foundation
 
 enum VetVisitType: String, Codable, CaseIterable {
-    case Examination = "Examination"
-    case Vaccination = "Vaccination"
-    case Surgery = "Surgery"
-    case Other = "Other"
+    case Examination
+    case Vaccination
+    case Surgery
+    case Other
     
     public static func allTypesString() -> [String] {
-        return [VetVisitType.Examination.rawValue, VetVisitType.Vaccination.rawValue, VetVisitType.Surgery.rawValue, VetVisitType.Other.rawValue]
+        return [VetVisitType.Examination.description, VetVisitType.Vaccination.description, VetVisitType.Surgery.description, VetVisitType.Other.description]
+    }
+    
+    var description: String {
+        get {
+            switch self {
+            case .Examination:
+                return NSLocalizedString("Examination", comment: "")
+            case .Vaccination:
+                return NSLocalizedString("Vaccination", comment: "")
+            case .Surgery:
+                return NSLocalizedString("Surgery", comment: "")
+            case .Other:
+                return NSLocalizedString("Other", comment: "")
+            }
+        }
     }
 }

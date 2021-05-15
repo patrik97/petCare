@@ -15,6 +15,19 @@ enum VetVisitFrequency: String, Codable, CaseIterable {
     case Daily = "Daily"
     
     public static func allTypesString() -> [String] {
-        return [VetVisitFrequency.Yearly.rawValue, VetVisitFrequency.Monthly.rawValue, VetVisitFrequency.Weekly.rawValue, VetVisitFrequency.Daily.rawValue]
+        return [VetVisitFrequency.Yearly.description, VetVisitFrequency.Monthly.description, VetVisitFrequency.Weekly.description, VetVisitFrequency.Daily.description]
+    }
+    
+    var description: String {
+        switch self {
+        case .Yearly:
+            return NSLocalizedString("Yearly", comment: "")
+        case .Monthly:
+            return NSLocalizedString("Monthly", comment: "")
+        case .Weekly:
+            return NSLocalizedString("Weekly", comment: "")
+        case .Daily:
+            return NSLocalizedString("Daily", comment: "")
+        }
     }
 }

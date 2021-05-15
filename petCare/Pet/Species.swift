@@ -9,19 +9,38 @@
 import Foundation
 
 enum Species: String, Codable, CaseIterable {
-    case dog = "Dog"
-    case cat = "Cat"
-    case bird = "Bird"
-    case snake = "Snake"
-    case turtle = "Turtle"
-    case horse = "Horse"
-    case bunny = "Bunny"
-    case rodent = "Rodent"
-    case other = "Other"
+    case dog
+    case cat
+    case bird
+    case snake
+    case turtle
+    case horse
+    case bunny
+    case rodent
+    case other
     
     var description: String {
         get {
-            return self.rawValue
+            switch self {
+            case .dog:
+                return NSLocalizedString("Dog", comment: "Dog enum")
+            case .cat:
+                return NSLocalizedString("Cat", comment: "Cat enum")
+            case .bird:
+                return NSLocalizedString("Bird", comment: "Bird enum")
+            case .snake:
+                return NSLocalizedString("Snake", comment: "Snake enum")
+            case .turtle:
+                return NSLocalizedString("Turtle", comment: "Turtle enum")
+            case .horse:
+                return NSLocalizedString("Horse", comment: "Horse enum")
+            case .bunny:
+                return NSLocalizedString("Bunny", comment: "Bunny enum")
+            case .rodent:
+                return NSLocalizedString("Rodent", comment: "Rodent enum")
+            case .other:
+                return NSLocalizedString("Other", comment: "Other enum")
+            }
         }
     }
     

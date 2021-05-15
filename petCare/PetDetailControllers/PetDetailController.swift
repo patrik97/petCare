@@ -213,9 +213,9 @@ class PetDetailController: UITableViewController, SelectPetDelegate, PetDetailCh
             return
         }
         
-        let alert = UIAlertController(title: "Delete pet?", message: "All events where this pet is only participant will be deleted", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in self.deletePet() }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("Delete pet?", comment: ""), message: NSLocalizedString("All events where this pet is only participant will be deleted", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .destructive, handler: { _ in self.deletePet() }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
@@ -246,7 +246,7 @@ extension PetDetailController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         if indexPath.row == 2 {
-            let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.rawValue })
+            let dropDown = initializeDropDown(indexPath: indexPath, data: Species.allCases.map { $0.description })
             if let species = pet?.species {
                 dropDown.selectRow(species.index)
             }
@@ -256,7 +256,7 @@ extension PetDetailController {
         }
         
         if indexPath.row == 3 {
-            let dropDown = initializeDropDown(indexPath: indexPath, data: Sex.allCases.map { $0.rawValue })
+            let dropDown = initializeDropDown(indexPath: indexPath, data: Sex.allCases.map { $0.description })
             if let sex = pet?.sex {
                 dropDown.selectRow(sex.index)
             }

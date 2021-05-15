@@ -79,11 +79,11 @@ extension EventGalleryController: UIImagePickerControllerDelegate, UINavigationC
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Select as main event picture", style: .default, handler: { _ in self.event?.setPhotoAsMain(index: indexPath.row) } ))
-        alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in self.event?.removePhotoAt(index: indexPath.row)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Select as main picture", comment: ""), style: .default, handler: { _ in self.event?.setPhotoAsMain(index: indexPath.row) } ))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { _ in self.event?.removePhotoAt(index: indexPath.row)
             self.collectionView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
 }

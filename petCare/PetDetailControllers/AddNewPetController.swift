@@ -9,7 +9,7 @@
 import UIKit
 
 class AddNewPetController: UIViewController {
-    let species = Species.allCases.map { $0.rawValue }
+    let species = Species.allCases.map { $0.description }
     var currentSpecies: Species = Species.dog
     var petDetailDelegate: SelectPetDelegate?
     @IBOutlet weak var speciesPickerView: UIPickerView!
@@ -28,14 +28,14 @@ class AddNewPetController: UIViewController {
     
     func save() {
         if nameTextField.text?.count == 0 || nameTextField.text?.count ?? 0 > 30 {
-            let alert = UIAlertController(title: "Incorrect name", message: "Name length is minimum 1 and maximum 20 characters", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString(NSLocalizedString("Invalid name", comment: ""), comment: NSLocalizedString("Name is invalid", comment: "")), message: NSLocalizedString("Name length is minimum 1 and maximum 20 characters", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
             return
         }
         if let name = nameTextField.text {
             if DataStorage.pets.contains(where: { $0.name == name }) {
-                let alert = UIAlertController(title: "Pet with this name already exists", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString("Pet with this name already exists", comment: ""), message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
                 return

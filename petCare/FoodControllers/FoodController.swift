@@ -25,7 +25,7 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         pet = DataStorage.selectedPet
-        petNameLabel.text = pet?.name ?? "Pet Name"
+        petNameLabel.text = pet?.name ?? NSLocalizedString("PetNameFood", comment: "Pet name")
         foodEventsCollectionView.reloadData()
     }
     
@@ -49,8 +49,8 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if  identifier == "AddFoodSegue" && DataStorage.pets.isEmpty {
-            let alert = UIAlertController(title: "No pets avaliable!", message: "You have no pets. Add pet before vet visit.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("No pets avaliable!", comment: "There are no pets"), message: NSLocalizedString("You have no pets. Add pet before vet visit.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel the alert"), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return false
         }

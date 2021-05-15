@@ -75,8 +75,8 @@ class AddEventControllerPet: UITableViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "AddEventDetailSegue" && pets.isEmpty {
-            let alert = UIAlertController(title: "No pet selected", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("No pet selected", comment: ""), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
             self.present(alert, animated: true)
             return false
         }

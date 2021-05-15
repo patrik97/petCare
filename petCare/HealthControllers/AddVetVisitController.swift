@@ -31,9 +31,9 @@ class AddVetVisitController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if DataStorage.vets.isEmpty {
-            vetLabel.text = "No vet available."
+            vetLabel.text = NSLocalizedString("No vet available.", comment: "")
         } else {
-            vetLabel.text = "Vet: " + DataStorage.vets[0].name
+            vetLabel.text = NSLocalizedString("Vet", comment: "") + ": " + DataStorage.vets[0].name
             selectedVet = DataStorage.vets[0]
         }
         if let vetVisit = currentVetVisit {
@@ -76,7 +76,7 @@ class AddVetVisitController: UIViewController {
     
     private func selectVet(vet: Vet) {
         selectedVet = vet
-        vetLabel.text = "Vet: " + vet.name
+        vetLabel.text = NSLocalizedString("Vet", comment: "") + ": " + vet.name
     }
     
     @IBAction func saveButtonClick(_ sender: Any) {
@@ -99,20 +99,20 @@ class AddVetVisitController: UIViewController {
      Call alert to inform user there is no vet selected
      */
     private func alertHandler() {
-        let alert = UIAlertController(title: "No vet selected", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("No vet selected", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
     @IBAction func newVetButtonClick(_ sender: Any) {
-        let alert = UIAlertController(title: "Insert New Vet", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addTextField(configurationHandler: {textField in textField.placeholder = "Name"})
+        let alert = UIAlertController(title: NSLocalizedString("Insert new vet", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: {textField in textField.placeholder = NSLocalizedString("Name", comment: "Vet's name")})
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in if let name = alert.textFields?.first?.text {
             let newVet = Vet(name: name)
             DataStorage.addVet(vet: newVet)
             self.selectedVet = newVet
-            self.vetLabel.text = "Vet: " + newVet.name
+            self.vetLabel.text = NSLocalizedString("Vet", comment: "") + ": " + newVet.name
         }}))
         self.present(alert, animated: true, completion: nil)
     }
@@ -128,7 +128,7 @@ class AddVetVisitController: UIViewController {
     
     private func changeFrequency(index: Int) {
         vetVisitFrequency = VetVisitFrequency.allCases[index]
-        repeatFrequencyLabel.text = vetVisitFrequency.rawValue
+        repeatFrequencyLabel.text = vetVisitFrequency.description
     }
     
     @IBAction func sliderChangedValue(_ sender: Any) {

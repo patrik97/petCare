@@ -36,6 +36,7 @@ class AddEventControllerDetail: UIViewController {
             eventEndDatePicker.preferredDatePickerStyle = .wheels
         }
         
+        eventTypeLabel.text = EventType.Walk.description
         if let editedEvent = event {
             setElementsForEditedEvent(editedEvent: editedEvent)
         }
@@ -57,20 +58,20 @@ class AddEventControllerDetail: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         self.view.endEditing(true)
         if !eventEndDatePicker.isHidden && eventEndDatePicker.date <= eventStartDatePicker.date {
-            invalidParameter(title: "Invalid date", message: "End date must be later then start date")
+            invalidParameter(title: NSLocalizedString("Invalid date", comment: ""), message: NSLocalizedString("End date must be later then start date", comment: ""))
             return
         }
         
         guard let eventName = eventNameTextField.text else {
-            invalidParameter(title: "Invalid name", message: "Please type an event name")
+            invalidParameter(title: NSLocalizedString("Invalid name", comment: ""), message: NSLocalizedString("Please type an event name", comment: ""))
             return
         }
         
         if eventName.count == 0 || eventName.count > 30 {
             if eventName.count == 0 {
-                invalidParameter(title: "Invalid name", message: "Please type an event name")
+                invalidParameter(title: NSLocalizedString("Invalid name", comment: ""), message: NSLocalizedString("Please type an event name", comment: ""))
             } else {
-                invalidParameter(title: "Invalid name", message: "Name is bigger then 30 characters")
+                invalidParameter(title: NSLocalizedString("Invalid name", comment: ""), message: NSLocalizedString("Name is bigger then 30 characters", comment: ""))
             }
             return
         }
@@ -102,16 +103,16 @@ class AddEventControllerDetail: UIViewController {
     
     private func invalidParameter(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true)
         return
     }
     
     @IBAction func selectEventTypeButtonClick(_ sender: Any) {
         self.view.endEditing(true)
-        let dataSource: [String] = EventType.allCases.map( { $0.rawValue } )
+        let dataSource: [String] = EventType.allCases.map( { $0.description } )
         let anchorView: AnchorView? = sender as? AnchorView
-        let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: eventType.rawValue) ?? 0)
+        let dropDown = DropDownInitializer.Initialize(dataSource: dataSource, anchorView: anchorView, width: self.view.frame.size.width, selectedRow: dataSource.firstIndex(of: eventType.description) ?? 0)
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in self.changeEventType(index: index) }
         dropDown.show()
@@ -142,7 +143,7 @@ class AddEventControllerDetail: UIViewController {
     
     private func changeEventType(index: Int) {
         eventType = EventType.allCases[index]
-        eventTypeLabel.text = eventType.rawValue
+        eventTypeLabel.text = eventType.description
     }
 }
 

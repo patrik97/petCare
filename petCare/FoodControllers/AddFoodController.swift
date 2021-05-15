@@ -46,8 +46,8 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
     @IBAction func saveButtonClick(_ sender: Any) {
         self.view.endEditing(true)
         if eventNameTextField.text == nil || eventNameTextField.text == "" {
-            let alert = UIAlertController(title: "Empty name", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("Empty name", comment: "Name is empty"), message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel the alert"), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         if event != nil {
@@ -68,10 +68,10 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
             let eventName = eventNameTextField.text ?? ""
             let description = eventDescriptionTextView.text ?? ""
             let date = eventDateTimeDatePickerView.date
-            let alert = UIAlertController(title: "Update event in iOS calendar", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in self.updateFoodEvent(name: eventName, description: description, date: date, addCalendarItem: true) }))
-            alert.addAction(UIAlertAction(title: "No and remove old", style: .destructive, handler: { _ in self.updateFoodEvent(name: eventName, description: description, date: date, addCalendarItem: false) }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("Update event in iOS calendar", comment: ""), message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { _ in self.updateFoodEvent(name: eventName, description: description, date: date, addCalendarItem: true) }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No and remove old", comment: ""), style: .destructive, handler: { _ in self.updateFoodEvent(name: eventName, description: description, date: date, addCalendarItem: false) }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel the alert"), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -114,10 +114,10 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
      or stop saving and continue editing
      */
     private func addEventToCalendarAlert() {
-        let alert = UIAlertController(title: "Add event to iOS calendar?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in self.saveWithDateInCalendar() }))
-        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in self.saveWithoutDateInCalendar() }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("Add event to iOS calendar?", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { _ in self.saveWithDateInCalendar() }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .default, handler: { _ in self.saveWithoutDateInCalendar() }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion:nil)
     }
 }

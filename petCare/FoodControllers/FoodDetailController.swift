@@ -51,9 +51,9 @@ class FoodDetailController: UIViewController {
         }
         // gets position of deleted item
         let index = pet?.foodEvents.firstIndex(where: { $0 == event })
-        let alert = UIAlertController(title: "Delete event?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in self.removeEventAt(index: index) }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("Delete event?", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .destructive, handler: { _ in self.removeEventAt(index: index) }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

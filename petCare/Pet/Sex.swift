@@ -14,7 +14,12 @@ enum Sex: String, Codable, CaseIterable {
     
     var description: String {
         get {
-            return self.rawValue
+            switch self {
+            case .male:
+                return NSLocalizedString("Male", comment: "Male enum")
+            case .female:
+                return NSLocalizedString("Female", comment: "Female enum")
+            }
         }
     }
     

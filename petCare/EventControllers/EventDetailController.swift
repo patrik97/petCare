@@ -36,6 +36,12 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
             if let image = UIImage(data: photoData) {
                 mainPhotoLabel.image = image
             }
+        } else if let photos = event?.photos {
+            if !photos.isEmpty {
+                if let image = UIImage(data: photos[0]) {
+                    mainPhotoLabel.image = image
+                }
+            }
         }
         
         let formatter = DateFormatter()
@@ -53,9 +59,9 @@ class EventDetailController: UIViewController, SetEventDescriptionProtocol {
     }
     
     @IBAction func deleteButtonClick(_ sender: Any) {
-        let alert = UIAlertController(title: "Delete this event?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in self.deleteEvent() }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("Delete this event?", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .destructive, handler: { _ in self.deleteEvent() }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     

@@ -57,20 +57,20 @@ class VetVisitController: UIViewController, VetVisitDelegate {
     }
     
     internal func removeVetVisit(vetVisit: VetVisit) {
-        let alert = UIAlertController(title: "Remove " + vetVisit.type.rawValue.lowercased() + "?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in
+        let alert = UIAlertController(title: NSLocalizedString("Remove", comment: "") + " " + vetVisit.type.rawValue.lowercased() + "?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { _ in
             vetVisit.delete()
             self.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         self.view.endEditing(true)
         if  identifier == "CreateVetVisitSegue" && DataStorage.pets.isEmpty {
-            let alert = UIAlertController(title: "No pets avaliable!", message: "You have no pets. Add pet before vet visit.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("No pets available", comment: ""), message: NSLocalizedString("You have no pets. Add pet before vet visit.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return false
         }

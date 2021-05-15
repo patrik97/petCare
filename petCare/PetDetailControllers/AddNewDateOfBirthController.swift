@@ -36,7 +36,7 @@ class AddNewDateOfBirthController: UIViewController {
             }
             self.navigationController?.popViewController(animated: true)
         } else {
-            let alert = UIAlertController(title: "Invalid date", message: "Date must be today or before", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Invalid date", comment: ""), message: NSLocalizedString("Date must be today or before", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
