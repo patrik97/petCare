@@ -67,6 +67,7 @@ class VetVisitController: UIViewController, VetVisitDelegate {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        self.view.endEditing(true)
         if  identifier == "CreateVetVisitSegue" && DataStorage.pets.isEmpty {
             let alert = UIAlertController(title: "No pets avaliable!", message: "You have no pets. Add pet before vet visit.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -177,6 +178,7 @@ extension VetVisitController: SelectPetDelegate {
     }
     
     @IBAction func sideMenuButtonClick(_ sender: Any) {
+        self.view.endEditing(true)
         present(menu!, animated: true)
     }
 }

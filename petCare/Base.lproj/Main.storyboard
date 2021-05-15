@@ -399,6 +399,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qZx-No-un0">
                                 <rect key="frame" x="10" y="124" width="394" height="34"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -417,6 +418,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v64-TJ-ekT">
                                 <rect key="frame" x="10" y="209" width="394" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="te0-vm-big"/>
                                 </constraints>
@@ -438,6 +440,9 @@
                             </switch>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-dU-9XM">
                                 <rect key="frame" x="0.0" y="485" width="414" height="216"/>
+                                <connections>
+                                    <action selector="didChangeValueDateTime:" destination="GMI-iC-etW" eventType="valueChanged" id="edh-q7-AGG"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="44a-zv-FrH"/>
@@ -913,6 +918,7 @@
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2cD-zn-Ixa">
                                 <rect key="frame" x="10" y="410" width="394" height="34"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>

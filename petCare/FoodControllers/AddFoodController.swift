@@ -34,11 +34,17 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func didChangeValueDateTime(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func didChangeValueSwitch(_ sender: Any) {
+        self.view.endEditing(true)
         eventDateTimeDatePickerView.isHidden = !eventDateTimeDatePickerView.isHidden
     }
     
     @IBAction func saveButtonClick(_ sender: Any) {
+        self.view.endEditing(true)
         if eventNameTextField.text == nil || eventNameTextField.text == "" {
             let alert = UIAlertController(title: "Empty name", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

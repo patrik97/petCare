@@ -41,6 +41,7 @@ class AddEventControllerDetail: UIViewController {
         }
     }
     @IBAction func selectEndDateSwitchValueChanged(_ sender: UISwitch) {
+        self.view.endEditing(true)
         setElementsByEndDateSwitch()
     }
     
@@ -54,6 +55,7 @@ class AddEventControllerDetail: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        self.view.endEditing(true)
         if !eventEndDatePicker.isHidden && eventEndDatePicker.date <= eventStartDatePicker.date {
             invalidParameter(title: "Invalid date", message: "End date must be later then start date")
             return

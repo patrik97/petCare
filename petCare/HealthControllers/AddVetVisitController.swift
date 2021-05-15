@@ -64,6 +64,7 @@ class AddVetVisitController: UIViewController {
     }
     
     @IBAction func selectVetButtonClick(_ sender: Any) {
+        self.view.endEditing(true)
         guard let vet = selectedVet else {
             return
         }
