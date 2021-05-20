@@ -80,6 +80,7 @@ class FoodController: UIViewController, UICollectionViewDataSource, UICollection
         let event = pet?.foodEvents[indexPath.row]
         cell.eventNameLabel.text = event?.eventName
         cell.eventDescriptionLabel.text = event?.eventDescription
+        cell.cornerRadius()
         return cell
     }
     

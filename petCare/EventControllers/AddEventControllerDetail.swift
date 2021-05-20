@@ -37,6 +37,7 @@ class AddEventControllerDetail: UIViewController {
         }
         
         eventTypeLabel.text = EventType.Walk.description
+        eventEndDatePicker.date.addTimeInterval(10 * 60)
         if let editedEvent = event {
             setElementsForEditedEvent(editedEvent: editedEvent)
         }
@@ -87,6 +88,7 @@ class AddEventControllerDetail: UIViewController {
             if !addCalendarEvent && editedEvent.hasCalendarEvent {
                 editedEvent.removeEvent()
             }
+            DataStorage.updateEvent(event: editedEvent)
             self.navigationController?.popBackTo(viewController: EventDetailController.self)
             return
         }
@@ -125,6 +127,9 @@ class AddEventControllerDetail: UIViewController {
         if let endDate = editedEvent.endDate {
             eventEndDatePicker.date = endDate
             endDateSwitch.isOn = true
+            setElementsByEndDateSwitch()
+        } else {
+            endDateSwitch.isOn = false
             setElementsByEndDateSwitch()
         }
     }

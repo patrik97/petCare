@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class FoodEvent : Encodable, Decodable {
+class FoodEvent : Encodable, Decodable, Equatable {
     var eventName: String
     var eventDescription: String
     var dateAndTime: Date? = nil
@@ -49,6 +49,9 @@ class FoodEvent : Encodable, Decodable {
      - Parameter addCalendarItem: whether calendar item should be updated or add if needs, otherwise is removed
      */
     public func update(eventName: String, eventDescription: String, dateAndTime: Date, addCalendarItem: Bool) {
+        let owner = DataStorage.pets.first(where: { $0.foodEvents.contains(self)})
+        owner?.foodEvents.removeAll(where: { $0 == self })
+        
         if !addCalendarItem {
             removeEvent()
         } else if addCalendarItem && (dateAndTime != self.dateAndTime || eventName != self.eventName) {
@@ -59,6 +62,8 @@ class FoodEvent : Encodable, Decodable {
         self.eventName = eventName
         self.eventDescription = eventDescription
         self.dateAndTime = dateAndTime
+        owner?.foodEvents.append(self)
+        DataStorage.persistAndLoadAll()
     }
     
     public func removeEvent() {
@@ -73,6 +78,7 @@ class FoodEvent : Encodable, Decodable {
         let name = lhs.eventName == rhs.eventName
         let description = lhs.eventDescription == rhs.eventDescription
         let date = lhs.dateAndTime == rhs.dateAndTime
-        return name && description && date
+        let identifier = lhs.eventIdentifier == rhs.eventIdentifier
+        return name && description && date && identifier
     }
 }

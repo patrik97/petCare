@@ -45,7 +45,7 @@ class VetVisitController: UIViewController, VetVisitDelegate {
     private func reloadData() {
         if let text = vetVisitSearchBar.text {
             if text != "", let p = pet {
-                filteredVisits = p.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) || visit.type.rawValue.lowercased().contains(text.lowercased()) })
+                filteredVisits = p.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) || visit.type.description.lowercased().contains(text.lowercased()) })
             } else {
                 filteredVisits = pet?.vetVisits ?? []
             }
@@ -57,7 +57,7 @@ class VetVisitController: UIViewController, VetVisitDelegate {
     }
     
     internal func removeVetVisit(vetVisit: VetVisit) {
-        let alert = UIAlertController(title: NSLocalizedString("Remove", comment: "") + " " + vetVisit.type.rawValue.lowercased() + "?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Remove", comment: "") + " " + vetVisit.type.description.lowercased() + "?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { _ in
             vetVisit.delete()
             self.reloadData()
@@ -107,8 +107,8 @@ extension VetVisitController: UICollectionViewDataSource, UICollectionViewDelega
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         cell.dateLabel.text = formatter.string(from: vetVisit.date)
-        cell.typeLabel.text = vetVisit.type.rawValue
-        cell.frequencyLabel.text = vetVisit.frequency.rawValue.lowercased() + " " + String(vetVisit.interval) + "x"
+        cell.typeLabel.text = vetVisit.type.description
+        cell.frequencyLabel.text = vetVisit.frequency.description.lowercased() + " " + String(vetVisit.interval) + "x"
         
         var text: String
         if vetVisit.notes.count > 40 {
@@ -141,7 +141,7 @@ extension VetVisitController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let text = vetVisitSearchBar.text {
             if text != "", let p = pet {
-                filteredVisits = p.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) || visit.type.rawValue.lowercased().contains(text.lowercased()) })
+                filteredVisits = p.vetVisits.filter({ (visit) -> Bool in visit.vet.name.lowercased().contains(text.lowercased()) || visit.type.description.lowercased().contains(text.lowercased()) })
             } else {
                 filteredVisits = pet?.vetVisits ?? []
             }

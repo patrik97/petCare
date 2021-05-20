@@ -33,6 +33,8 @@ class VetVisit: Equatable, Encodable, Decodable {
     }
     
     public func update(date: Date, vet: Vet, notes: String, type: VetVisitType, frequency: VetVisitFrequency, interval: Int) {
+        let owner = DataStorage.pets.first(where: { $0.vetVisits.contains(self) })
+        owner?.vetVisits.removeAll(where: { $0 == self })
         let updateEvent = date != self.date || type != self.type || self.interval != interval
         
         self.date = date
@@ -46,6 +48,8 @@ class VetVisit: Equatable, Encodable, Decodable {
             removeEvent()
             eventIdentifier = CalendarManager.createEvent(title: type.rawValue, isAllDay: false, startDate: date, endDate: date.addingTimeInterval(60 * 60), reccurenceCount: interval, reccurenceWith: frequency.rawValue)
         }
+        owner?.vetVisits.append(self)
+        DataStorage.persistAndLoadAll()
     }
     
     public func removeEvent() {
@@ -57,13 +61,10 @@ class VetVisit: Equatable, Encodable, Decodable {
     }
     
     public func delete() {
-        if let identifier = eventIdentifier {
-            if CalendarManager.removeEvent(withIdentifier: identifier) {
-                eventIdentifier = nil
-            }
-        }
-        
         let owner = DataStorage.pets.first(where: { $0.vetVisits.contains(self) })
         owner?.vetVisits.removeAll(where: { $0 == self })
+        removeEvent()
+
+        DataStorage.persistAndLoadAll()
     }
 }

@@ -82,18 +82,21 @@ class AddFoodController: UIViewController, UITextFieldDelegate {
     }
     
     private func saveWithDateInCalendar() {
-        pet?.foodEvents.append(FoodEvent(eventName: eventNameTextField.text ?? "", eventDescription: eventDescriptionTextView.text ?? "", dateAndTime: eventDateTimeDatePickerView.date))
+        DataStorage.selectedPet?.foodEvents.append(FoodEvent(eventName: eventNameTextField.text ?? "", eventDescription: eventDescriptionTextView.text ?? "", dateAndTime: eventDateTimeDatePickerView.date))
+        DataStorage.persistAndLoadAll()
         self.navigationController?.popViewController(animated: true)
     }
     
     private func saveWithoutDateInCalendar() {
         if eventDateTimeDatePickerView.isHidden {
             let foodEvent = FoodEvent(eventName: eventNameTextField.text ?? "", eventDescription: eventDescriptionTextView.text ?? "")
-            pet?.foodEvents.append(foodEvent)
+            DataStorage.selectedPet?.foodEvents.append(foodEvent)
+            DataStorage.persistAndLoadAll()
         } else {
             let foodEvent = FoodEvent(eventName: eventNameTextField.text ?? "", eventDescription: eventDescriptionTextView.text ?? "")
             foodEvent.dateAndTime = eventDateTimeDatePickerView.date
-            pet?.foodEvents.append(foodEvent)
+            DataStorage.selectedPet?.foodEvents.append(foodEvent)
+            DataStorage.persistAndLoadAll()
         }
         self.navigationController?.popViewController(animated: true)
     }

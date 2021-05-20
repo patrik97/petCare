@@ -59,8 +59,9 @@ class FoodDetailController: UIViewController {
     
     private func removeEventAt(index: Int?) {
         if let i = index {
-            pet?.foodEvents[i].removeEvent()
-            pet?.foodEvents.remove(at: i)
+            DataStorage.selectedPet?.foodEvents[i].removeEvent()
+            DataStorage.selectedPet?.foodEvents.remove(at: i)
+            DataStorage.persistAndLoadAll()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

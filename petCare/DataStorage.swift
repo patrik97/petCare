@@ -18,6 +18,7 @@ class DataStorage {
     public static var vets = [Vet]()
     
     static var selectedPet: Pet? = nil
+    private static var selectPet = 0
     
     static func addPet(pet: Pet) {
         pets.append(pet)
@@ -36,8 +37,11 @@ class DataStorage {
     
     public static func persistPets() {
         if let selected = selectedPet {
+            if let selectedIndex = pets.firstIndex(where: { $0.name == selected.name }) {
+                selectPet = selectedIndex
+            }
             pets.removeAll(where: { $0.name == selected.name })
-            pets.append(selected)
+            pets.insert(selected, at: selectPet)
         }
         
         do {
@@ -78,7 +82,8 @@ class DataStorage {
         }
         
         if selectedPet == nil && !pets.isEmpty {
-            selectedPet = pets[0]
+            let index = selectPet < pets.count ? selectPet : 0
+            selectedPet = pets[index]
         }
     }
     

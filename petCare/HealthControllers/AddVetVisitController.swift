@@ -43,11 +43,11 @@ class AddVetVisitController: UIViewController {
             visitDatePicker.setDate(vetVisit.date, animated: true)
             notesTextField.text = vetVisit.notes
             vetVisitType = vetVisit.type
-            vetVisitTypeLabel.text = vetVisit.type.rawValue
+            vetVisitTypeLabel.text = vetVisit.type.description
             repeatSlider.value = Float(vetVisit.interval)
             repeatLabel.text = String(Int(repeatSlider.value)) + "x"
             vetVisitFrequency = vetVisit.frequency
-            repeatFrequencyLabel.text = vetVisitFrequency.rawValue
+            repeatFrequencyLabel.text = vetVisitFrequency.description
         }
     }
     
@@ -88,7 +88,8 @@ class AddVetVisitController: UIViewController {
         }
         let vetVisit = VetVisit(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: vetVisitFrequency, interval: Int(repeatSlider.value))
         if (currentVetVisit == nil) {
-            pet?.vetVisits.append(vetVisit)
+            DataStorage.selectedPet?.vetVisits.append(vetVisit)
+            DataStorage.persistAndLoadAll()
         } else {
             currentVetVisit?.update(date: date, vet: vet, notes: notes, type: vetVisitType, frequency: vetVisitFrequency, interval: Int(repeatSlider.value))
         }
